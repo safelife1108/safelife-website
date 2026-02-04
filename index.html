@@ -4,28 +4,243 @@
   <meta charset="UTF-8" />
   <title>SafeLife Diagnostics & Imaging Centre</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SafeLife Diagnostics & Imaging Centre offers blood tests, digital sonography, digital X-ray, ECG and home collection services." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue:#1e88e5;
+      --light:#f5f9ff;
+      --dark:#0f2a44;
+      --muted:#6b7c93;
+      --green:#25D366;
+      --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Poppins,system-ui,Segoe UI,Arial,sans-serif;
+      color:#222;
+      background:#fff;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 20px;
+    }
+    header{
+      position:sticky; top:0; z-index:10;
+      background:#fff; border-bottom:1px solid #eaeef5;
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      height:64px;
+    }
+    .brand{font-weight:700; color:var(--dark)}
+    .nav a.btn{margin-left:8px}
+    .hero{
+      background:linear-gradient(135deg,#e8f2ff,#ffffff);
+      padding:80px 0;
+    }
+    .hero h1{font-size:40px; margin:0 0 10px; color:var(--dark)}
+    .hero p{color:var(--muted); max-width:700px}
+    .cta{margin-top:24px}
+    .btn{
+      display:inline-block;
+      padding:12px 22px;
+      border-radius:8px;
+      font-weight:600;
+      border:1px solid transparent;
+      transition:.2s;
+    }
+    .btn.primary{background:var(--blue); color:#fff}
+    .btn.secondary{background:var(--green); color:#fff}
+    .btn.outline{border-color:var(--blue); color:var(--blue); background:#fff}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 6px 14px rgba(0,0,0,.08)}
+    section{padding:64px 0}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      padding:22px;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+      border:1px solid #eef2f8;
+    }
+    .card h3{margin:0 0 8px; color:var(--dark)}
+    .muted{color:var(--muted)}
+    .two{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+    }
+    @media(max-width:800px){
+      .two{grid-template-columns:1fr}
+      .hero h1{font-size:32px}
+    }
+    .badge{
+      display:inline-block; background:#eaf3ff; color:var(--blue);
+      padding:6px 10px; border-radius:999px; font-weight:600; font-size:12px;
+    }
+    footer{
+      background:#0f2a44; color:#cfe0ff; padding:32px 0;
+    }
+    footer a{color:#fff}
+    .contact-card{
+      display:grid; grid-template-columns:1fr 1fr; gap:20px;
+    }
+    @media(max-width:700px){.contact-card{grid-template-columns:1fr}}
+    .field{display:flex; flex-direction:column; gap:6px}
+    input, textarea{
+      padding:12px; border-radius:8px; border:1px solid #dbe3f0; font-family:inherit;
+    }
+    input:focus, textarea:focus{outline:none; border-color:var(--blue)}
+    .pill{
+      display:inline-block; padding:6px 10px; border-radius:999px; background:#eef6ff; color:#1e88e5; font-weight:600; font-size:12px;
+    }
+  </style>
 </head>
 <body>
-  <h1>SafeLife Diagnostics & Imaging Centre</h1>
-  <p>Accurate. Reliable. Caring Diagnostic Services</p>
 
-  <h2>Our Services</h2>
-  <ul>
-    <li>All Types of Blood Tests</li>
-    <li>Digital Sonography (Ultrasound)</li>
-    <li>Digital X-Ray</li>
-    <li>ECG (Electrocardiogram)</li>
-  </ul>
+<header>
+  <div class="container nav">
+    <div class="brand">SafeLife Diagnostics</div>
+    <div>
+      <a class="btn outline" href="#services">Services</a>
+      <a class="btn primary" href="tel:9999999999">Call Now</a>
+      <a class="btn secondary" href="https://wa.me/919999999999">WhatsApp</a>
+    </div>
+  </div>
+</header>
 
-  <h2>Home Collection Services</h2>
-  <ul>
-    <li>Blood Test at Home</li>
-    <li>ECG at Home</li>
-    <li>Portable X-Ray at Home</li>
-  </ul>
+<section class="hero">
+  <div class="container">
+    <span class="badge">Trusted Diagnostic Centre</span>
+    <h1>SafeLife Diagnostics & Imaging Centre</h1>
+    <p>Accurate. Reliable. Caring Diagnostic Services. We provide modern, affordable diagnostics with trained staff and quick report delivery.</p>
+    <div class="cta">
+      <a class="btn primary" href="tel:9999999999">Call Now</a>
+      <a class="btn secondary" href="https://wa.me/919999999999">WhatsApp Us</a>
+      <a class="btn outline" href="#contact">Book a Test</a>
+    </div>
+  </div>
+</section>
 
-  <h2>Contact Us</h2>
-  <p>Phone: 9999999999</p>
-  <p>Address: Your Address Here</p>
+<section id="about">
+  <div class="container two">
+    <div>
+      <h2>About Us</h2>
+      <p class="muted">At SafeLife Diagnostics & Imaging Centre, we provide accurate and reliable diagnostic services using modern equipment. Our trained staff focus on patient comfort, hygiene, and timely reports so you can make confident health decisions.</p>
+      <div style="margin-top:12px">
+        <span class="pill">Modern Equipment</span>
+        <span class="pill">Trained Staff</span>
+        <span class="pill">Quick Reports</span>
+        <span class="pill">Home Collection</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Why Choose Us</h3>
+      <ul class="muted">
+        <li>Accurate & reliable reports</li>
+        <li>Digital imaging technology</li>
+        <li>Experienced technicians</li>
+        <li>Affordable pricing</li>
+        <li>Home collection available</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background:var(--light)">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>All Types of Blood Tests</h3>
+        <p class="muted">Comprehensive pathology tests with accurate results.</p>
+      </div>
+      <div class="card">
+        <h3>Digital Sonography (Ultrasound)</h3>
+        <p class="muted">High-quality imaging for precise diagnosis.</p>
+      </div>
+      <div class="card">
+        <h3>Digital X-Ray</h3>
+        <p class="muted">Low-dose, high-clarity digital X-ray services.</p>
+      </div>
+      <div class="card">
+        <h3>ECG (Electrocardiogram)</h3>
+        <p class="muted">Heart health assessment with professional reporting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="home-collection">
+  <div class="container">
+    <h2>Home Collection Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Blood Test at Home</h3>
+        <p class="muted">Safe sample collection from your home.</p>
+      </div>
+      <div class="card">
+        <h3>ECG at Home</h3>
+        <p class="muted">Convenient ECG service with trained staff.</p>
+      </div>
+      <div class="card">
+        <h3>Portable X-Ray at Home</h3>
+        <p class="muted">On-site X-ray for patients who need comfort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:var(--light)">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <div class="contact-card">
+      <div class="card">
+        <p><strong>Phone:</strong> <a href="tel:9999999999">9999999999</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/919999999999">Chat Now</a></p>
+        <p><strong>Address:</strong> Your Address Here</p>
+        <p><strong>Working Hours:</strong> Mon–Sat, 8:00 AM – 8:00 PM</p>
+      </div>
+      <div class="card">
+        <h3>Send Enquiry</h3>
+        <form>
+          <div class="field">
+            <label>Name</label>
+            <input placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label>Phone</label>
+            <input placeholder="Your phone number" />
+          </div>
+          <div class="field">
+            <label>Message</label>
+            <textarea rows="4" placeholder="Which test do you need?"></textarea>
+          </div>
+          <div style="margin-top:12px">
+            <button type="button" class="btn primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© <span id="y"></span> SafeLife Diagnostics & Imaging Centre. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
