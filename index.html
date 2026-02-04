@@ -1,239 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Safe Life Diagnostics Centre</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Safe Life Diagnostics Centre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Safe Life Diagnostics Centre in Mumbai for Blood Tests, Sonography, Digital X-Ray, ECG and Home Collection." />
 
-<style>
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f4f9ff;
-  color: #0b2b4a;
-}
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-/* Header */
-header {
-  background: #fff;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: #f5f9ff; color: #0b2b4a; }
 
-header img {
-  height: 70px;
-}
+    header {
+      position: sticky; top: 0; z-index: 1000;
+      background: #fff; display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header img { height: 60px; }
+    .top-buttons a {
+      margin-left: 10px; text-decoration: none; padding: 10px 16px; border-radius: 6px; color: #fff; font-weight: 600;
+    }
+    .call { background: #1e5eff; }
+    .whatsapp { background: #25d366; }
 
-.top-buttons a {
-  text-decoration: none;
-  margin-left: 10px;
-  padding: 10px 16px;
-  border-radius: 10px;
-  color: #fff;
-  font-weight: bold;
-  transition: transform 0.2s;
-}
-.top-buttons a:hover { transform: scale(1.05); }
+    .hero {
+      min-height: 80vh;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(rgba(0,80,150,0.7), rgba(0,80,150,0.7)),
+      url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      color: #fff; text-align: center; padding: 40px 20px;
+    }
 
-.call-btn { background: #1e88e5; }
-.wa-btn { background: #25d366; }
+    .hero-content {
+      max-width: 800px;
+      animation: slideInLeft 1s ease forwards;
+    }
 
-/* Hero */
-.hero {
-  min-height: 70vh;
-  background: linear-gradient(rgba(0,80,160,0.75), rgba(0,80,160,0.75)),
-  url("https://images.unsplash.com/photo-1580281657527-47b8b1c2b63b?q=80&w=1600") center/cover no-repeat;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
-}
+    .hero h1 { font-size: 42px; margin-bottom: 10px; }
+    .hero p { font-size: 18px; margin-bottom: 20px; }
 
-.hero-content {
-  max-width: 900px;
-  animation: slideUp 1.2s ease;
-}
+    .hero-buttons a {
+      display: inline-block; margin: 10px; padding: 14px 22px; border-radius: 8px;
+      text-decoration: none; font-weight: 600; color: #fff;
+      animation: pulse 2s infinite;
+    }
+    .hero-buttons .call { background: #1e5eff; }
+    .hero-buttons .whatsapp { background: #25d366; }
 
-.hero h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
+    section { padding: 60px 20px; max-width: 1200px; margin: auto; }
 
-.hero p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
+    .section-title { text-align: center; font-size: 32px; margin-bottom: 10px; }
+    .section-sub { text-align: center; margin-bottom: 40px; color: #555; }
 
-.hero .buttons a {
-  margin: 10px;
-  padding: 14px 22px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
+    .services {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;
+    }
 
-.hero .buttons a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
+    .card {
+      background: #fff; border-radius: 14px; padding: 25px; text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transform: scale(0.8); opacity: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.book-btn {
-  background: #fff;
-  color: #1e88e5;
-}
+    .card.show {
+      animation: zoomIn 0.8s ease forwards;
+    }
 
-/* Sections */
-section {
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: auto;
-}
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
 
-h2 {
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 10px;
-}
+    .card h3 { margin: 10px 0; }
 
-.subtitle {
-  text-align: center;
-  color: #555;
-  margin-bottom: 40px;
-}
+    .contact {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+    }
 
-/* Cards */
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 20px;
-}
+    .contact-box {
+      background: #fff; padding: 25px; border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      animation: slideInRight 1s ease forwards;
+    }
 
-.card {
-  background: #fff;
-  border-radius: 18px;
-  padding: 25px;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  opacity: 0;
-  transform: translateY(40px);
-}
+    iframe { width: 100%; height: 300px; border: 0; border-radius: 12px; }
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+    footer {
+      background: #0b2b4a; color: #fff; text-align: center; padding: 20px; margin-top: 40px;
+    }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-}
+    /* Animations */
+    @keyframes slideInLeft {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
 
-/* Highlight */
-.highlight {
-  margin-top: 50px;
-  background: linear-gradient(135deg, #0d47a1, #1e88e5);
-  color: #fff;
-  border-radius: 24px;
-  padding: 40px;
-  text-align: center;
-}
+    @keyframes slideInRight {
+      from { transform: translateX(100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
 
-/* Contact */
-.contact-box {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
+    @keyframes zoomIn {
+      from { transform: scale(0.6); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
 
-/* Footer */
-footer {
-  background: #0d47a1;
-  color: #fff;
-  text-align: center;
-  padding: 15px;
-}
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
 
-/* Animations */
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>
+    @media(max-width: 800px) {
+      .contact { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 30px; }
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-  <div>
-    <!-- IMPORTANT: CHANGE FILE NAME IF YOUR LOGO NAME IS DIFFERENT -->
-    <img src="logo.png" alt="Safe Life Logo">
-  </div>
+  <img src="logo.png" alt="Safe Life Diagnostics Centre Logo">
   <div class="top-buttons">
-    <a class="call-btn" href="tel:9326602540">📞 Call 93266 02540</a>
-    <a class="wa-btn" href="https://wa.me/919326602540" target="_blank">💬 WhatsApp</a>
+    <a class="call" href="tel:9326602540">Call 93266 02540</a>
+    <a class="whatsapp" href="https://wa.me/919326602540?text=Hello%20I%20want%20to%20book%20a%20test">WhatsApp</a>
   </div>
 </header>
 
-<div class="hero">
+<section class="hero">
   <div class="hero-content">
-    <h1>Safe Life Diagnostics Centre</h1>
-    <p>Trusted Diagnostic Services in Mumbai for Blood Tests, Ultrasound, Digital X-Ray and ECG. Home Collection Available.</p>
-    <div class="buttons">
-      <a class="call-btn" href="tel:9326602540">Call Now</a>
-      <a class="wa-btn" href="https://wa.me/919326602540" target="_blank">WhatsApp Us</a>
-      <a class="book-btn" href="#contact">Book a Test</a>
+    <h1>Welcome to Safe Life Diagnostics Centre</h1>
+    <p>Trusted Diagnostic Services in Mumbai for Blood Tests, Sonography, Digital X-Ray, and ECG. Home Collection Available.</p>
+    <div class="hero-buttons">
+      <a class="call" href="tel:9326602540">Call Now</a>
+      <a class="whatsapp" href="https://wa.me/919326602540?text=Hello%20I%20want%20to%20book%20a%20test">WhatsApp Us</a>
     </div>
   </div>
-</div>
+</section>
 
-<section>
-  <h2>Our Services</h2>
-  <p class="subtitle">Complete diagnostic solutions under one roof</p>
+<section id="services">
+  <h2 class="section-title">Our Services</h2>
+  <p class="section-sub">Complete diagnostic solutions under one roof</p>
 
   <div class="services">
-    <div class="card">🧪 <h3>Blood Tests</h3><p>Fast and reliable pathology reports.</p></div>
-    <div class="card">🖥️ <h3>Sonography</h3><p>High quality ultrasound imaging.</p></div>
-    <div class="card">🩻 <h3>Digital X-Ray</h3><p>Clear and precise digital imaging.</p></div>
-    <div class="card">❤️ <h3>ECG</h3><p>Accurate heart health assessment.</p></div>
-    <div class="card">🏠 <h3>Home Collection</h3><p>Sample collection at your home.</p></div>
-  </div>
-
-  <div class="highlight">
-    <h2>Home Collection Available</h2>
-    <p>Blood Test, ECG and Portable X-Ray at your home for patient comfort.</p>
+    <div class="card">🩸<h3>Blood Tests</h3><p>Fast and reliable pathology reports.</p></div>
+    <div class="card">🖥️<h3>Sonography</h3><p>High-quality ultrasound imaging.</p></div>
+    <div class="card">🩻<h3>Digital X-Ray</h3><p>Clear and precise digital X-Ray.</p></div>
+    <div class="card">❤️<h3>ECG</h3><p>Accurate heart health assessment.</p></div>
+    <div class="card">🏠<h3>Home Collection</h3><p>Sample collection at your home.</p></div>
   </div>
 </section>
 
 <section id="contact">
-  <h2>Contact Us</h2>
-  <p class="subtitle">Reach us for appointments or inquiries</p>
+  <h2 class="section-title">Contact Us</h2>
+  <p class="section-sub">Reach us for appointments or inquiries</p>
 
-  <div class="contact-box">
-    <div class="card show">
-      <p><strong>Phone:</strong> 93266 02540</p>
-      <p><strong>Address:</strong><br>
-      Shop No 2 and 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p>
-      <p><strong>Timing:</strong><br>
-      Mon–Sat: 8:00 AM – 10:00 PM<br>
-      Sunday: 8:00 AM – 1:00 PM</p>
+  <div class="contact">
+    <div class="contact-box">
+      <p><b>Phone:</b> 93266 02540</p>
+      <p><b>Address:</b> Shop No 2 and 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p>
+      <p><b>Timing:</b> Mon-Sat: 8:00 AM - 10:00 PM<br>Sunday: 8:00 AM - 1:00 PM</p>
+      <br>
+      <a class="call" href="tel:9326602540">Call Now</a>
+      <a class="whatsapp" href="https://wa.me/919326602540?text=Hello%20I%20want%20to%20book%20a%20test">WhatsApp</a>
     </div>
 
-    <div class="card show">
-      <h3>Find Us on Map</h3>
+    <div class="contact-box">
+      <h3>Find us on Map</h3>
       <iframe 
-        src="https://www.google.com/maps?q=Dharavi,+Mumbai+400017&output=embed"
-        width="100%" height="260" style="border:0; border-radius:12px;"></iframe>
+        src="https://www.google.com/maps?q=Dharavi%20Mumbai%20400017&output=embed"
+        loading="lazy">
+      </iframe>
     </div>
   </div>
 </section>
@@ -243,15 +183,17 @@ footer {
 </footer>
 
 <script>
-const cards = document.querySelectorAll('.card');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-});
-cards.forEach(card => observer.observe(card));
+  // Show cards on scroll
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
 </script>
 
 </body>
