@@ -1,192 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Safe Life Diagnostics Centre | Mumbai</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Safe Life Diagnostics Centre | Mumbai</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f4f7fb;
-      color: #222;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    header {
-      background: #fff;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#f4f8fd;
+  color:#1f2937;
+}
 
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+/* HEADER */
+header{
+  position:sticky; top:0; z-index:999;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  box-shadow:0 2px 15px rgba(0,0,0,0.08);
+  padding:10px 20px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.logo-area img{height:75px}
+.top-buttons a{
+  margin-left:10px; padding:12px 18px; border-radius:10px;
+  text-decoration:none; font-weight:600; color:white;
+}
+.call-btn{background:#2563eb}
+.wa-btn{background:#22c55e}
 
-    .logo-area img {
-      height: 70px;
-    }
+/* HERO */
+.hero{
+  background:linear-gradient(135deg, rgba(37,99,235,0.9), rgba(14,165,233,0.9)),
+  url("https://images.unsplash.com/photo-1580281657527-47f249e8f6b3") center/cover no-repeat;
+  color:white; padding:100px 20px;
+}
+.hero-content{max-width:1100px; margin:auto}
+.hero h1{font-size:48px; margin:0 0 10px}
+.hero p{font-size:18px; max-width:720px}
+.hero-buttons a{
+  display:inline-block; margin-right:12px; margin-top:20px;
+  padding:14px 24px; border-radius:12px;
+  background:white; color:#2563eb; font-weight:600; text-decoration:none;
+}
 
-    .top-buttons a {
-      margin-left: 10px;
-      padding: 10px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      color: white;
-    }
+/* SECTIONS */
+section{padding:70px 20px; max-width:1100px; margin:auto}
+h2{text-align:center; font-size:36px; color:#2563eb}
+.subtitle{text-align:center; color:#555; margin-bottom:50px}
 
-    .call-btn { background: #0b5ed7; }
-    .wa-btn { background: #25D366; }
+/* SERVICES */
+.services{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+}
+.card{
+  background:white; padding:30px; border-radius:20px; text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:.3s;
+}
+.card:hover{transform:translateY(-8px)}
+.card h3{color:#2563eb; margin-top:10px}
 
-    .hero {
-      background: linear-gradient(to right, rgba(11,94,215,0.85), rgba(13,202,240,0.85)),
-      url("https://images.unsplash.com/photo-1580281657527-47f249e8f6b3") center/cover no-repeat;
-      color: white;
-      padding: 90px 20px;
-    }
+/* HIGHLIGHT */
+.highlight{
+  margin-top:70px;
+  background:linear-gradient(135deg,#2563eb,#0ea5e9);
+  color:white; padding:50px; border-radius:25px; text-align:center;
+}
 
-    .hero-content {
-      max-width: 1100px;
-      margin: auto;
-    }
+/* CONTACT */
+.contact-box{
+  display:grid; grid-template-columns:1fr 1fr; gap:25px;
+}
+.contact-card{
+  background:white; padding:30px; border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
 
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
+/* FOOTER */
+footer{
+  background:#0f172a; color:white; text-align:center; padding:20px;
+  margin-top:50px;
+}
 
-    .hero p {
-      font-size: 18px;
-      max-width: 700px;
-    }
-
-    .hero-buttons {
-      margin-top: 25px;
-    }
-
-    .hero-buttons a {
-      display: inline-block;
-      margin-right: 10px;
-      padding: 14px 22px;
-      border-radius: 8px;
-      background: white;
-      color: #0b5ed7;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 15px;
-      color: #0b5ed7;
-    }
-
-    .subtitle {
-      text-align: center;
-      color: #555;
-      margin-bottom: 40px;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      text-align: center;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h3 {
-      margin-top: 10px;
-      color: #0b5ed7;
-    }
-
-    .highlight {
-      background: linear-gradient(to right, #0b5ed7, #0dcaf0);
-      color: white;
-      border-radius: 16px;
-      padding: 40px;
-      text-align: center;
-      margin: 60px 0;
-    }
-
-    .contact-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .contact-card {
-      background: white;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    }
-
-    footer {
-      background: #0b5ed7;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 700px) {
-      .contact-box {
-        grid-template-columns: 1fr;
-      }
-      .hero h1 {
-        font-size: 30px;
-      }
-    }
-  </style>
+/* MOBILE */
+@media(max-width:700px){
+  .hero h1{font-size:32px}
+  .contact-box{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
 <header>
   <div class="logo-area">
-    <img src="logo.png" alt="Safe Life Logo">
+    <img src="logo.png" alt="Safe Life Diagnostics Logo">
   </div>
   <div class="top-buttons">
-    <a class="call-btn" href="tel:9326602540">Call 93266 02540</a>
-    <a class="wa-btn" href="https://wa.me/919326602540?text=Hello%20I%20want%20to%20book%20a%20test%20at%20Safe%20Life%20Diagnostics">WhatsApp</a>
+    <a class="call-btn" href="tel:9326602540">📞 Call 93266 02540</a>
+    <a class="wa-btn" href="https://wa.me/919326602540?text=Hello%20I%20want%20to%20book%20a%20test%20at%20Safe%20Life%20Diagnostics">💬 WhatsApp</a>
   </div>
 </header>
 
 <div class="hero">
   <div class="hero-content">
-    <h1>Welcome to Safe Life Diagnostics Centre</h1>
-    <p>
-      Trusted Diagnostic Services in Mumbai for Blood Tests, Ultrasound, Digital X-Ray and ECG. Home Collection Available.
-    </p>
+    <h1>Safe Life Diagnostics Centre</h1>
+    <p>Trusted Diagnostic Services in Mumbai for Blood Tests, Ultrasound, Digital X-Ray and ECG. Home Collection Available.</p>
     <div class="hero-buttons">
-      <a href="tel:9326602540">📞 Call 93266 02540</a>
-      <a href="https://wa.me/919326602540?text=Hello%20I%20want%20to%20book%20a%20test%20at%20Safe%20Life%20Diagnostics">💬 WhatsApp Us</a>
+      <a href="tel:9326602540">Call Now</a>
+      <a href="https://wa.me/919326602540?text=Hello%20I%20want%20to%20book%20a%20test%20at%20Safe%20Life%20Diagnostics">WhatsApp Us</a>
     </div>
   </div>
 </div>
@@ -196,26 +123,11 @@
   <p class="subtitle">Complete diagnostic solutions under one roof</p>
 
   <div class="services">
-    <div class="card">
-      <h3>🧪 All Types of Blood Tests</h3>
-      <p>Comprehensive blood testing services with quick report delivery.</p>
-    </div>
-    <div class="card">
-      <h3>🩻 Digital Sonography (Ultrasound)</h3>
-      <p>High-quality ultrasound imaging for accurate diagnosis.</p>
-    </div>
-    <div class="card">
-      <h3>📷 Digital X-Ray</h3>
-      <p>Modern digital X-ray services for clear and precise images.</p>
-    </div>
-    <div class="card">
-      <h3>❤️ ECG (Electrocardiogram)</h3>
-      <p>Heart health assessment with accurate ECG testing.</p>
-    </div>
-    <div class="card">
-      <h3>🏠 Home Collection Services</h3>
-      <p>Convenient home collection for your diagnostic tests.</p>
-    </div>
+    <div class="card"><h3>🧪 Blood Tests</h3><p>Fast and reliable pathology reports.</p></div>
+    <div class="card"><h3>🩻 Sonography</h3><p>High quality ultrasound imaging.</p></div>
+    <div class="card"><h3>📷 Digital X-Ray</h3><p>Clear and precise digital X-ray.</p></div>
+    <div class="card"><h3>❤️ ECG</h3><p>Accurate heart health assessment.</p></div>
+    <div class="card"><h3>🏠 Home Collection</h3><p>Test sample collection at home.</p></div>
   </div>
 
   <div class="highlight">
@@ -226,18 +138,14 @@
 
 <section>
   <h2>Contact Us</h2>
-
   <div class="contact-box">
     <div class="contact-card">
       <p><b>Phone:</b> 93266 02540</p>
       <p><b>Address:</b> Shop No 2 and 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p>
-      <p><b>Timing:</b><br>
-        Mon–Sat: 8:00 AM – 10:00 PM<br>
-        Sunday: 8:00 AM – 1:00 PM
-      </p>
+      <p><b>Timing:</b><br>Mon–Sat: 8:00 AM – 10:00 PM<br>Sunday: 8:00 AM – 1:00 PM</p>
       <p>
         <a class="call-btn" href="tel:9326602540">Call Now</a>
-        <a class="wa-btn" href="https://wa.me/919326602540?text=Hello%20I%20want%20to%20book%20a%20test%20at%20Safe%20Life%20Diagnostics">WhatsApp</a>
+        <a class="wa-btn" href="https://wa.me/919326602540">WhatsApp</a>
       </p>
     </div>
 
@@ -245,8 +153,7 @@
       <h3>Find Us on Map</h3>
       <iframe 
         src="https://www.google.com/maps?q=Shop%20No%202%20and%203%20Cross%20Road%20Near%20Dr%20Ambedkar%20School%20Mumbai%20400017&output=embed"
-        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
+        width="100%" height="250" style="border:0;" loading="lazy"></iframe>
     </div>
   </div>
 </section>
