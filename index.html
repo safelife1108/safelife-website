@@ -2,121 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Safe Life Diagnostics Centre</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="header">
-  <div class="logo-area">
-    <img src="logo.png" alt="Safe Life Diagnostics Logo">
+  <div class="logo">
+    <img src="logo.png" alt="Safe Life Logo">
     <span>Safe Life Diagnostics Centre</span>
   </div>
   <div class="header-buttons">
-    <a href="tel:9326602540" class="btn call">Call 93266 02540</a>
-    <a href="https://wa.me/919326602540" target="_blank" class="btn whatsapp">WhatsApp</a>
+    <a href="tel:9326602540" class="btn call">📞 Call 93266 02540</a>
+    <a href="https://wa.me/919326602540" target="_blank" class="btn whatsapp">💬 WhatsApp</a>
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-overlay"></div>
-  <div class="hero-content animate fade-up">
-    <h1>Welcome to Safe Life<br>Diagnostics Centre</h1>
-    <p>
-      Trusted Diagnostic Services in Mumbai for Blood Tests, Sonography, Digital X-Ray, and ECG.  
-      Home Collection Available.
+  <div class="hero-content">
+    <h1 class="animate">Welcome to Safe Life Diagnostics Centre</h1>
+    <p class="animate delay">
+      Trusted Diagnostic Services in Mumbai for Blood Tests, Sonography, Digital X-Ray, and ECG. Home Collection Available.
     </p>
-    <div class="hero-buttons">
-      <a href="tel:9326602540" class="btn big call pulse">Call Now</a>
-      <a href="#booking" class="btn big whatsapp">Book a Test</a>
+    <div class="hero-buttons animate delay2">
+      <a href="tel:9326602540" class="btn call">Call Now</a>
+      <a href="https://wa.me/919326602540" target="_blank" class="btn whatsapp">WhatsApp Us</a>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section">
-  <h2 class="section-title animate fade-up">Our Services</h2>
-  <p class="section-sub animate fade-up">Complete diagnostic solutions under one roof</p>
+<section class="services" id="services">
+  <h2>Our Services</h2>
+  <p>Complete diagnostic solutions under one roof</p>
 
-  <div class="services-grid">
-    <div class="card animate fade-left">
+  <div class="cards">
+    <div class="card fade-up">
+      <img src="blood.jpg" alt="Blood Test">
       <h3>All Types of Blood Tests</h3>
-      <p>Comprehensive blood testing with fast and accurate reports.</p>
+      <p>Comprehensive blood testing with quick reports.</p>
     </div>
-    <div class="card animate fade-up">
+
+    <div class="card fade-up">
+      <img src="sonography.jpg" alt="Sonography">
       <h3>Digital Sonography (Ultrasound)</h3>
-      <p>High-quality ultrasound imaging for precise diagnosis.</p>
+      <p>High-quality ultrasound imaging for accurate diagnosis.</p>
     </div>
-    <div class="card animate fade-right">
+
+    <div class="card fade-up">
+      <img src="xray.jpg" alt="X-Ray">
       <h3>Digital X-Ray</h3>
-      <p>Modern digital X-ray services for clear and precise images.</p>
+      <p>Modern X-ray services for clear and precise images.</p>
     </div>
-    <div class="card animate fade-left">
+
+    <div class="card fade-up">
+      <img src="ecg.jpg" alt="ECG">
       <h3>ECG (Electrocardiogram)</h3>
-      <p>Heart health assessment with accurate ECG testing.</p>
+      <p>Accurate heart health assessment with ECG testing.</p>
     </div>
-    <div class="card animate fade-right">
+
+    <div class="card fade-up">
+      <img src="home.jpg" alt="Home Collection">
       <h3>Home Collection Services</h3>
-      <p>Convenient home collection for blood test, ECG and X-Ray.</p>
+      <p>Convenient home collection for your diagnostic tests.</p>
     </div>
   </div>
 </section>
 
-<!-- BOOKING -->
-<section class="section light" id="booking">
-  <h2 class="section-title animate fade-up">Book a Test</h2>
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
 
-  <form class="booking-form animate fade-up" onsubmit="sendWhatsApp(); return false;">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="tel" id="phone" placeholder="Your Phone Number" required>
-    <select id="test">
-      <option>Blood Test</option>
-      <option>Sonography</option>
-      <option>X-Ray</option>
-      <option>ECG</option>
-      <option>Home Collection</option>
-    </select>
-    <button type="submit" class="btn big call">Send on WhatsApp</button>
-  </form>
-</section>
-
-<!-- CONTACT -->
-<section class="section">
-  <h2 class="section-title animate fade-up">Contact Us</h2>
-
-  <div class="contact-grid animate fade-up">
+  <div class="contact-grid">
     <div class="contact-card">
-      <p><strong>Phone:</strong> 93266 02540</p>
+      <h3>📞 Phone</h3>
+      <p>93266 02540</p>
       <p><strong>Address:</strong><br>
-        Shop No 2 and 3, Cross Road, Near Dr Ambedkar School,<br>
-        Mumbai 400017
+        Shop No 2 and 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017
       </p>
       <p><strong>Timing:</strong><br>
-        Mon–Sat: 8:00 AM – 10:00 PM<br>
+        Mon-Sat: 8:00 AM – 10:00 PM<br>
         Sunday: 8:00 AM – 1:00 PM
       </p>
     </div>
 
-    <div class="map-card">
+    <div class="contact-card">
+      <h3>📍 Find Us on Map</h3>
       <iframe 
-        src="https://www.google.com/maps?q=Dharavi,Mumbai&output=embed"
-        allowfullscreen 
-        loading="lazy">
+        src="https://www.google.com/maps?q=Dharavi+Mumbai&output=embed"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
       </iframe>
     </div>
   </div>
+
+  <div class="contact-buttons">
+    <a href="tel:9326602540" class="btn call big">Call 93266 02540</a>
+    <a href="https://wa.me/919326602540" target="_blank" class="btn whatsapp big">WhatsApp</a>
+  </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  © 2026 Safe Life Diagnostics Centre, Mumbai. All Rights Reserved.
+  <p>© 2026 Safe Life Diagnostics Centre, Mumbai. All Rights Reserved.</p>
 </footer>
 
 <script src="script.js"></script>
