@@ -2,346 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Safe Life Diagnostics Centre</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
-    body {
-      background: #f4f8fc;
-      color: #1b2a4e;
-    }
-
-    /* ===== HEADER ===== */
-    header {
-      background: #ffffff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .site-logo {
-      height: 50px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .nav-buttons a {
-      text-decoration: none;
-      margin-left: 10px;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-weight: 600;
-      color: #fff;
-      transition: 0.3s;
-      display: inline-block;
-    }
-
-    .call-btn {
-      background: #1e5eff;
-    }
-
-    .wa-btn {
-      background: #25D366;
-    }
-
-    .nav-buttons a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 70vh;
-      background: linear-gradient(rgba(0,40,80,0.7), rgba(0,40,80,0.7)),
-        url("hero.jpg") center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      color: #fff;
-    }
-
-    .hero-content {
-      max-width: 900px;
-      animation: fadeUp 1s ease;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 25px;
-      line-height: 1.6;
-    }
-
-    .hero-buttons a {
-      text-decoration: none;
-      margin: 10px;
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-weight: 600;
-      display: inline-block;
-      transition: 0.3s;
-    }
-
-    .hero-call {
-      background: #1e5eff;
-      color: #fff;
-    }
-
-    .hero-wa {
-      background: #25D366;
-      color: #fff;
-    }
-
-    .hero-buttons a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
-
-    /* ===== SECTIONS ===== */
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 32px;
-      color: #1e5eff;
-    }
-
-    /* ===== SERVICES ===== */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .service-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      transition: 0.3s;
-      animation: fadeUp 1s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    }
-
-    .service-card img {
-      width: 80px;
-      margin-bottom: 15px;
-    }
-
-    .service-card h3 {
-      margin-bottom: 10px;
-      color: #1e5eff;
-    }
-
-    /* ===== CONTACT ===== */
-    .contact-box {
-      background: #fff;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-
-    .contact-box div {
-      line-height: 1.8;
-    }
-
-    .contact-actions a {
-      display: inline-block;
-      margin-top: 15px;
-      margin-right: 10px;
-      text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    .contact-call {
-      background: #1e5eff;
-    }
-
-    .contact-wa {
-      background: #25D366;
-    }
-
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: 0;
-      border-radius: 12px;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #0d1b3d;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 30px;
-      }
-
-      .contact-box {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="nav">
-      <div class="logo-area">
-        <img src="logo.png" alt="Safe Life Logo" class="site-logo">
-        <strong>Safe Life Diagnostics Centre</strong>
-      </div>
-      <div class="nav-buttons">
-        <a href="tel:9326602540" class="call-btn">📞 Call 93266 02540</a>
-        <a href="https://wa.me/919326602540" class="wa-btn">💬 WhatsApp</a>
-      </div>
+<header class="navbar glass">
+  <div class="container nav-inner">
+    <div class="brand">
+      <img src="logo.png" class="site-logo" alt="Safe Life Logo">
+      <span>Safe Life Diagnostics</span>
     </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Safe Life Diagnostics Centre</h1>
-      <p>
-        Trusted Diagnostic Services in Mumbai for Blood Tests, Sonography, Digital X-Ray, and ECG.  
-        Home Collection Available.
-      </p>
-      <div class="hero-buttons">
-        <a href="tel:9326602540" class="hero-call">📞 Call Now</a>
-        <a href="https://wa.me/919326602540" class="hero-wa">💬 WhatsApp Us</a>
-      </div>
+    <div class="nav-actions">
+      <a class="btn btn-call" href="tel:9326602540">📞 Call 93266 02540</a>
+      <a class="btn btn-whatsapp" href="https://wa.me/919326602540" target="_blank">💬 WhatsApp</a>
     </div>
-  </section>
+  </div>
+</header>
 
-  <!-- SERVICES -->
-  <section>
-    <h2 class="section-title">Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <img src="blood.png" alt="">
-        <h3>All Types of Blood Tests</h3>
-        <p>Comprehensive blood testing with quick and accurate reports.</p>
-      </div>
-      <div class="service-card">
-        <img src="sono.png" alt="">
-        <h3>Digital Sonography (Ultrasound)</h3>
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <h1 class="reveal">Welcome to Safe Life<br/>Diagnostics Centre</h1>
+    <p class="reveal delay-1">
+      Trusted Diagnostic Services in Mumbai for Blood Tests, Ultrasound, Digital X-Ray, and ECG. Home Collection Available.
+    </p>
+    <div class="hero-buttons reveal delay-2">
+      <a class="btn btn-primary" href="tel:9326602540">📞 Call Now</a>
+      <a class="btn btn-secondary" href="https://wa.me/919326602540" target="_blank">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">Our Services</h2>
+    <p class="section-subtitle reveal delay-1">
+      Reliable, accurate and modern diagnostic services under one roof.
+    </p>
+
+    <div class="grid">
+      <div class="card glass reveal">
+        <img src="sonography.jpg" alt="Sonography">
+        <h3>Digital Sonography</h3>
         <p>High-quality ultrasound imaging for accurate diagnosis.</p>
       </div>
-      <div class="service-card">
-        <img src="xray.png" alt="">
+
+      <div class="card glass reveal delay-1">
+        <img src="xray.jpg" alt="X-Ray">
         <h3>Digital X-Ray</h3>
-        <p>Modern digital X-Ray services for clear images.</p>
+        <p>Modern digital X-Ray services for clear and precise images.</p>
       </div>
-      <div class="service-card">
-        <img src="ecg.png" alt="">
-        <h3>ECG (Electrocardiogram)</h3>
-        <p>Heart health assessment with accurate ECG testing.</p>
+
+      <div class="card glass reveal delay-2">
+        <img src="lab-banner.jpg" alt="Lab Tests">
+        <h3>Blood Tests</h3>
+        <p>Comprehensive blood testing with fast report delivery.</p>
       </div>
-      <div class="service-card">
-        <img src="home.png" alt="">
+
+      <div class="card glass reveal delay-3">
+        <img src="lab-banner.jpg" alt="Home Collection">
         <h3>Home Collection</h3>
-        <p>Convenient home sample collection for your tests.</p>
+        <p>Convenient sample collection at your home.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section>
-    <h2 class="section-title">Contact Us</h2>
-    <div class="contact-box">
-      <div>
-        <p><strong>Phone:</strong> 93266 02540</p>
-        <p><strong>Address:</strong> Shop No 2 and 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p>
-        <p><strong>Timing:</strong><br>
-          Mon–Sat: 8:00 AM – 10:00 PM<br>
-          Sunday: 8:00 AM – 1:00 PM
-        </p>
-        <div class="contact-actions">
-          <a href="tel:9326602540" class="contact-call">📞 Call Now</a>
-          <a href="https://wa.me/919326602540" class="contact-wa">💬 WhatsApp</a>
-        </div>
-      </div>
-      <div>
-        <iframe 
-          src="https://www.google.com/maps?q=Dharavi%20Mumbai&output=embed" 
-          allowfullscreen="" 
-          loading="lazy">
-        </iframe>
-      </div>
+<section class="section light">
+  <div class="container contact-grid">
+    <div class="contact-card glass reveal">
+      <h3>Contact Details</h3>
+      <p><strong>Phone:</strong> 93266 02540</p>
+      <p><strong>Address:</strong> Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p>
+      <p><strong>Timings:</strong><br>
+        Mon–Sat: 8:00 AM – 10:00 PM<br>
+        Sunday: 8:00 AM – 1:00 PM
+      </p>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Safe Life Diagnostics Centre, Mumbai. All Rights Reserved.
-  </footer>
+    <div class="contact-card glass reveal delay-1">
+      <h3>Find Us on Map</h3>
+      <iframe 
+        src="https://www.google.com/maps?q=Dharavi%20Mumbai&output=embed" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
 
+<footer class="footer">
+  <p>© 2026 Safe Life Diagnostics Centre, Mumbai. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
