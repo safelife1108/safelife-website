@@ -1,13 +1,14 @@
-const faders = document.querySelectorAll(".fade-up");
+const reveals = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
+function revealOnScroll() {
+  const windowHeight = window.innerHeight;
+  reveals.forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      el.classList.add("active");
     }
   });
-}, {
-  threshold: 0.2
-});
+}
 
-faders.forEach(el => observer.observe(el));
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
