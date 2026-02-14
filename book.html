@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Test - Safe Life Diagnostic Centre</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
 
+<header>
+  <img src="logo.png">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="packages.html">Packages</a>
+    <a href="book.html">Book Test</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2 class="section-title">Book a Test</h2>
+
+  <form onsubmit="showConfirmation(event)">
+    <input type="text" placeholder="Patient Name" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <select required>
+      <option value="">Select Booking Type</option>
+      <option>Regular Test</option>
+      <option>Package</option>
+      <option>Home Collection</option>
+    </select>
+    <input type="text" placeholder="Test / Package Name" required>
+    <textarea placeholder="Address (for Home Collection)"></textarea>
+    <button type="submit">Submit Booking</button>
+  </form>
+</div>
+
+<footer>
+  <p>© 2026 Safe Life Diagnostic Centre</p>
+</footer>
+
+</body>
+</html>
