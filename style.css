@@ -2,48 +2,50 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
-  background: #f6f9fc;
-  color: #222;
+  background: #f5f8fc;
+  color: #1f2937;
 }
 
 header {
-  background: #0b5ed7;
-  color: #fff;
-  padding: 15px 30px;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-header img {
+.navbar img {
   height: 50px;
 }
 
-nav a {
-  color: #fff;
+.navbar a {
   text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
+  color: #0b5ed7;
+  margin-left: 18px;
+  font-weight: 600;
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
+.navbar a:hover {
+  color: #dc3545;
 }
 
 .hero {
   background: linear-gradient(135deg, #0b5ed7, #dc3545);
   color: #fff;
-  padding: 80px 20px;
+  padding: 90px 20px;
   text-align: center;
 }
 
@@ -54,24 +56,47 @@ nav a:hover {
 
 .hero p {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  opacity: 0.95;
 }
 
-.btn {
+.hero .btn {
   display: inline-block;
-  background: #fff;
-  color: #0b5ed7;
-  padding: 12px 25px;
+  margin: 5px;
+  padding: 12px 26px;
   border-radius: 6px;
   text-decoration: none;
-  font-weight: bold;
-  margin: 5px;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: #ffffff;
+  color: #0b5ed7;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
 }
 
 .section-title {
   font-size: 32px;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 10px;
   color: #0b5ed7;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 40px;
 }
 
 .cards {
@@ -81,40 +106,56 @@ nav a:hover {
 }
 
 .card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+  margin-bottom: 8px;
+  color: #0b5ed7;
+}
+
+.info-strip {
+  background: #ffffff;
+  padding: 30px 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.info-strip .cards {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
 footer {
   background: #0b5ed7;
-  color: #fff;
+  color: #ffffff;
   text-align: center;
-  padding: 20px;
+  padding: 30px 20px;
   margin-top: 40px;
 }
 
-form input, form select, form textarea, form button {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
+footer p {
+  margin-bottom: 8px;
 }
 
-form button {
-  background: #dc3545;
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25D366;
   color: #fff;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
+  padding: 14px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-form button:hover {
-  background: #b02a37;
-}
-
-.map {
-  width: 100%;
-  height: 300px;
-  border: none;
-}
