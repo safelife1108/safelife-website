@@ -1,175 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Safe Life Diagnostic Centre</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Safe Life Diagnostic Centre - Blood Tests, X-Ray, Sonography, ECG, 2D Echo, Home Collection." />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<title>Safe Life Diagnostic Centre</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+body { background:#f4f6f8; color:#222; }
+
+header {
+  position:fixed; top:0; width:100%; background:#fff;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:10px 30px; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+header img { height:45px; }
+nav a { margin-left:20px; text-decoration:none; color:#0b3c5d; font-weight:bold; }
+nav a:hover { color:#e63946; }
+
+.hero-slider { margin-top:70px; position:relative; width:100%; height:80vh; overflow:hidden; }
+.slide { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity 1s ease; }
+.slide.active { opacity:1; }
+
+.overlay { position:absolute; inset:0; background:rgba(0,0,0,0.55); }
+
+.slide-content {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  text-align:center; color:white; max-width:90%;
+}
+.slide-content h1 { font-size:40px; margin-bottom:10px; }
+.slide-content p { font-size:18px; margin-bottom:20px; }
+
+.btn {
+  display:inline-block; padding:12px 26px; background:#e63946; color:white;
+  text-decoration:none; border-radius:25px; font-weight:bold;
+}
+.btn:hover { background:#c1121f; }
+
+.dots {
+  position:absolute; bottom:20px; left:50%; transform:translateX(-50%);
+  display:flex; gap:10px;
+}
+.dot {
+  width:12px; height:12px; border-radius:50%; background:#ccc; cursor:pointer;
+}
+.dot.active { background:#e63946; }
+
+section { padding:60px 20px; text-align:center; }
+h2 { color:#0b3c5d; margin-bottom:15px; }
+
+.whatsapp {
+  position:fixed; bottom:20px; right:20px;
+  background:#25d366; color:white; padding:12px 18px;
+  border-radius:30px; text-decoration:none; font-weight:bold;
+}
+
+footer { background:#0b3c5d; color:white; text-align:center; padding:20px; }
+</style>
 </head>
 <body>
 
-<header class="header">
-  <div class="nav-container">
-    <div class="logo">
-      <img src="logo.png" alt="Safe Life Diagnostic Centre" />
-    </div>
-    <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#packages">Packages</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#booking">Book</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+<header>
+  <img src="logo.png" alt="Safe Life Logo">
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#packages">Packages</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<!-- HERO SLIDER (5 MEDICAL IMAGES) -->
-<section class="hero-slider" id="home">
-  <div class="slides">
+<div class="hero-slider" id="home">
 
-    <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1600&auto=format&fit=crop');">
-      <div class="overlay"></div>
-      <div class="slide-content">
-        <h1>Trusted Diagnostic Centre</h1>
-        <p>Accurate Reports • Reliable Service • Affordable Prices</p>
-        <a href="#booking" class="btn-primary">Book a Test</a>
-      </div>
+  <!-- Slide 1: Diagnostic Lab -->
+  <div class="slide active" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/7/7e/Clinical_laboratory.jpg');">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <h1>Safe Life Diagnostic Centre</h1>
+      <p>Accurate Reports • Trusted Service • Affordable Prices</p>
+      <a href="#contact" class="btn">Book a Test</a>
     </div>
-
-    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1600&auto=format&fit=crop');">
-      <div class="overlay"></div>
-      <div class="slide-content">
-        <h1>Advanced Laboratory Testing</h1>
-        <p>Modern equipment for precise diagnosis</p>
-        <a href="#services" class="btn-primary">View Services</a>
-      </div>
-    </div>
-
-    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1580281658629-7d7a7f3d1c6b?w=1600&auto=format&fit=crop');">
-      <div class="overlay"></div>
-      <div class="slide-content">
-        <h1>Digital X-Ray & Imaging</h1>
-        <p>Clear imaging with advanced digital systems</p>
-        <a href="#services" class="btn-primary">Explore Imaging</a>
-      </div>
-    </div>
-
-    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1583912267550-d9742e7c36e9?w=1600&auto=format&fit=crop');">
-      <div class="overlay"></div>
-      <div class="slide-content">
-        <h1>Professional Medical Staff</h1>
-        <p>Experienced technicians and healthcare professionals</p>
-        <a href="#contact" class="btn-primary">Meet Our Team</a>
-      </div>
-    </div>
-
-    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1581093588401-22d2f39c6f9b?w=1600&auto=format&fit=crop');">
-      <div class="overlay"></div>
-      <div class="slide-content">
-        <h1>Home Sample Collection</h1>
-        <p>Safe and convenient sample collection at your doorstep</p>
-        <a href="#booking" class="btn-primary">Book Home Collection</a>
-      </div>
-    </div>
-
   </div>
 
-  <div class="slider-controls">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
+  <!-- Slide 2: Blood Test -->
+  <div class="slide" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/4/4a/Blood_test_vial.jpg');">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <h1>Advanced Blood Testing</h1>
+      <p>Fast, reliable and accurate pathology reports</p>
+      <a href="#services" class="btn">View Services</a>
+    </div>
   </div>
+
+  <!-- Slide 3: X-Ray -->
+  <div class="slide" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/8/89/X-ray_machine.jpg');">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <h1>Digital X-Ray & Imaging</h1>
+      <p>Modern imaging for precise diagnosis</p>
+      <a href="#services" class="btn">Explore Imaging</a>
+    </div>
+  </div>
+
+  <!-- Slide 4: Ultrasound -->
+  <div class="slide" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/2/2e/Ultrasound_exam.jpg');">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <h1>Sonography & Ultrasound</h1>
+      <p>Safe and accurate scanning services</p>
+      <a href="#services" class="btn">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Slide 5: ECG -->
+<div class="slide" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/3/3f/ECG_Machine.jpg');">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <h1>ECG & Heart Tests</h1>
+      <p>Complete cardiac diagnostic solutions</p>
+      <a href="#contact" class="btn">Book Now</a>
+    </div>
+  </div>
+
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+</div>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <p>Blood Tests, X-Ray, Sonography, ECG, 2D Echo & More</p>
 </section>
 
-<!-- SERVICES -->
-<section class="section" id="services">
-  <div class="container">
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-subtitle">Complete diagnostic services under one roof</p>
-
-    <div class="cards">
-      <div class="card reveal"><h3>🧪 Blood Tests</h3><p>All routine and special pathology tests with accurate reporting.</p></div>
-      <div class="card reveal"><h3>🩻 X-Ray</h3><p>Digital X-Ray for all body parts with clear imaging.</p></div>
-      <div class="card reveal"><h3>🖥️ Sonography</h3><p>Abdomen, Pelvis, Pregnancy, Doppler and more scans.</p></div>
-      <div class="card reveal"><h3>❤️ ECG</h3><p>Heart rhythm and cardiac health screening.</p></div>
-      <div class="card reveal"><h3>🫀 2D Echo</h3><p>Detailed heart function and structure evaluation.</p></div>
-      <div class="card reveal"><h3>🏠 Home Collection</h3><p>Sample collection from your home for your convenience.</p></div>
-    </div>
-  </div>
+<section id="packages">
+  <h2>Health Packages</h2>
+  <p>Affordable health checkup packages for all age groups</p>
 </section>
 
-<!-- PACKAGES -->
-<section class="section light" id="packages">
-  <div class="container">
-    <h2 class="section-title">Health Packages</h2>
-    <p class="section-subtitle">Affordable and comprehensive health checkup plans</p>
-
-    <div class="cards">
-      <div class="card reveal"><h3>Basic Health Checkup</h3><p>Essential blood tests for routine health monitoring.</p><a href="#booking" class="btn-secondary">Book Now</a></div>
-      <div class="card reveal"><h3>Full Body Checkup</h3><p>Complete health assessment with major parameters.</p><a href="#booking" class="btn-secondary">Book Now</a></div>
-      <div class="card reveal"><h3>Heart Health Package</h3><p>Special tests for cardiac health evaluation.</p><a href="#booking" class="btn-secondary">Book Now</a></div>
-      <div class="card reveal"><h3>Diabetes Package</h3><p>Focused tests to monitor and manage diabetes.</p><a href="#booking" class="btn-secondary">Book Now</a></div>
-    </div>
-  </div>
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>📞 Phone: 9326602540</p>
+  <p>🕘 Mon–Sat: 8:00 AM – 10:00 PM | Sun: 8:00 AM – 1:00 PM</p>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section" id="testimonials">
-  <div class="container">
-    <h2 class="section-title">What Our Patients Say</h2>
-    <p class="section-subtitle">Trusted by our patients</p>
+<a class="whatsapp" href="https://wa.me/919326602540" target="_blank">WhatsApp</a>
 
-    <div class="cards">
-      <div class="card reveal"><p>“Very clean centre and polite staff. Reports were delivered on time and were accurate.”</p></div>
-      <div class="card reveal"><p>“Home collection service was very convenient. Technician was professional.”</p></div>
-      <div class="card reveal"><p>“Good service at reasonable price. Doctor explained the reports properly.”</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- BOOKING -->
-<section class="section light" id="booking">
-  <div class="container">
-    <h2 class="section-title">Book Your Test</h2>
-    <p class="section-subtitle">Fast, easy and reliable booking</p>
-
-    <div class="booking-actions">
-      <a href="https://wa.me/919326602540" class="btn-primary">Book on WhatsApp</a>
-      <a href="tel:9326602540" class="btn-secondary">Call Us</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section" id="contact">
-  <div class="container">
-    <h2 class="section-title">Contact Us</h2>
-    <p class="section-subtitle">We are here to help you</p>
-
-    <div class="contact-box reveal">
-      <p><strong>Phone / WhatsApp:</strong> 9326602540</p>
-      <p><strong>Address:</strong> Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p>
-
-      <iframe
-        src="https://www.google.com/maps?q=Mumbai%20400017&output=embed"
-        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <p><strong>Safe Life Diagnostic Centre</strong></p>
-  <p>Phone / WhatsApp: 9326602540</p>
+<footer>
   <p>© 2026 Safe Life Diagnostic Centre. All rights reserved.</p>
 </footer>
 
-<a class="whatsapp-float" href="https://wa.me/919326602540">💬 WhatsApp</a>
+<script>
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let index = 0;
 
-<script src="script.js"></script>
+function showSlide(i){
+  slides.forEach((s, idx) => {
+    s.classList.toggle('active', idx === i);
+    dots[idx].classList.toggle('active', idx === i);
+  });
+  index = i;
+}
+
+dots.forEach((dot, i) => {
+  dot.addEventListener('click', () => showSlide(i));
+});
+
+setInterval(() => {
+  showSlide((index + 1) % slides.length);
+}, 4000);
+</script>
+
 </body>
 </html>
