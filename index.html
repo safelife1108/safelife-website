@@ -1,172 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Safe Life Diagnostic Centre</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Safe Life Diagnostic Centre - Blood Tests, X-Ray, Sonography, ECG, 2D Echo, Home Collection.">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif;}
+body{background:#f5f8fc;color:#1f2937;}
 
-<!-- Header -->
-<header class="header">
-  <div class="nav-container">
-    <div class="logo">
-      <img src="logo.png" alt="Safe Life Diagnostic Centre">
-    </div>
-    <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#packages">Packages</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#booking">Book Test</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+/* Header */
+.header{background:#ffffff;box-shadow:0 2px 10px rgba(0,0,0,0.08);position:sticky;top:0;z-index:1000;}
+.nav-container{max-width:1200px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;}
+.logo img{height:50px;}
+.nav a{text-decoration:none;color:#0b5ed7;margin-left:18px;font-weight:600;}
+.nav a:hover{color:#dc3545;}
 
-<!-- Hero Slider -->
-<section class="hero-slider" id="home">
-  <div class="slides">
-    <div class="slide active">
-      <div class="slide-content">
-        <h1>Trusted Diagnostic Centre</h1>
-        <p>Accurate Reports • Reliable Service • Affordable Prices</p>
-        <a href="#booking" class="btn-primary">Book a Test</a>
-      </div>
-    </div>
+/* Hero Slider */
+.hero-slider{position:relative;height:80vh;overflow:hidden;}
+.slides{height:100%;position:relative;}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background-size:cover;background-position:center;}
+.slide.active{opacity:1;}
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,0.5);}
+.slide-content{position:relative;z-index:2;padding:20px;}
+.slide-content h1{font-size:42px;margin-bottom:10px;}
+.slide-content p{font-size:18px;margin-bottom:20px;}
 
-    <div class="slide">
-      <div class="slide-content">
-        <h1>Advanced Testing Facilities</h1>
-        <p>Blood Tests, X-Ray, Sonography, ECG, 2D Echo & More</p>
-        <a href="#services" class="btn-primary">View Services</a>
-      </div>
-    </div>
+.btn-primary,.btn-secondary{display:inline-block;padding:12px 26px;border-radius:6px;text-decoration:none;font-weight:600;margin:5px;}
+.btn-primary{background:#ffffff;color:#0b5ed7;}
+.btn-secondary{background:transparent;color:#ffffff;border:2px solid #ffffff;}
 
-    <div class="slide">
-      <div class="slide-content">
-        <h1>Home Sample Collection</h1>
-        <p>Convenient, Safe and Fast Collection at Your Doorstep</p>
-        <a href="#booking" class="btn-primary">Book Home Collection</a>
-      </div>
-    </div>
-  </div>
+/* Slider dots */
+.slider-controls{position:absolute;bottom:20px;width:100%;text-align:center;z-index:3;}
+.slider-controls .dot{display:inline-block;width:12px;height:12px;background:rgba(255,255,255,0.5);border-radius:50%;margin:0 5px;}
+.slider-controls .dot.active{background:#ffffff;}
 
-  <div class="slider-controls">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-</section>
+/* Sections */
+.section{padding:70px 20px;}
+.section.light{background:#ffffff;}
+.container{max-width:1200px;margin:auto;}
+.section-title{font-size:32px;text-align:center;margin-bottom:10px;color:#0b5ed7;}
+.section-subtitle{text-align:center;color:#6b7280;margin-bottom:40px;}
 
-<!-- Services -->
-<section class="section" id="services">
-  <div class="container">
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-subtitle">Complete diagnostic services under one roof</p>
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.card{background:#ffffff;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.08);text-align:center;transition:transform .3s,box-shadow .3s;}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.15);}
+.card h3{margin-bottom:8px;color:#0b5ed7;}
 
-    <div class="cards">
-      <div class="card">🧪 <h3>Blood Tests</h3><p>All routine and special pathology tests with accurate reporting.</p></div>
-      <div class="card">🩻 <h3>X-Ray</h3><p>Digital X-Ray for all body parts with clear imaging.</p></div>
-      <div class="card">🖥️ <h3>Sonography</h3><p>Abdomen, Pelvis, Pregnancy, Doppler and more scans.</p></div>
-      <div class="card">❤️ <h3>ECG</h3><p>Heart rhythm and cardiac health screening.</p></div>
-      <div class="card">🫀 <h3>2D Echo</h3><p>Detailed heart function and structure evaluation.</p></div>
-      <div class="card">🏠 <h3>Home Collection</h3><p>Sample collection from your home for your convenience.</p></div>
-    </div>
-  </div>
-</section>
+/* Booking */
+.booking-actions{text-align:center;}
 
-<!-- Packages -->
-<section class="section light" id="packages">
-  <div class="container">
-    <h2 class="section-title">Health Packages</h2>
-    <p class="section-subtitle">Affordable and comprehensive health checkup plans</p>
+/* Contact */
+.contact-box{max-width:700px;margin:auto;text-align:center;}
 
-    <div class="cards">
-      <div class="card">
-        <h3>Basic Health Checkup</h3>
-        <p>Essential blood tests for routine health monitoring.</p>
-        <a href="#booking" class="btn-secondary">Book Now</a>
-      </div>
-      <div class="card">
-        <h3>Full Body Checkup</h3>
-        <p>Complete health assessment with major parameters.</p>
-        <a href="#booking" class="btn-secondary">Book Now</a>
-      </div>
-      <div class="card">
-        <h3>Heart Health Package</h3>
-        <p>Special tests for cardiac health evaluation.</p>
-        <a href="#booking" class="btn-secondary">Book Now</a>
-      </div>
-      <div class="card">
-        <h3>Diabetes Package</h3>
-        <p>Focused tests to monitor and manage diabetes.</p>
-        <a href="#booking" class="btn-secondary">Book Now</a>
-      </div>
-    </div>
-  </div>
-</section>
+/* Footer */
+.footer{background:#0b5ed7;color:#ffffff;text-align:center;padding:30px 20px;}
 
-<!-- Testimonials -->
-<section class="section" id="testimonials">
-  <div class="container">
-    <h2 class="section-title">What Our Patients Say</h2>
-    <p class="section-subtitle">Trusted by hundreds of satisfied patients</p>
+/* WhatsApp Floating */
+.whatsapp-float{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;padding:14px 18px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 4px 15px rgba(0,0,0,0.3);}
 
-    <div class="cards">
-      <div class="card">
-        <p>“Very clean centre and polite staff. Reports were delivered on time and were accurate. Highly recommended.”</p>
-      </div>
-      <div class="card">
-        <p>“Home collection service was very convenient. Technician was professional and careful.”</p>
-      </div>
-      <div class="card">
-        <p>“Good service at reasonable price. Doctor explained the reports properly.”</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Booking -->
-<section class="section light" id="booking">
-  <div class="container">
-    <h2 class="section-title">Book Your Test</h2>
-    <p class="section-subtitle">Fast, easy and reliable booking</p>
-
-    <div class="booking-actions">
-      <a href="https://wa.me/919326602540" class="btn-primary">Book on WhatsApp</a>
-      <a href="tel:9326602540" class="btn-secondary">Call Us</a>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section class="section" id="contact">
-  <div class="container">
-    <h2 class="section-title">Contact Us</h2>
-    <p class="section-subtitle">We are here to help you</p>
-
-    <div class="contact-box">
-      <p><strong>Phone / WhatsApp:</strong> 9326602540</p>
-      <p><strong>Address:</strong> (Replace this with your full address)</p>
-
-      <iframe
-        src="https://www.google.com/maps?q=mumbai&output=embed"
-        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-  <p><strong>Safe Life Diagnostic Centre</strong></p>
-  <p>Phone / WhatsApp: 9326602540</p>
-  <p>© 2026 Safe Life Diagnostic Centre. All rights reserved.</p>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s ease;}
+.reveal.show{opacity:1;transform:translateY(0);}
