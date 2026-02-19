@@ -25,9 +25,14 @@ header{
 }
 .nav{
   display:flex;align-items:center;justify-content:space-between;
-  padding:10px 0;flex-wrap:wrap;gap:10px;
+  padding:12px 0;flex-wrap:wrap;gap:10px;
 }
-.nav img{height:55px;}
+.logo-wrap{
+  display:flex;align-items:center;gap:10px;
+}
+.logo-text{
+  font-weight:bold;color:var(--blue);line-height:1.1;
+}
 .nav-links a{margin-left:20px;font-weight:600;color:#333;}
 .nav-links a:hover{color:var(--blue);}
 .top-actions a{
@@ -37,36 +42,26 @@ header{
 .call-btn{background:var(--blue);}
 .wa-btn{background:var(--green);}
 
+/* HERO */
 .hero{
-  background:linear-gradient(to right, rgba(11,94,215,0.85), rgba(11,94,215,0.4)),
-  url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80");
-  background-size:cover;background-position:center;
+  background:linear-gradient(135deg, #0b5ed7 0%, #eaf2ff 100%);
   color:#fff;padding:80px 0;
 }
-.hero h1{font-size:38px;margin-bottom:10px;}
-.hero p{font-size:18px;max-width:650px;margin-bottom:20px;}
+.hero-inner{
+  background:#ffffff;
+  border-radius:16px;
+  padding:50px;
+  color:var(--dark);
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+.hero h1{font-size:36px;color:var(--blue);margin-bottom:10px;}
+.hero p{font-size:18px;max-width:700px;margin-bottom:20px;}
 .hero-buttons a{
   display:inline-block;margin-right:10px;
   padding:12px 20px;border-radius:6px;font-weight:bold;
 }
-.hero .call-btn{background:#fff;color:var(--blue);}
+.hero .call-btn{background:var(--blue);color:#fff;}
 .hero .wa-btn{background:var(--green);color:#fff;}
-
-.badge{
-  background:#fff;padding:30px 0;
-}
-.badge-box{
-  background:var(--light);border-radius:12px;
-  padding:25px;display:flex;align-items:center;justify-content:space-between;
-  gap:20px;flex-wrap:wrap;
-}
-.badge-box h2{color:var(--blue);}
-.badge-circle{
-  background:#fff;border:3px solid var(--blue);
-  border-radius:50%;width:120px;height:120px;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:bold;color:var(--blue);text-align:center;
-}
 
 section{padding:60px 0;}
 .section-title{text-align:center;margin-bottom:40px;}
@@ -86,18 +81,27 @@ section{padding:60px 0;}
 .card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.08);}
 .card h3{color:var(--blue);margin-bottom:10px;}
 
-.home-services{
-  background:var(--light);
+.badge-box{
+  background:var(--light);border-radius:12px;
+  padding:25px;display:flex;align-items:center;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;
 }
+.badge-box h2{color:var(--blue);}
+.badge-circle{
+  background:#fff;border:3px solid var(--blue);
+  border-radius:50%;width:120px;height:120px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:bold;color:var(--blue);text-align:center;
+}
+
+.home-services{background:var(--light);}
 
 .timings{
-  background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:25px;
-  max-width:500px;margin:auto;text-align:center;
+  background:#fff;border:1px solid #e5e7eb;border-radius:12px;
+  padding:25px;max-width:500px;margin:auto;text-align:center;
 }
 
-.contact{
-  background:var(--light);
-}
+.contact{background:var(--light);}
 .contact-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:30px;
 }
@@ -115,6 +119,7 @@ footer{
 }
 
 @media(max-width:768px){
+  .hero-inner{padding:25px;}
   .hero h1{font-size:28px;}
   .contact-grid{grid-template-columns:1fr;}
 }
@@ -124,7 +129,17 @@ footer{
 
 <header>
   <div class="container nav">
-    <img src="logo.png" alt="Safe Life Diagnostic Centre">
+    <div class="logo-wrap">
+      <!-- Embedded Logo (NO IMAGE FILE NEEDED) -->
+      <svg width="42" height="42" viewBox="0 0 100 100">
+        <rect x="5" y="5" width="90" height="90" rx="15" fill="#0b5ed7"/>
+        <rect x="45" y="20" width="10" height="60" fill="#ffffff"/>
+        <rect x="20" y="45" width="60" height="10" fill="#ffffff"/>
+      </svg>
+      <div class="logo-text">
+        Safe Life<br>Diagnostic Centre
+      </div>
+    </div>
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#services">Services</a>
@@ -139,16 +154,18 @@ footer{
 
 <section class="hero" id="home">
   <div class="container">
-    <h1>Welcome to Safe Life Diagnostic Centre</h1>
-    <p>Trusted Diagnostic Services in Mumbai for Blood Tests, Ultrasound, Digital X-Ray, and ECG. Home Collection Available.</p>
-    <div class="hero-buttons">
-      <a class="call-btn" href="tel:9326602540">Call 93266 02540</a>
-      <a class="wa-btn" href="https://wa.me/919326602540">WhatsApp Us</a>
+    <div class="hero-inner">
+      <h1>Welcome to Safe Life Diagnostic Centre</h1>
+      <p>25+ Years of Trusted Diagnostic Services in Mumbai for Blood Tests, Ultrasound, Digital X-Ray, and ECG. Home Collection Available.</p>
+      <div class="hero-buttons">
+        <a class="call-btn" href="tel:9326602540">Call Now</a>
+        <a class="wa-btn" href="https://wa.me/919326602540">WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="badge">
+<section>
   <div class="container">
     <div class="badge-box">
       <div>
@@ -164,14 +181,13 @@ footer{
   <div class="container">
     <div class="section-title">
       <h2>Our Services</h2>
-      <p>Reliable and accurate diagnostic services</p>
     </div>
     <div class="grid">
-      <div class="card"><h3>All Types of Blood Tests</h3><p>Comprehensive blood testing with quick reports.</p></div>
-      <div class="card"><h3>Digital Sonography (Ultrasound)</h3><p>High-quality ultrasound imaging.</p></div>
-      <div class="card"><h3>Digital X-Ray</h3><p>Modern digital X-Ray for clear images.</p></div>
-      <div class="card"><h3>ECG</h3><p>Accurate heart health assessment.</p></div>
-      <div class="card"><h3>Home Collection Services</h3><p>Convenient sample collection at home.</p></div>
+      <div class="card"><h3>All Types of Blood Tests</h3><p>Accurate and fast reports.</p></div>
+      <div class="card"><h3>Digital Sonography</h3><p>High quality ultrasound imaging.</p></div>
+      <div class="card"><h3>Digital X-Ray</h3><p>Clear and precise imaging.</p></div>
+      <div class="card"><h3>ECG</h3><p>Heart health monitoring.</p></div>
+      <div class="card"><h3>Home Collection</h3><p>Convenient service at home.</p></div>
     </div>
   </div>
 </section>
@@ -180,12 +196,11 @@ footer{
   <div class="container">
     <div class="section-title">
       <h2>Home Services Available</h2>
-      <p>Diagnostics at your doorstep</p>
     </div>
     <div class="grid">
-      <div class="card"><h3>Home Blood Collection</h3><p>Safe and hygienic sample collection.</p></div>
-      <div class="card"><h3>X-Ray at Home</h3><p>Portable X-Ray service at home.</p></div>
-      <div class="card"><h3>ECG at Home</h3><p>Heart checkup from your home.</p></div>
+      <div class="card"><h3>Home Blood Collection</h3></div>
+      <div class="card"><h3>X-Ray at Home</h3></div>
+      <div class="card"><h3>ECG at Home</h3></div>
     </div>
   </div>
 </section>
