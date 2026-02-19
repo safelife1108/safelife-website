@@ -6,282 +6,188 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#f5f7fa;color:#222;}
+
+/* Header */
+header{
+  position:fixed;top:0;left:0;width:100%;
+  background:#fff;display:flex;justify-content:space-between;align-items:center;
+  padding:10px 30px;box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:1000;
+}
+header img{height:45px;}
+nav a{margin-left:20px;text-decoration:none;color:#0b3c5d;font-weight:bold;}
+nav a:hover{color:#e63946;}
+
+/* Hero Slider */
+.hero{
+  margin-top:70px;
+  position:relative;
+  width:100%;
+  height:80vh;
+  overflow:hidden;
+}
+.slide{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity 1s ease;
+}
+.slide.active{opacity:1;}
+.overlay{
+  position:absolute;inset:0;background:rgba(0,0,0,0.55);
+}
+.hero-content{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  text-align:center;color:#fff;max-width:90%;
+}
+.hero-content h1{font-size:42px;margin-bottom:10px;}
+.hero-content p{font-size:18px;margin-bottom:20px;}
+.btn{
+  display:inline-block;padding:12px 28px;background:#e63946;color:#fff;
+  text-decoration:none;border-radius:25px;font-weight:bold;
+}
+.btn:hover{background:#c1121f;}
+
+/* Dots */
+.dots{
+  position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+  display:flex;gap:10px;
+}
+.dot{
+  width:12px;height:12px;border-radius:50%;background:#ccc;cursor:pointer;
+}
+.dot.active{background:#e63946;}
+
+/* Sections */
+section{padding:60px 20px;text-align:center;}
+h2{color:#0b3c5d;margin-bottom:15px;}
+
+/* Cards */
+.cards{
+  max-width:1100px;margin:30px auto 0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;
+}
+.card{
+  background:#fff;padding:25px;border-radius:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
-body {
-  background: #f5f7fa;
-  color: #222;
+/* WhatsApp */
+.whatsapp{
+  position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;
+  padding:12px 18px;border-radius:30px;text-decoration:none;font-weight:bold;
 }
 
-/* HEADER */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255,255,255,0.95);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  z-index: 1000;
-}
-
-header img {
-  height: 45px;
-}
-
-nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #0b3c5d;
-  font-weight: 600;
-}
-
-nav a:hover {
-  color: #e63946;
-}
-
-/* HERO VIDEO */
-.hero-video {
-  margin-top: 70px;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.hero-video video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: 1;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: 2;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 3;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #ffffff;
-  padding: 20px;
-}
-
-.hero-content h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-.hero-content p {
-  font-size: 20px;
-  margin-bottom: 25px;
-  opacity: 0.9;
-}
-
-.hero-btn {
-  padding: 14px 32px;
-  background: #e63946;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.hero-btn:hover {
-  background: #c1121f;
-  transform: translateY(-2px);
-}
-
-/* SECTIONS */
-section {
-  padding: 70px 20px;
-  text-align: center;
-}
-
-section h2 {
-  color: #0b3c5d;
-  margin-bottom: 15px;
-}
-
-/* CARDS */
-.cards {
-  max-width: 1100px;
-  margin: 40px auto 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-.card h3 {
-  color: #0b3c5d;
-  margin-bottom: 10px;
-}
-
-/* CONTACT */
-.contact-box {
-  max-width: 700px;
-  margin: auto;
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25d366;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* FOOTER */
-footer {
-  background: #0b3c5d;
-  color: #ffffff;
-  text-align: center;
-  padding: 25px 15px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 34px;
-  }
-  .hero-content p {
-    font-size: 16px;
-  }
-}
+/* Footer */
+footer{background:#0b3c5d;color:#fff;text-align:center;padding:20px;}
 </style>
 </head>
 <body>
 
 <header>
-  <!-- Replace logo.png with your real logo file -->
   <img src="logo.png" alt="Safe Life Logo">
   <nav>
-    <a href="#home">Home</a>
+    <a href="#">Home</a>
     <a href="#services">Services</a>
     <a href="#packages">Packages</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- HERO VIDEO SECTION -->
-<section class="hero-video" id="home">
-  <video autoplay muted loop playsinline>
-    <source src="hero.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<!-- HERO SLIDER -->
+<div class="hero">
 
-  <div class="hero-overlay"></div>
-
-  <div class="hero-content">
-    <h1>Safe Life Diagnostic Centre</h1>
-    <p>Accurate • Reliable • Modern Diagnostics</p>
-    <a href="#contact" class="hero-btn">Book a Test</a>
+  <!-- Slide 1: Lab -->
+  <div class="slide active" style="background-image:url('https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Safe Life Diagnostic Centre</h1>
+      <p>Accurate Reports • Trusted Service • Affordable Prices</p>
+      <a href="#contact" class="btn">Book a Test</a>
+    </div>
   </div>
-</section>
+
+  <!-- Slide 2: Blood Test -->
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/3786157/pexels-photo-3786157.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Advanced Blood Testing</h1>
+      <p>Safe, sterile and fast sample collection</p>
+      <a href="#services" class="btn">View Services</a>
+    </div>
+  </div>
+
+  <!-- Slide 3: X-Ray -->
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/4226122/pexels-photo-4226122.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Digital X-Ray Imaging</h1>
+      <p>High quality radiology services</p>
+      <a href="#services" class="btn">Explore Imaging</a>
+    </div>
+  </div>
+
+  <!-- Slide 4: Ultrasound -->
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/7089017/pexels-photo-7089017.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Sonography & Ultrasound</h1>
+      <p>Safe and accurate scanning</p>
+      <a href="#services" class="btn">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Slide 5: ECG -->
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>ECG & Heart Tests</h1>
+      <p>Reliable cardiac diagnostics</p>
+      <a href="#contact" class="btn">Book Now</a>
+    </div>
+  </div>
+
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+</div>
 
 <!-- SERVICES -->
 <section id="services">
   <h2>Our Services</h2>
-  <p>Complete diagnostic services under one roof</p>
-
   <div class="cards">
-    <div class="card">
-      <h3>Blood Tests</h3>
-      <p>All routine and special pathology tests with accurate reports.</p>
-    </div>
-    <div class="card">
-      <h3>Digital X-Ray</h3>
-      <p>High quality digital imaging for precise diagnosis.</p>
-    </div>
-    <div class="card">
-      <h3>Sonography</h3>
-      <p>Ultrasound scans including abdomen, pelvis and pregnancy.</p>
-    </div>
-    <div class="card">
-      <h3>ECG</h3>
-      <p>Heart rhythm and cardiac health monitoring.</p>
-    </div>
-    <div class="card">
-      <h3>2D Echo</h3>
-      <p>Detailed heart structure and function evaluation.</p>
-    </div>
-    <div class="card">
-      <h3>Home Collection</h3>
-      <p>Sample collection at your home for your convenience.</p>
-    </div>
+    <div class="card">Blood Tests</div>
+    <div class="card">Digital X-Ray</div>
+    <div class="card">Sonography</div>
+    <div class="card">ECG</div>
+    <div class="card">2D Echo</div>
+    <div class="card">Home Collection</div>
   </div>
 </section>
 
 <!-- PACKAGES -->
 <section id="packages">
   <h2>Health Packages</h2>
-  <p>Affordable health checkup plans for everyone</p>
-
   <div class="cards">
-    <div class="card">
-      <h3>Basic Health Checkup</h3>
-      <p>Essential tests for routine health monitoring.</p>
-    </div>
-    <div class="card">
-      <h3>Full Body Checkup</h3>
-      <p>Complete health assessment with major parameters.</p>
-    </div>
-    <div class="card">
-      <h3>Diabetes Package</h3>
-      <p>Focused tests to monitor and manage diabetes.</p>
-    </div>
-    <div class="card">
-      <h3>Heart Health Package</h3>
-      <p>Special tests for cardiac health evaluation.</p>
-    </div>
+    <div class="card">Basic Health Checkup</div>
+    <div class="card">Full Body Checkup</div>
+    <div class="card">Diabetes Package</div>
+    <div class="card">Heart Health Package</div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
   <h2>Contact Us</h2>
-  <div class="contact-box">
-    <p><strong>Safe Life Diagnostic Centre</strong></p>
-    <p>📞 Phone / WhatsApp: 9326602540</p>
-    <p>🕘 Mon–Sat: 8:00 AM – 10:00 PM | Sun: 8:00 AM – 1:00 PM</p>
-  </div>
+  <p>📞 Phone / WhatsApp: 9326602540</p>
 </section>
 
 <a class="whatsapp" href="https://wa.me/919326602540" target="_blank">WhatsApp</a>
@@ -289,6 +195,28 @@ footer {
 <footer>
   <p>© 2026 Safe Life Diagnostic Centre. All rights reserved.</p>
 </footer>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let current = 0;
+
+function showSlide(i){
+  slides.forEach((s, idx)=>{
+    s.classList.toggle('active', idx === i);
+    dots[idx].classList.toggle('active', idx === i);
+  });
+  current = i;
+}
+
+dots.forEach((dot, i)=>{
+  dot.addEventListener('click', ()=>showSlide(i));
+});
+
+setInterval(()=>{
+  showSlide((current + 1) % slides.length);
+}, 4000);
+</script>
 
 </body>
 </html>
