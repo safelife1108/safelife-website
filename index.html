@@ -6,20 +6,39 @@
 <title>Safe Life Diagnostic Centre — Mumbai</title>
 <meta name="description" content="Safe Life Diagnostic Centre — 25+ years of trusted diagnostics in Mumbai. Blood tests, X-Ray, Sonography, ECG, Home Collection. Call 9326602540."/>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Premium, modern typography -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --blue:#0b5ed7; --teal:#0ea5a4; --green:#16a34a;
-  --dark:#0f172a; --muted:#5b6b7a; --bg:#f6f9ff; --card:#ffffff;
+  --ink:#0f172a; --muted:#475569; --bg:#f6f9ff; --card:#ffffff;
   --radius:16px; --shadow:0 14px 34px rgba(12,24,40,0.10);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Poppins,system-ui,Arial,sans-serif;color:var(--dark);background:#fff;line-height:1.6}
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--ink); background:#fff; line-height:1.7; letter-spacing:-0.01em;
+}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block;border-radius:14px}
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* Headings & text hierarchy */
+h1,h2,h3,h4{letter-spacing:-0.02em; line-height:1.15}
+h1{font-size:clamp(32px,5vw,44px); font-weight:800}
+h2{font-size:clamp(24px,4vw,32px); font-weight:700}
+h3{font-size:20px; font-weight:600}
+p{font-size:16px; color:var(--muted)}
+.small{font-size:14px; color:#64748b}
+
+/* Buttons */
+.btn{padding:10px 14px;border-radius:10px;font-weight:600;border:0;cursor:pointer;transition:.25s}
+.btn:hover{transform:translateY(-1px)}
+.btn-call{background:#fff;color:var(--blue);border:1px solid var(--blue)}
+.btn-wa{background:#25D366;color:#fff}
+.btn-primary{background:var(--blue);color:#fff}
 
 /* Header */
 header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eef2f6;z-index:80}
@@ -27,20 +46,14 @@ header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eef2f6;z-i
 .brand{display:flex;align-items:center;gap:12px}
 .brand img{height:44px}
 .nav{display:flex;gap:18px;align-items:center}
-.nav a{font-weight:600;color:var(--muted)}
+.nav a{font-weight:600;color:#64748b}
 .actions{display:flex;gap:10px}
-.btn{padding:10px 14px;border-radius:10px;font-weight:700;border:0;cursor:pointer;transition:.25s}
-.btn:hover{transform:translateY(-1px)}
-.btn-call{background:#fff;color:var(--blue);border:1px solid var(--blue)}
-.btn-wa{background:#25D366;color:#fff}
-.btn-primary{background:var(--blue);color:#fff}
 
 /* Hero */
 .hero{padding:84px 0;background:linear-gradient(180deg,#ffffff 0%,#f2f8ff 100%);position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:60px;background:linear-gradient(180deg,rgba(0,0,0,0),#fff)}
 .hero-grid{display:grid;grid-template-columns:1fr 520px;gap:36px;align-items:center}
-.title{font-size:42px;line-height:1.08;font-weight:700;margin-bottom:12px}
-.lead{color:var(--muted);margin-bottom:18px}
+.lead{margin:10px 0 18px}
 .trust-badges{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 18px}
 .badge{background:#eaf2ff;color:var(--blue);padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px}
 
@@ -55,17 +68,14 @@ header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eef2f6;z-i
 section{padding:72px 0}
 .section-alt{background:var(--bg)}
 .sec-title{text-align:center;margin-bottom:40px}
-.sec-title h2{font-size:32px;margin-bottom:8px}
-.sec-title p{color:var(--muted)}
 
 /* Grids & Cards */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);transition:.25s}
 .card:hover{transform:translateY(-6px)}
-.card h3{margin:10px 0}
 
-/* Reveal animations */
+/* Reveal */
 .reveal{opacity:0;transform:translateY(18px);transition:all .6s ease}
 .reveal.show{opacity:1;transform:none}
 
@@ -104,7 +114,7 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 /* Floating WhatsApp */
 .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:90}
 
-/* Mobile bottom bar */
+/* Mobile bar */
 .mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e5e7eb;z-index:85}
 .mobile-bar a{flex:1;padding:12px;text-align:center;font-weight:700}
 .mobile-bar .call{color:var(--blue)}
@@ -115,7 +125,6 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
   .hero-grid{grid-template-columns:1fr}
   .grid-3,.grid-4,.steps,.testi-grid,.contact-grid{grid-template-columns:1fr}
   .facility-grid{grid-template-columns:1fr}
-  .title{font-size:34px}
   .nav{display:none}
   .mobile-bar{display:flex}
 }
@@ -126,10 +135,11 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 <header>
   <div class="container header-inner">
     <div class="brand">
+      <!-- Keep logo.png in same folder -->
       <img src="logo.png" alt="Safe Life Logo" onerror="this.style.display='none'">
       <div>
         <div style="font-weight:800">Safe Life Diagnostic Centre</div>
-        <div style="font-size:12px;color:var(--muted)">Accurate • Reliable • Affordable</div>
+        <div class="small">Accurate • Reliable • Affordable</div>
       </div>
     </div>
     <nav class="nav">
@@ -148,8 +158,8 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 <section class="hero">
   <div class="container hero-grid">
     <div class="reveal">
-      <div class="title">Safe Life Diagnostic Centre</div>
-      <div class="lead"><strong>Accurate • Reliable • Affordable Diagnostics</strong><br>Serving Mumbai families with trusted diagnostics for over <strong>25+ years</strong>.</div>
+      <h1>Safe Life Diagnostic Centre</h1>
+      <p class="lead"><strong>Accurate • Reliable • Affordable Diagnostics</strong><br>Serving Mumbai families with trusted diagnostics for over <strong>25+ years</strong>.</p>
       <div class="trust-badges">
         <span class="badge">25+ Years Trusted</span>
         <span class="badge">50,000+ Patients</span>
@@ -162,6 +172,7 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
       </div>
     </div>
 
+    <!-- Medical-only slider -->
     <div class="slider reveal">
       <div class="slide active"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Medical Laboratory"></div>
       <div class="slide"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop" alt="Digital X-Ray"></div>
@@ -177,10 +188,10 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
       <h2>Why Choose Safe Life?</h2><p>Patients trust us for accuracy, care and reliability</p>
     </div>
     <div class="grid-4">
-      <div class="card why-item reveal"><div class="icon">🏥</div><h3>25+ Years Experience</h3><p style="color:var(--muted)">Decades of local trust.</p></div>
-      <div class="card why-item reveal"><div class="icon">🧪</div><h3>Accurate Reports</h3><p style="color:var(--muted)">Strict quality checks.</p></div>
-      <div class="card why-item reveal"><div class="icon">⚙️</div><h3>Modern Equipment</h3><p style="color:var(--muted)">Digital systems.</p></div>
-      <div class="card why-item reveal"><div class="icon">🚑</div><h3>Home Collection</h3><p style="color:var(--muted)">Doorstep service.</p></div>
+      <div class="card why-item reveal"><div class="icon">🏥</div><h3>25+ Years Experience</h3><p>Decades of local trust.</p></div>
+      <div class="card why-item reveal"><div class="icon">🧪</div><h3>Accurate Reports</h3><p>Strict quality checks.</p></div>
+      <div class="card why-item reveal"><div class="icon">⚙️</div><h3>Modern Equipment</h3><p>Digital systems.</p></div>
+      <div class="card why-item reveal"><div class="icon">🚑</div><h3>Home Collection</h3><p>Doorstep service.</p></div>
     </div>
   </div>
 </section>
@@ -190,9 +201,9 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
   <div class="container">
     <div class="sec-title reveal"><h2>How It Works</h2><p>Three simple steps</p></div>
     <div class="steps">
-      <div class="card step reveal"><div class="num">1</div><h3>Contact Us</h3><p style="color:var(--muted)">Call or WhatsApp.</p></div>
-      <div class="card step reveal"><div class="num">2</div><h3>Visit or Home</h3><p style="color:var(--muted)">Centre or home service.</p></div>
-      <div class="card step reveal"><div class="num">3</div><h3>Get Reports</h3><p style="color:var(--muted)">Fast & accurate.</p></div>
+      <div class="card step reveal"><div class="num">1</div><h3>Contact Us</h3><p>Call or WhatsApp.</p></div>
+      <div class="card step reveal"><div class="num">2</div><h3>Visit or Home</h3><p>Centre or home service.</p></div>
+      <div class="card step reveal"><div class="num">3</div><h3>Get Reports</h3><p>Fast & accurate.</p></div>
     </div>
   </div>
 </section>
@@ -202,12 +213,12 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
   <div class="container">
     <div class="sec-title reveal"><h2>Our Services</h2><p>Complete diagnostic solutions</p></div>
     <div class="grid-3">
-      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"><h3>Blood Tests</h3><p style="color:var(--muted)">Comprehensive lab testing.</p></div>
-      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop"><h3>Digital X-Ray</h3><p style="color:var(--muted)">Clear imaging.</p></div>
-      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1200&auto=format&fit=crop"><h3>Sonography</h3><p style="color:var(--muted)">High-resolution ultrasound.</p></div>
-      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop"><h3>2D Echo</h3><p style="color:var(--muted)">Cardiac imaging.</p></div>
-      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1200&auto=format&fit=crop"><h3>ECG</h3><p style="color:var(--muted)">Heart monitoring.</p></div>
-      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a7a9?q=80&w=1200&auto=format&fit=crop"><h3>Home Collection</h3><p style="color:var(--muted)">Doorstep samples.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"><h3>Blood Tests</h3><p>Comprehensive lab testing.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop"><h3>Digital X-Ray</h3><p>Clear imaging.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1200&auto=format&fit=crop"><h3>Sonography</h3><p>High-resolution ultrasound.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop"><h3>2D Echo</h3><p>Cardiac imaging.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1200&auto=format&fit=crop"><h3>ECG</h3><p>Heart monitoring.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a7a9?q=80&w=1200&auto=format&fit=crop"><h3>Home Collection</h3><p>Doorstep samples.</p></div>
     </div>
   </div>
 </section>
@@ -246,8 +257,8 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
   <div class="container">
     <div class="sec-title reveal"><h2>Our Facility</h2><p>Clean, modern and quality-controlled</p></div>
     <div class="facility-grid">
-      <img class="reveal" src="https://images.unsplash.com/photo-1581091870627-3a5c64c28d54?q=80&w=1200&auto=format&fit=crop">
-      <img class="reveal" src="https://images.unsplash.com/photo-1582719478181-2a63a17c3f2b?q=80&w=1200&auto=format&fit=crop">
+      <img class="reveal" src="https://images.unsplash.com/photo-1581091870627-3a5c64c28d54?q=80&w=1200&auto=format&fit=crop" alt="Lab facility">
+      <img class="reveal" src="https://images.unsplash.com/photo-1582719478181-2a63a17c3f2b?q=80&w=1200&auto=format&fit=crop" alt="Medical equipment">
     </div>
   </div>
 </section>
@@ -257,9 +268,9 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
   <div class="container">
     <div class="sec-title reveal"><h2>Patient Testimonials</h2><p>Real feedback</p></div>
     <div class="testi-grid">
-      <div class="card reveal"><div class="stars">★★★★★</div><p style="color:var(--muted)">“Very professional staff and quick reports.”</p><strong>- Rajesh P., Sion</strong></div>
-      <div class="card reveal"><div class="stars">★★★★★</div><p style="color:var(--muted)">“Clean centre, modern machines. Great service.”</p><strong>- Sunita S., Dharavi</strong></div>
-      <div class="card reveal"><div class="stars">★★★★★</div><p style="color:var(--muted)">“Home collection was very convenient.”</p><strong>- Anil V., Mahim</strong></div>
+      <div class="card reveal"><div class="stars">★★★★★</div><p>“Very professional staff and quick reports.”</p><strong>- Rajesh P., Sion</strong></div>
+      <div class="card reveal"><div class="stars">★★★★★</div><p>“Clean centre, modern machines. Great service.”</p><strong>- Sunita S., Dharavi</strong></div>
+      <div class="card reveal"><div class="stars">★★★★★</div><p>“Home collection was very convenient.”</p><strong>- Anil V., Mahim</strong></div>
     </div>
   </div>
 </section>
@@ -285,7 +296,7 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 <footer>
   <div class="container">
     <div style="font-weight:700">Safe Life Diagnostic Centre</div>
-    <div style="color:#93a6bf;font-size:13px;margin-top:6px">© 2026 Safe Life Diagnostic Centre. All Rights Reserved.</div>
+    <div class="small" style="color:#93a6bf;margin-top:6px">© 2026 Safe Life Diagnostic Centre. All Rights Reserved.</div>
   </div>
 </footer>
 
