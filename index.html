@@ -16,8 +16,8 @@
   --muted:#64748b;
   --bg:#f6f9ff;
   --card:#ffffff;
-  --radius:18px;
-  --shadow:0 10px 30px rgba(0,0,0,0.08);
+  --radius:16px;
+  --shadow:0 8px 24px rgba(0,0,0,0.08);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
@@ -27,8 +27,7 @@ body{
   line-height:1.6;
 }
 a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block;border-radius:14px}
-
+img{max-width:100%;display:block;border-radius:12px}
 .container{max-width:1200px;margin:auto;padding:0 20px}
 
 /* Header */
@@ -44,7 +43,7 @@ header{
 nav a{margin:0 14px;font-weight:600;color:#334155}
 .nav-actions{display:flex;gap:10px}
 .btn{
-  padding:10px 16px;border-radius:12px;border:1px solid var(--blue);
+  padding:10px 16px;border-radius:10px;border:1px solid var(--blue);
   font-weight:700;cursor:pointer;transition:.2s;
 }
 .btn.primary{background:var(--blue);color:#fff}
@@ -58,24 +57,24 @@ nav a{margin:0 14px;font-weight:600;color:#334155}
   background:linear-gradient(180deg,#ffffff 0%, #f6f9ff 100%);
 }
 .hero-grid{
-  display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;align-items:center;
+  display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;
 }
-.hero h1{font-size:48px;line-height:1.1;margin-bottom:16px}
+.hero h1{font-size:46px;line-height:1.1;margin-bottom:16px}
 .hero p{color:var(--muted);margin-bottom:24px}
 
 /* Stats */
 .stats{padding:60px 0;background:#fff}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .stat{
-  background:var(--bg);padding:26px;border-radius:var(--radius);
+  background:var(--bg);padding:24px;border-radius:var(--radius);
   text-align:center;box-shadow:var(--shadow);
 }
-.stat h3{font-size:30px;color:var(--blue)}
+.stat h3{font-size:28px;color:var(--blue)}
 
 /* Sections */
 section{padding:80px 0}
 .section-title{text-align:center;margin-bottom:40px}
-.section-title h2{font-size:36px;margin-bottom:10px}
+.section-title h2{font-size:34px;margin-bottom:10px}
 .section-title p{color:var(--muted)}
 
 /* Cards */
@@ -87,19 +86,22 @@ section{padding:80px 0}
 }
 .card h3{margin:12px 0}
 
-/* Why Choose Us */
+/* Why */
 .why{background:var(--bg)}
 
 /* Packages */
-.price{font-size:30px;font-weight:900;color:var(--blue)}
+.price{font-size:28px;font-weight:800;color:var(--blue)}
 .package{border:2px solid #e5e7eb}
-.package.featured{border-color:var(--blue);transform:scale(1.03)}
+.package.featured{border-color:var(--blue)}
 .package ul{list-style:none;padding-left:0}
 .package li::before{content:"✔ ";color:var(--blue);font-weight:700}
 
 /* Testimonials */
 .testi{font-style:italic}
 .stars{color:#f59e0b}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 
 /* Footer */
 footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
@@ -117,7 +119,7 @@ footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr}
   .stats-grid{grid-template-columns:1fr 1fr}
-  .grid-3,.grid-4{grid-template-columns:1fr}
+  .grid-3,.grid-4,.contact-grid{grid-template-columns:1fr}
   .hero h1{font-size:36px}
   nav{display:none}
 }
@@ -144,7 +146,6 @@ footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
   </div>
 </header>
 
-<!-- Hero -->
 <section class="hero" id="home">
   <div class="container hero-grid">
     <div>
@@ -157,13 +158,12 @@ footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
       </div>
     </div>
     <div>
-      <!-- REAL MEDICAL LAB IMAGE (NOT BEDROOM) -->
+      <!-- REAL MEDICAL LAB IMAGE -->
       <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Diagnostic Laboratory">
     </div>
   </div>
 </section>
 
-<!-- Why Choose Us (IMPORTANT & EARLY) -->
 <section class="why">
   <div class="container">
     <div class="section-title">
@@ -172,14 +172,13 @@ footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
     </div>
     <div class="grid-4">
       <div class="card"><h3>25+ Years Experience</h3><p>Decades of trusted service in diagnostics.</p></div>
-      <div class="card"><h3>Accurate Reports</h3><p>High precision tests with strict quality control.</p></div>
+      <div class="card"><h3>Accurate Reports</h3><p>Strict quality control and precision testing.</p></div>
       <div class="card"><h3>Modern Equipment</h3><p>Latest machines for reliable diagnosis.</p></div>
       <div class="card"><h3>Affordable Pricing</h3><p>Quality healthcare at reasonable cost.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Stats -->
 <section class="stats">
   <div class="container stats-grid">
     <div class="stat"><h3>25+</h3><p>Years Experience</p></div>
@@ -189,7 +188,6 @@ footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
   </div>
 </section>
 
-<!-- Services -->
 <section id="services">
   <div class="container">
     <div class="section-title">
@@ -207,12 +205,11 @@ footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
   </div>
 </section>
 
-<!-- Testimonials -->
 <section>
   <div class="container">
     <div class="section-title">
       <h2>What Our Patients Say</h2>
-      <p>Real feedback from our patients</p>
+      <p>Trusted by thousands of patients</p>
     </div>
     <div class="grid-3">
       <div class="card testi"><div class="stars">★★★★★</div><p>“Very professional staff and quick reports.”</p><strong>- Rajesh Patil</strong></div>
@@ -222,17 +219,19 @@ footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
   </div>
 </section>
 
-<!-- Contact -->
 <section id="contact">
   <div class="container">
     <div class="section-title">
       <h2>Contact Us</h2>
       <p>We are here to help you</p>
     </div>
-    <div class="grid-3">
+    <div class="contact-grid">
       <div class="card"><h3>Call Us</h3><p>9326602540</p></div>
       <div class="card"><h3>WhatsApp</h3><p><a href="https://wa.me/919326602540" target="_blank">Chat on WhatsApp</a></p></div>
       <div class="card"><h3>Address</h3><p>Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p></div>
+    </div>
+    <div style="margin-top:30px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);">
+      <iframe src="https://www.google.com/maps?q=Mumbai%20400017&output=embed" width="100%" height="350" style="border:0;"></iframe>
     </div>
   </div>
 </section>
