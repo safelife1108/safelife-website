@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Safe Life Diagnostic Centre</title>
-<meta name="description" content="Safe Life Diagnostic Centre - Premium diagnostics with 25+ years of trust.">
+<meta name="description" content="Safe Life Diagnostic Centre - Premium diagnostics with 25+ years of trust in Mumbai. Blood Tests, X-Ray, Sonography, ECG, Home Collection.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -40,7 +40,7 @@ header{
 }
 .nav{
   display:flex;align-items:center;justify-content:space-between;
-  padding:16px 0;
+  padding:16px 0;gap:10px;flex-wrap:wrap;
 }
 .brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--blue)}
 .brand img{height:42px}
@@ -147,6 +147,10 @@ footer{
   background:#0b1220;color:#cbd5e1;text-align:center;padding:36px 0
 }
 
+/* Reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:.8s ease}
+.reveal.show{opacity:1;transform:none}
+
 /* Responsive */
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr}
@@ -176,86 +180,110 @@ footer{
   </div>
 </header>
 
+<!-- Hero -->
 <section class="hero" id="home">
   <div class="container hero-grid">
-    <div>
+    <div class="reveal">
       <div class="tag">Accurate • Reliable • Affordable Diagnostics</div>
       <h1>Safe Life Diagnostic Centre</h1>
-      <p>Your trusted partner for premium diagnostic services with advanced technology and 25+ years of excellence.</p>
+      <p>Your trusted partner for premium diagnostic services with advanced technology and 25+ years of excellence in Mumbai.</p>
       <div class="hero-buttons">
-        <a class="call" href="tel:9326602540">Book a Test</a>
-        <a class="wa" href="https://wa.me/919326602540">Call Now</a>
+        <a class="call" href="#book">Book a Test</a>
+        <a class="wa" href="tel:9326602540">Call Now</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <img src="https://images.unsplash.com/photo-1581091215367-59ab6b6c1c4c?q=80&w=1400&auto=format&fit=crop">
+    <div class="hero-visual reveal">
+      <img src="https://images.unsplash.com/photo-1581091215367-59ab6b6c1c4c?q=80&w=1400&auto=format&fit=crop" alt="Medical Lab">
     </div>
   </div>
 </section>
 
+<!-- Stats -->
 <section class="stats">
   <div class="container stats-grid">
-    <div class="stat"><h3>25+</h3><p>Years Experience</p></div>
-    <div class="stat"><h3>50,000+</h3><p>Satisfied Patients</p></div>
-    <div class="stat"><h3>24/7</h3><p>Emergency Services</p></div>
-    <div class="stat"><h3>100%</h3><p>Accurate Reports</p></div>
+    <div class="stat reveal"><h3>25+</h3><p>Years Experience</p></div>
+    <div class="stat reveal"><h3>50,000+</h3><p>Satisfied Patients</p></div>
+    <div class="stat reveal"><h3>24/7</h3><p>Emergency Services</p></div>
+    <div class="stat reveal"><h3>100%</h3><p>Accurate Reports</p></div>
   </div>
 </section>
 
+<!-- Services -->
 <section id="services">
   <div class="container">
-    <div class="section-title">
+    <div class="section-title reveal">
       <h2>Our Services</h2>
       <p>Modern diagnostics with expert care</p>
     </div>
     <div class="grid">
-      <div class="card"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"><h3>Blood Tests</h3><p>Comprehensive pathology services.</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1580281657527-47d1c9b3b0b6?q=80&w=1200&auto=format&fit=crop"><h3>Digital X-Ray</h3><p>High clarity digital imaging.</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=1200&auto=format&fit=crop"><h3>Sonography</h3><p>Advanced ultrasound imaging.</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop"><h3>ECG</h3><p>Heart rhythm monitoring.</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1582719368171-2b6a0f6b6c21?q=80&w=1200&auto=format&fit=crop"><h3>2D Echo</h3><p>Detailed cardiac assessment.</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1582719478185-2e3c6b5a8c0a?q=80&w=1200&auto=format&fit=crop"><h3>Home Collection</h3><p>Tests at your doorstep.</p></div>
+      <div class="card reveal"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"><h3>Blood Tests</h3><p>Comprehensive pathology services.</p></div>
+      <div class="card reveal"><img src="https://images.unsplash.com/photo-1580281657527-47d1c9b3b0b6?q=80&w=1200&auto=format&fit=crop"><h3>Digital X-Ray</h3><p>High clarity digital imaging.</p></div>
+      <div class="card reveal"><img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=1200&auto=format&fit=crop"><h3>Sonography</h3><p>Advanced ultrasound imaging.</p></div>
+      <div class="card reveal"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop"><h3>ECG</h3><p>Heart rhythm monitoring.</p></div>
+      <div class="card reveal"><img src="https://images.unsplash.com/photo-1582719368171-2b6a0f6b6c21?q=80&w=1200&auto=format&fit=crop"><h3>2D Echo</h3><p>Detailed cardiac assessment.</p></div>
+      <div class="card reveal"><img src="https://images.unsplash.com/photo-1582719478185-2e3c6b5a8c0a?q=80&w=1200&auto=format&fit=crop"><h3>Home Collection</h3><p>Tests at your doorstep.</p></div>
     </div>
   </div>
 </section>
 
+<!-- Showcase -->
 <section>
   <div class="container">
-    <div class="big-image">
-      <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=1600&auto=format&fit=crop">
+    <div class="big-image reveal">
+      <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=1600&auto=format&fit=crop" alt="Diagnostic Centre">
     </div>
   </div>
 </section>
 
+<!-- Packages -->
 <section id="packages">
   <div class="container">
-    <div class="section-title">
+    <div class="section-title reveal">
       <h2>Health Checkup Packages</h2>
       <p>Designed for complete peace of mind</p>
     </div>
     <div class="grid">
-      <div class="card"><div class="price">₹999</div><h3>Basic Checkup</h3><p>Essential health tests.</p></div>
-      <div class="card"><span class="badge">Most Popular</span><div class="price">₹2,499</div><h3>Full Body Checkup</h3><p>Complete health assessment.</p></div>
-      <div class="card"><div class="price">₹1,299</div><h3>Diabetes Package</h3><p>Diabetes focused tests.</p></div>
-      <div class="card"><div class="price">₹1,799</div><h3>Heart Package</h3><p>Cardiac health evaluation.</p></div>
+      <div class="card reveal"><div class="price">₹999</div><h3>Basic Checkup</h3><p>Essential health tests.</p></div>
+      <div class="card reveal"><span class="badge">Most Popular</span><div class="price">₹2,499</div><h3>Full Body Checkup</h3><p>Complete health assessment.</p></div>
+      <div class="card reveal"><div class="price">₹1,299</div><h3>Diabetes Package</h3><p>Diabetes focused tests.</p></div>
+      <div class="card reveal"><div class="price">₹1,799</div><h3>Heart Package</h3><p>Cardiac health evaluation.</p></div>
     </div>
   </div>
 </section>
 
+<!-- Booking -->
+<section id="book">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Book a Test</h2>
+      <p>Fill the form and we will contact you</p>
+    </div>
+    <form class="card reveal">
+      <input type="text" placeholder="Full Name" required style="width:100%;padding:12px;margin-bottom:12px;border-radius:10px;border:1px solid #ccc">
+      <input type="tel" placeholder="Phone Number" required style="width:100%;padding:12px;margin-bottom:12px;border-radius:10px;border:1px solid #ccc">
+      <input type="text" placeholder="Test Required" style="width:100%;padding:12px;margin-bottom:12px;border-radius:10px;border:1px solid #ccc">
+      <input type="date" style="width:100%;padding:12px;margin-bottom:12px;border-radius:10px;border:1px solid #ccc">
+      <textarea placeholder="Address" style="width:100%;padding:12px;margin-bottom:12px;border-radius:10px;border:1px solid #ccc"></textarea>
+      <button type="submit" class="call" style="padding:14px 26px;border-radius:14px;color:#fff;font-weight:800;border:none">Submit Booking</button>
+    </form>
+  </div>
+</section>
+
+<!-- Contact -->
 <section class="contact" id="contact">
   <div class="container">
-    <div class="section-title">
+    <div class="section-title reveal">
       <h2>Get in Touch</h2>
       <p>We are here to help you</p>
     </div>
     <div class="contact-grid">
-      <div>
+      <div class="reveal">
         <p><strong>Phone / WhatsApp:</strong> 9326602540</p>
         <p><strong>Address:</strong> Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p><br>
         <a class="call" href="tel:9326602540" style="padding:14px 26px;border-radius:16px;color:#fff;font-weight:800;background:#2563eb">Call Now</a>
         <a class="wa" href="https://wa.me/919326602540" style="padding:14px 26px;border-radius:16px;color:#fff;font-weight:800;margin-left:10px">WhatsApp</a>
       </div>
-      <div>
+      <div class="reveal">
         <iframe src="https://www.google.com/maps?q=Mumbai%20400017&output=embed"></iframe>
       </div>
     </div>
@@ -265,6 +293,16 @@ footer{
 <footer>
   <p>© 2026 Safe Life Diagnostic Centre. All Rights Reserved.</p>
 </footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){ entry.target.classList.add('show'); }
+  });
+},{threshold:0.1});
+reveals.forEach(el=>observer.observe(el));
+</script>
 
 </body>
 </html>
