@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Safe Life Diagnostic Centre - 25+ years of trusted diagnostics in Mumbai. Blood Tests, X-Ray, Sonography, ECG, Home Collection.">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -16,18 +16,18 @@
   --muted:#64748b;
   --bg:#f6f9ff;
   --card:#ffffff;
-  --radius:16px;
+  --radius:18px;
   --shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family:Inter,system-ui,Arial,sans-serif;
+  font-family:Poppins,system-ui,Arial,sans-serif;
   color:var(--dark);
   background:#fff;
   line-height:1.6;
 }
 a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block;border-radius:12px}
+img{max-width:100%;display:block;border-radius:14px}
 
 .container{max-width:1200px;margin:auto;padding:0 20px}
 
@@ -37,14 +37,14 @@ header{
   background:#fff;border-bottom:1px solid #e5e7eb;
 }
 .nav{
-  display:flex;align-items:center;justify-content:space-between;height:70px;
+  display:flex;align-items:center;justify-content:space-between;height:72px;
 }
 .brand{display:flex;align-items:center;gap:10px;font-weight:800}
 .brand img{height:42px}
 nav a{margin:0 14px;font-weight:600;color:#334155}
 .nav-actions{display:flex;gap:10px}
 .btn{
-  padding:10px 16px;border-radius:10px;border:1px solid var(--blue);
+  padding:10px 16px;border-radius:12px;border:1px solid var(--blue);
   font-weight:700;cursor:pointer;transition:.2s;
 }
 .btn.primary{background:var(--blue);color:#fff}
@@ -54,28 +54,28 @@ nav a{margin:0 14px;font-weight:600;color:#334155}
 
 /* Hero */
 .hero{
-  padding:80px 0;
+  padding:90px 0;
   background:linear-gradient(180deg,#ffffff 0%, #f6f9ff 100%);
 }
 .hero-grid{
-  display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;
+  display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;align-items:center;
 }
-.hero h1{font-size:46px;line-height:1.1;margin-bottom:16px}
+.hero h1{font-size:48px;line-height:1.1;margin-bottom:16px}
 .hero p{color:var(--muted);margin-bottom:24px}
 
 /* Stats */
-.stats{padding:50px 0;background:#fff}
+.stats{padding:60px 0;background:#fff}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .stat{
-  background:var(--bg);padding:24px;border-radius:var(--radius);
+  background:var(--bg);padding:26px;border-radius:var(--radius);
   text-align:center;box-shadow:var(--shadow);
 }
-.stat h3{font-size:28px;color:var(--blue)}
+.stat h3{font-size:30px;color:var(--blue)}
 
 /* Sections */
 section{padding:80px 0}
 .section-title{text-align:center;margin-bottom:40px}
-.section-title h2{font-size:34px;margin-bottom:10px}
+.section-title h2{font-size:36px;margin-bottom:10px}
 .section-title p{color:var(--muted)}
 
 /* Cards */
@@ -85,13 +85,10 @@ section{padding:80px 0}
   background:var(--card);border-radius:var(--radius);
   padding:20px;box-shadow:var(--shadow);
 }
-.card h3{margin:10px 0}
+.card h3{margin:12px 0}
 
-/* Facility */
-.facility{
-  background:#0b1220;color:#fff;
-}
-.facility-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+/* Why Choose Us */
+.why{background:var(--bg)}
 
 /* Packages */
 .price{font-size:30px;font-weight:900;color:var(--blue)}
@@ -104,15 +101,6 @@ section{padding:80px 0}
 .testi{font-style:italic}
 .stars{color:#f59e0b}
 
-/* Form */
-form{display:grid;gap:12px}
-input,select,textarea{
-  padding:12px 14px;border-radius:10px;border:1px solid #cbd5e1;font-family:inherit;
-}
-
-/* Contact */
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-
 /* Footer */
 footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
 
@@ -122,14 +110,14 @@ footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
   background:#25D366;color:#fff;
   width:56px;height:56px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  font-size:28px;font-weight:900;box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  font-size:26px;font-weight:900;box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 /* Responsive */
 @media(max-width:900px){
-  .hero-grid,.facility-grid{grid-template-columns:1fr}
+  .hero-grid{grid-template-columns:1fr}
   .stats-grid{grid-template-columns:1fr 1fr}
-  .grid-3,.grid-4,.contact-grid{grid-template-columns:1fr}
+  .grid-3,.grid-4{grid-template-columns:1fr}
   .hero h1{font-size:36px}
   nav{display:none}
 }
@@ -169,7 +157,24 @@ footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
       </div>
     </div>
     <div>
-      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Diagnostic Lab">
+      <!-- REAL MEDICAL LAB IMAGE (NOT BEDROOM) -->
+      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Diagnostic Laboratory">
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us (IMPORTANT & EARLY) -->
+<section class="why">
+  <div class="container">
+    <div class="section-title">
+      <h2>Why Choose Safe Life?</h2>
+      <p>Trusted by thousands of patients for accurate and reliable diagnostics</p>
+    </div>
+    <div class="grid-4">
+      <div class="card"><h3>25+ Years Experience</h3><p>Decades of trusted service in diagnostics.</p></div>
+      <div class="card"><h3>Accurate Reports</h3><p>High precision tests with strict quality control.</p></div>
+      <div class="card"><h3>Modern Equipment</h3><p>Latest machines for reliable diagnosis.</p></div>
+      <div class="card"><h3>Affordable Pricing</h3><p>Quality healthcare at reasonable cost.</p></div>
     </div>
   </div>
 </section>
@@ -192,64 +197,12 @@ footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
       <p>Complete diagnostic solutions under one roof</p>
     </div>
     <div class="grid-3">
-      <div class="card"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800&auto=format&fit=crop"><h3>Blood Tests</h3><p>Accurate pathology testing with fast reports.</p></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800&auto=format&fit=crop"><h3>Blood Tests</h3><p>Accurate pathology testing.</p></div>
       <div class="card"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=800&auto=format&fit=crop"><h3>Digital X-Ray</h3><p>High quality digital imaging.</p></div>
       <div class="card"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=800&auto=format&fit=crop"><h3>Sonography</h3><p>Advanced ultrasound diagnostics.</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=800&auto=format&fit=crop"><h3>ECG</h3><p>Heart rhythm monitoring.</p></div>
       <div class="card"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop"><h3>2D Echo</h3><p>Detailed heart imaging.</p></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=800&auto=format&fit=crop"><h3>ECG</h3><p>Heart rhythm monitoring.</p></div>
       <div class="card"><img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a7a9?q=80&w=800&auto=format&fit=crop"><h3>Home Collection</h3><p>Sample collection at your doorstep.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- Why Choose Us -->
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2>Why Choose Safe Life?</h2>
-      <p>Reasons patients trust us for their diagnostics</p>
-    </div>
-    <div class="grid-4">
-      <div class="card"><h3>Experienced Team</h3><p>Skilled technicians and medical professionals.</p></div>
-      <div class="card"><h3>Modern Equipment</h3><p>Latest machines for accurate diagnosis.</p></div>
-      <div class="card"><h3>Fast Reports</h3><p>Quick turnaround without compromising accuracy.</p></div>
-      <div class="card"><h3>Affordable Prices</h3><p>Quality diagnostics at reasonable cost.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- Packages -->
-<section id="packages">
-  <div class="container">
-    <div class="section-title">
-      <h2>Health Checkup Packages</h2>
-      <p>Choose the right package for your health</p>
-    </div>
-    <div class="grid-4">
-      <div class="card package">
-        <h3>Basic Checkup</h3>
-        <div class="price">₹999</div>
-        <ul><li>CBC</li><li>Blood Sugar</li><li>Lipid Profile</li></ul>
-        <a class="btn primary" href="https://wa.me/919326602540" target="_blank">Book on WhatsApp</a>
-      </div>
-      <div class="card package featured">
-        <h3>Full Body Checkup</h3>
-        <div class="price">₹2,499</div>
-        <ul><li>All Basic Tests</li><li>ECG</li><li>Ultrasound</li><li>Thyroid</li></ul>
-        <a class="btn primary" href="https://wa.me/919326602540" target="_blank">Book on WhatsApp</a>
-      </div>
-      <div class="card package">
-        <h3>Diabetes Package</h3>
-        <div class="price">₹1,299</div>
-        <ul><li>Fasting Sugar</li><li>HbA1c</li><li>Urine</li></ul>
-        <a class="btn primary" href="https://wa.me/919326602540" target="_blank">Book on WhatsApp</a>
-      </div>
-      <div class="card package">
-        <h3>Heart Health</h3>
-        <div class="price">₹1,799</div>
-        <ul><li>ECG</li><li>2D Echo</li><li>Lipid Profile</li></ul>
-        <a class="btn primary" href="https://wa.me/919326602540" target="_blank">Book on WhatsApp</a>
-      </div>
     </div>
   </div>
 </section>
@@ -259,12 +212,12 @@ footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
   <div class="container">
     <div class="section-title">
       <h2>What Our Patients Say</h2>
-      <p>Trusted by thousands of patients</p>
+      <p>Real feedback from our patients</p>
     </div>
     <div class="grid-3">
-      <div class="card testi"><div class="stars">★★★★★</div><p>“Very professional staff and quick reports. Highly recommended.”</p><strong>- Rajesh Patil</strong></div>
-      <div class="card testi"><div class="stars">★★★★★</div><p>“Clean centre, modern machines, and polite staff. Great service.”</p><strong>- Sunita Sharma</strong></div>
-      <div class="card testi"><div class="stars">★★★★★</div><p>“Home sample collection was very convenient. Reports were accurate.”</p><strong>- Anil Verma</strong></div>
+      <div class="card testi"><div class="stars">★★★★★</div><p>“Very professional staff and quick reports.”</p><strong>- Rajesh Patil</strong></div>
+      <div class="card testi"><div class="stars">★★★★★</div><p>“Clean centre and modern machines. Trusted place.”</p><strong>- Sunita Sharma</strong></div>
+      <div class="card testi"><div class="stars">★★★★★</div><p>“Home sample collection was very convenient.”</p><strong>- Anil Verma</strong></div>
     </div>
   </div>
 </section>
@@ -276,13 +229,10 @@ footer{background:#0b1220;color:#cbd5e1;padding:40px 0;text-align:center}
       <h2>Contact Us</h2>
       <p>We are here to help you</p>
     </div>
-    <div class="contact-grid">
+    <div class="grid-3">
       <div class="card"><h3>Call Us</h3><p>9326602540</p></div>
       <div class="card"><h3>WhatsApp</h3><p><a href="https://wa.me/919326602540" target="_blank">Chat on WhatsApp</a></p></div>
       <div class="card"><h3>Address</h3><p>Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p></div>
-    </div>
-    <div style="margin-top:30px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);">
-      <iframe src="https://www.google.com/maps?q=Mumbai%20400017&output=embed" width="100%" height="350" style="border:0;"></iframe>
     </div>
   </div>
 </section>
