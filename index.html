@@ -4,84 +4,115 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Safe Life Diagnostic Centre — Mumbai</title>
-<meta name="description" content="Safe Life Diagnostic Centre — Accurate, Reliable, Affordable Diagnostics. Blood tests, X-Ray, Sonography, ECG, Home Collection. Call 9326602540." />
+<meta name="description" content="Safe Life Diagnostic Centre — 25+ years of trusted diagnostics in Mumbai. Blood tests, X-Ray, Sonography, ECG, Home Collection. Call 9326602540." />
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --blue:#0b5ed7;
-  --accent:#0ea5a4;
-  --muted:#556170;
-  --bg:#f7fbff;
+  --teal:#0ea5a4;
+  --green:#16a34a;
+  --dark:#0f172a;
+  --muted:#5b6b7a;
+  --bg:#f6f9ff;
   --card:#ffffff;
-  --radius:14px;
+  --radius:16px;
   --shadow:0 12px 30px rgba(12,24,40,0.08);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#0f172a;background:#fff;line-height:1.5}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--dark);background:#fff;line-height:1.6}
 a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block;border-radius:12px}
 .container{max-width:1180px;margin:0 auto;padding:0 20px}
 
 /* Header */
 header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eef2f6;z-index:60}
-.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:12px}
-.brand img{height:44px;width:auto;display:block}
+.brand img{height:44px;width:auto}
 .nav{display:flex;gap:18px;align-items:center}
 .nav a{font-weight:600;color:var(--muted)}
 .actions{display:flex;gap:10px;align-items:center}
-.btn{padding:10px 14px;border-radius:10px;font-weight:700;border:0;cursor:pointer}
+.btn{padding:10px 14px;border-radius:10px;font-weight:700;border:0;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-1px)}
 .btn-call{background:#fff;color:var(--blue);border:1px solid var(--blue)}
 .btn-wa{background:#25D366;color:#fff}
+.btn-primary{background:var(--blue);color:#fff}
 
 /* Hero */
-.hero{padding:72px 0;background:linear-gradient(180deg,#ffffff 0%,#f2f8ff 100%)}
+.hero{padding:76px 0;background:linear-gradient(180deg,#ffffff 0%,#f2f8ff 100%)}
 .hero-grid{display:grid;grid-template-columns:1fr 520px;gap:36px;align-items:center}
-.title{font-size:40px;line-height:1.06;font-weight:700;margin-bottom:12px}
+.title{font-size:40px;line-height:1.08;font-weight:700;margin-bottom:12px}
 .lead{color:var(--muted);margin-bottom:18px}
+.trust-badges{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 18px}
+.badge{background:#eaf2ff;color:var(--blue);padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px}
 
-/* Card (right column) */
-.hero-card{background:var(--card);padding:20px;border-radius:14px;box-shadow:var(--shadow)}
-.hero-card h4{margin-bottom:8px}
+/* Slider */
+.slider{position:relative;overflow:hidden;border-radius:14px;box-shadow:var(--shadow)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+.slide.active{opacity:1}
+.slider img{width:100%;height:320px;object-fit:cover}
 
-/* Why / Stats */
-.why{margin-top:26px}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.why-item{background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow);text-align:center}
-.why-item h3{color:var(--blue);margin-bottom:6px}
-
-/* services */
-.section{padding:64px 0}
+/* Sections */
+section{padding:64px 0}
 .sec-title{text-align:center;margin-bottom:36px}
+.sec-title h2{font-size:30px;margin-bottom:8px}
+.sec-title p{color:var(--muted)}
+
+/* Grids & Cards */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--card);border-radius:12px;padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
-.card img{border-radius:10px;height:180px;object-fit:cover}
-
-/* packages */
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.package{border-radius:12px;padding:18px;background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.card h3{margin:10px 0}
+
+/* Why */
+.why{background:var(--bg)}
+.why-item{background:var(--card);padding:18px;border-radius:14px;box-shadow:var(--shadow);text-align:center}
+.why-item .icon{font-size:26px;margin-bottom:6px;color:var(--blue)}
+
+/* How it works */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{background:var(--card);padding:18px;border-radius:14px;box-shadow:var(--shadow);text-align:center}
+.step .num{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:8px}
+
+/* Services */
+.service img{height:180px;object-fit:cover}
+
+/* Packages */
+.package{border-radius:14px;padding:18px;background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
 .package.featured{border:2px solid var(--blue);transform:scale(1.02)}
+.price{font-size:28px;font-weight:800;color:var(--blue)}
+.package ul{list-style:none;padding-left:0}
+.package li::before{content:"✔ ";color:var(--blue);font-weight:700}
 
-/* testimonials */
+/* Facility */
+.facility{background:linear-gradient(180deg,#f0f7ff,#fff)}
+.facility-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+/* Testimonials */
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.testi{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
+.testi{background:var(--card);padding:18px;border-radius:14px;box-shadow:var(--shadow)}
+.stars{color:#f59e0b}
 
-/* contact */
+/* Contact */
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 
-/* footer */
+/* Footer */
 footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 
-/* WA floating */
+/* Floating WA */
 .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 10px 30px rgba(0,0,0,0.25);z-index:80}
 
-/* small screens */
+/* Responsive */
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr}
-  .grid-3,.grid-4,.testi-grid,.contact-grid{grid-template-columns:1fr}
-  .title{font-size:30px}
+  .grid-3,.grid-4,.steps,.testi-grid,.contact-grid{grid-template-columns:1fr}
+  .facility-grid{grid-template-columns:1fr}
+  .title{font-size:32px}
   .brand img{height:38px}
+  .nav{display:none}
 }
 </style>
 </head>
@@ -90,7 +121,7 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 <header>
   <div class="container header-inner">
     <div class="brand">
-      <!-- KEEP logo.png in repo root. It will be displayed here -->
+      <!-- Keep logo.png in the same folder -->
       <img src="logo.png" alt="Safe Life Logo" onerror="this.style.display='none'">
       <div>
         <div style="font-weight:800">Safe Life Diagnostic Centre</div>
@@ -98,7 +129,7 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
       </div>
     </div>
 
-    <nav class="nav" aria-label="Primary">
+    <nav class="nav">
       <a href="#home">Home</a>
       <a href="#services">Services</a>
       <a href="#packages">Packages</a>
@@ -106,278 +137,225 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
     </nav>
 
     <div class="actions">
-      <a class="btn btn-call" href="tel:9326602540">Call 9326602540</a>
+      <a class="btn btn-call" href="tel:9326602540">Call</a>
       <a class="btn btn-wa" href="https://wa.me/919326602540?text=Hello%20Safe%20Life,%20I%20want%20to%20book%20a%20test." target="_blank">WhatsApp</a>
     </div>
   </div>
 </header>
 
-<main>
+<main id="home">
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="container hero-grid">
-      <div>
-        <div class="title">Safe Life Diagnostic Centre</div>
-        <div class="lead"><strong>Accurate • Reliable • Affordable Diagnostics</strong><br>25+ years of trusted diagnostics in Mumbai. Blood tests, X-Ray, Ultrasound, ECG, home collection available.</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="title">Safe Life Diagnostic Centre</div>
+      <div class="lead"><strong>Accurate • Reliable • Affordable Diagnostics</strong><br>Serving Mumbai families with trusted diagnostics for over <strong>25+ years</strong>.</div>
 
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px">
-          <a class="btn btn-wa" href="https://wa.me/919326602540?text=Hello%20Safe%20Life,%20I%20want%20to%20book%20a%20test." target="_blank">Book on WhatsApp</a>
-          <a class="btn btn-call" href="tel:9326602540">Call Now</a>
-        </div>
-
-        <!-- WHY CHOOSE US (prominent) -->
-        <div class="why" aria-hidden>
-          <div class="why-grid">
-            <div class="why-item">
-              <h3>25+ Years</h3>
-              <div style="color:var(--muted)">Decades of diagnostic experience</div>
-            </div>
-            <div class="why-item">
-              <h3>Accurate Reports</h3>
-              <div style="color:var(--muted)">Strict quality & QC in all tests</div>
-            </div>
-            <div class="why-item">
-              <h3>Home Collection</h3>
-              <div style="color:var(--muted)">Samples collected at your doorstep</div>
-            </div>
-          </div>
-        </div>
+      <div class="trust-badges">
+        <span class="badge">25+ Years Trusted</span>
+        <span class="badge">50,000+ Patients</span>
+        <span class="badge">Modern Equipment</span>
+        <span class="badge">Home Collection</span>
       </div>
 
-      <!-- Hero card: quick highlights -->
-      <aside class="hero-card" aria-label="Highlights">
-        <h4>Quick Highlights</h4>
-        <ul style="color:var(--muted);margin-left:16px">
-          <li>24/7 Support & emergency coordination</li>
-          <li>Modern digital X-Ray, Ultrasound & ECG</li>
-          <li>Fast turn-around on reports</li>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="https://wa.me/919326602540?text=Hello%20Safe%20Life,%20I%20want%20to%20book%20a%20test." target="_blank">Book on WhatsApp</a>
+        <a class="btn btn-call" href="tel:9326602540">Call Now</a>
+      </div>
+    </div>
+
+    <!-- Slider: MEDICAL IMAGES ONLY -->
+    <div class="slider" aria-label="Diagnostic images">
+      <div class="slide active"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Medical Laboratory"></div>
+      <div class="slide"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop" alt="Digital X-Ray"></div>
+      <div class="slide"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1200&auto=format&fit=crop" alt="Ultrasound Sonography"></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Why Choose Safe Life?</h2>
+      <p>Patients trust us for accuracy, care, and reliability</p>
+    </div>
+    <div class="grid-4">
+      <div class="why-item"><div class="icon">🏥</div><h3>25+ Years Experience</h3><p style="color:var(--muted)">Decades of local trust in diagnostics.</p></div>
+      <div class="why-item"><div class="icon">🧪</div><h3>Accurate Reports</h3><p style="color:var(--muted)">Strict quality control on every test.</p></div>
+      <div class="why-item"><div class="icon">⚙️</div><h3>Modern Equipment</h3><p style="color:var(--muted)">Digital X-Ray, Ultrasound, ECG & more.</p></div>
+      <div class="why-item"><div class="icon">🚑</div><h3>Home Collection</h3><p style="color:var(--muted)">Convenient, hygienic doorstep service.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="container">
+    <div class="sec-title">
+      <h2>How It Works</h2>
+      <p>Simple steps to get your tests done</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Contact Us</h3><p style="color:var(--muted)">Call or WhatsApp to book your test.</p></div>
+      <div class="step"><div class="num">2</div><h3>Visit or Home Collection</h3><p style="color:var(--muted)">Come to our centre or book home service.</p></div>
+      <div class="step"><div class="num">3</div><h3>Get Your Reports</h3><p style="color:var(--muted)">Fast, accurate reports you can trust.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Our Services</h2>
+      <p>Complete diagnostic solutions under one roof</p>
+    </div>
+    <div class="grid-3">
+      <div class="card service"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Blood Tests"><h3>Blood Tests (Pathology)</h3><p style="color:var(--muted)">Comprehensive lab testing with precision.</p></div>
+      <div class="card service"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop" alt="Digital X-Ray"><h3>Digital X-Ray</h3><p style="color:var(--muted)">Clear imaging with modern digital systems.</p></div>
+      <div class="card service"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1200&auto=format&fit=crop" alt="Sonography"><h3>Sonography / Ultrasound</h3><p style="color:var(--muted)">High-resolution ultrasound diagnostics.</p></div>
+      <div class="card service"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop" alt="2D Echo"><h3>2D Echo</h3><p style="color:var(--muted)">Detailed cardiac imaging.</p></div>
+      <div class="card service"><img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1200&auto=format&fit=crop" alt="ECG"><h3>ECG</h3><p style="color:var(--muted)">Accurate heart rhythm monitoring.</p></div>
+      <div class="card service"><img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a7a9?q=80&w=1200&auto=format&fit=crop" alt="Home Collection"><h3>Home Sample Collection</h3><p style="color:var(--muted)">Safe and convenient doorstep service.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AT HOME -->
+<section class="why">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Diagnostics at Home</h2>
+      <p>Comfortable, safe and timely home services</p>
+    </div>
+    <div class="grid-3">
+      <div class="why-item"><h3>Blood Test at Home</h3><p style="color:var(--muted)">Trained staff collect samples safely.</p></div>
+      <div class="why-item"><h3>X-Ray at Home</h3><p style="color:var(--muted)">Portable digital X-Ray service.</p></div>
+      <div class="why-item"><h3>ECG at Home</h3><p style="color:var(--muted)">Heart checkups at your convenience.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Health Checkup Packages</h2>
+      <p>Simple, affordable and doctor-recommended</p>
+    </div>
+    <div class="grid-4">
+      <div class="package">
+        <h3>Basic Health Checkup</h3>
+        <div class="price">₹999</div>
+        <ul>
+          <li>CBC</li><li>Blood Sugar</li><li>Lipid Profile</li>
         </ul>
-        <div style="margin-top:12px">
-          <a class="btn btn-wa" href="https://wa.me/919326602540?text=Hello%20Safe%20Life,%20I%20want%20home%20collection." target="_blank">Book Home Collection</a>
-        </div>
-      </aside>
-    </div>
-  </section>
+        <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Basic%20Health%20Checkup" target="_blank">Book on WhatsApp</a>
+      </div>
 
-  <!-- STATS -->
-  <section class="section stats" aria-hidden>
-    <div class="container">
-      <div class="grid-3" style="grid-template-columns:repeat(4,1fr);gap:14px">
-        <div class="card" style="text-align:center;background:var(--bg)"><strong style="font-size:22px;color:var(--blue)">25+</strong><div style="color:var(--muted)">Years Experience</div></div>
-        <div class="card" style="text-align:center;background:var(--bg)"><strong style="font-size:22px;color:var(--blue)">50,000+</strong><div style="color:var(--muted)">Patients Served</div></div>
-        <div class="card" style="text-align:center;background:var(--bg)"><strong style="font-size:22px;color:var(--blue)">24/7</strong><div style="color:var(--muted)">Support</div></div>
-        <div class="card" style="text-align:center;background:var(--bg)"><strong style="font-size:22px;color:var(--blue)">100%</strong><div style="color:var(--muted)">Quality Checks</div></div>
+      <div class="package featured">
+        <h3>Full Body Checkup <small style="color:var(--muted)">(Most Popular)</small></h3>
+        <div class="price">₹2,499</div>
+        <ul>
+          <li>All Basic Tests</li><li>ECG</li><li>Chest X-Ray</li><li>Ultrasound</li>
+        </ul>
+        <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Full%20Body%20Checkup" target="_blank">Book on WhatsApp</a>
+      </div>
+
+      <div class="package">
+        <h3>Diabetes Package</h3>
+        <div class="price">₹1,299</div>
+        <ul>
+          <li>Fasting Sugar</li><li>HbA1c</li><li>Urine Analysis</li>
+        </ul>
+        <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Diabetes%20Package" target="_blank">Book on WhatsApp</a>
+      </div>
+
+      <div class="package">
+        <h3>Heart Health Package</h3>
+        <div class="price">₹1,799</div>
+        <ul>
+          <li>ECG</li><li>2D Echo</li><li>Lipid Profile</li>
+        </ul>
+        <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Heart%20Health%20Package" target="_blank">Book on WhatsApp</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SERVICES -->
-  <section id="services" class="section">
-    <div class="container">
-      <div class="sec-title">
-        <h2 style="font-size:28px">Our Services</h2>
-        <p style="color:var(--muted)">Advanced diagnostics and compassionate care</p>
-      </div>
-
-      <div class="grid-3" aria-label="services">
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Blood Tests">
-          <h3>Blood Tests (Pathology)</h3>
-          <p style="color:var(--muted)">Complete blood testing panels with accurate reporting.</p>
-        </div>
-
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop" alt="Digital X-Ray">
-          <h3>Digital X-Ray</h3>
-          <p style="color:var(--muted)">Digital radiography for clear & safe imaging.</p>
-        </div>
-
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1200&auto=format&fit=crop" alt="Sonography">
-          <h3>Sonography / Ultrasound</h3>
-          <p style="color:var(--muted)">High-resolution ultrasound imaging.</p>
-        </div>
-
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop" alt="2D Echo">
-          <h3>2D Echo</h3>
-          <p style="color:var(--muted)">Detailed echocardiography and cardiac evaluation.</p>
-        </div>
-
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1200&auto=format&fit=crop" alt="ECG">
-          <h3>ECG</h3>
-          <p style="color:var(--muted)">Accurate ECG recordings and expert interpretation.</p>
-        </div>
-
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a7a9?q=80&w=1200&auto=format&fit=crop" alt="Home Collection">
-          <h3>Home Sample Collection</h3>
-          <p style="color:var(--muted)">Hygienic sample collection at your doorstep.</p>
-        </div>
-      </div>
+<!-- FACILITY -->
+<section class="facility">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Our Facility & Equipment</h2>
+      <p>Clean, modern and quality-controlled laboratory</p>
     </div>
-  </section>
-
-  <!-- HOME SERVICES HIGHLIGHT -->
-  <section class="section" aria-hidden>
-    <div class="container">
-      <div class="sec-title">
-        <h2 style="font-size:26px">Diagnostics At Home</h2>
-        <p style="color:var(--muted)">Comfortable, safe, and timely home services</p>
-      </div>
-      <div class="why-grid" style="grid-template-columns:repeat(3,1fr);">
-        <div class="why-item"><h3>Blood Test at Home</h3><div style="color:var(--muted)">Sample collected by trained staff.</div></div>
-        <div class="why-item"><h3>X-Ray at Home</h3><div style="color:var(--muted)">Portable digital X-Ray service.</div></div>
-        <div class="why-item"><h3>ECG at Home</h3><div style="color:var(--muted)">Heart checkups in the comfort of home.</div></div>
-      </div>
+    <div class="facility-grid">
+      <img src="https://images.unsplash.com/photo-1581091870627-3a5c64c28d54?q=80&w=1200&auto=format&fit=crop" alt="Laboratory facility">
+      <img src="https://images.unsplash.com/photo-1582719478181-2a63a17c3f2b?q=80&w=1200&auto=format&fit=crop" alt="Medical equipment">
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PACKAGES -->
-  <section id="packages" class="section">
-    <div class="container">
-      <div class="sec-title">
-        <h2 style="font-size:28px">Health Checkup Packages</h2>
-        <p style="color:var(--muted)">Simple, affordable, and doctor-recommended packages</p>
-      </div>
-
-      <div class="grid-4" style="margin-bottom:18px">
-        <div class="package">
-          <h3>Basic Health Checkup</h3>
-          <div class="price">₹999</div>
-          <ul style="color:var(--muted);margin-top:8px">
-            <li>CBC</li><li>Blood Sugar</li><li>Lipid Profile</li>
-          </ul>
-          <div><a class="btn btn-wa" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Basic%20Health%20Checkup" target="_blank">Book on WhatsApp</a></div>
-        </div>
-
-        <div class="package featured">
-          <h3>Full Body Checkup <span style="font-size:12px;color:var(--muted)">(Most popular)</span></h3>
-          <div class="price">₹2,499</div>
-          <ul style="color:var(--muted);margin-top:8px">
-            <li>All Basic Tests</li><li>ECG</li><li>Chest X-Ray</li><li>Ultrasound</li>
-          </ul>
-          <div><a class="btn btn-wa" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Full%20Body%20Checkup" target="_blank">Book on WhatsApp</a></div>
-        </div>
-
-        <div class="package">
-          <h3>Diabetes Package</h3>
-          <div class="price">₹1,299</div>
-          <ul style="color:var(--muted);margin-top:8px">
-            <li>Fasting Sugar</li><li>HbA1c</li><li>Urine Analysis</li>
-          </ul>
-          <div><a class="btn btn-wa" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Diabetes%20Package" target="_blank">Book on WhatsApp</a></div>
-        </div>
-
-        <div class="package">
-          <h3>Heart Health Package</h3>
-          <div class="price">₹1,799</div>
-          <ul style="color:var(--muted);margin-top:8px">
-            <li>ECG</li><li>2D Echo</li><li>Lipid Profile</li>
-          </ul>
-          <div><a class="btn btn-wa" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Heart%20Health%20Package" target="_blank">Book on WhatsApp</a></div>
-        </div>
-      </div>
+<!-- TESTIMONIALS -->
+<section>
+  <div class="container">
+    <div class="sec-title">
+      <h2>What Our Patients Say</h2>
+      <p>Real feedback from our patients</p>
     </div>
-  </section>
-
-  <!-- FACILITY BANNER -->
-  <section style="padding:26px 0;background:linear-gradient(180deg,#f0f7ff,#fff)">
-    <div class="container" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
-      <div style="flex:1;min-width:280px">
-        <h3 style="margin-bottom:8px">State-of-the-art Facility</h3>
-        <p style="color:var(--muted)">Our laboratory uses calibrated equipment and follows strict quality protocols to ensure reliable results.</p>
-      </div>
-      <div style="flex:1;min-width:280px">
-        <img src="https://images.unsplash.com/photo-1581091870627-3a5c64c28d54?q=80&w=1200&auto=format&fit=crop" alt="Laboratory facility" style="border-radius:12px;box-shadow:var(--shadow)">
-      </div>
+    <div class="testi-grid">
+      <div class="testi"><div class="stars">★★★★★</div><p style="color:var(--muted)">“Very professional staff and quick reports. Highly recommended.”</p><strong>- Rajesh P., Sion</strong></div>
+      <div class="testi"><div class="stars">★★★★★</div><p style="color:var(--muted)">“Clean centre, modern machines, and polite staff. Great service.”</p><strong>- Sunita S., Dharavi</strong></div>
+      <div class="testi"><div class="stars">★★★★★</div><p style="color:var(--muted)">“Home sample collection was very convenient. Reports were accurate.”</p><strong>- Anil V., Mahim</strong></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- TESTIMONIALS -->
-  <section style="padding:56px 0">
-    <div class="container">
-      <div class="sec-title">
-        <h2 style="font-size:28px">Patient Testimonials</h2>
-        <p style="color:var(--muted)">Real reviews from our patients</p>
-      </div>
-      <div class="testi-grid">
-        <div class="testi"><div style="color:#f59e0b">★★★★★</div><p style="color:var(--muted)">"Accurate and fast reports — staff were professional and kind."</p><strong>- Rajesh P.</strong></div>
-        <div class="testi"><div style="color:#f59e0b">★★★★★</div><p style="color:var(--muted)">"Excellent home collection service. Highly recommended."</p><strong>- Sunita S.</strong></div>
-        <div class="testi"><div style="color:#f59e0b">★★★★★</div><p style="color:var(--muted)">"Modern equipment and clear explanations. Trusted centre."</p><strong>- Anil V.</strong></div>
-      </div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Contact Us</h2>
+      <p>We’re here to help you</p>
     </div>
-  </section>
-
-  <!-- BOOKING (no email — WhatsApp only) -->
-  <section id="book" style="padding:48px 0;background:#fff">
-    <div class="container" style="max-width:760px;margin:0 auto">
-      <div class="sec-title">
-        <h2 style="font-size:26px">Book Your Test</h2>
-        <p style="color:var(--muted)">We will contact you shortly. Booking via WhatsApp is fastest.</p>
-      </div>
-
-      <div class="card" style="padding:18px">
-        <!-- Simple booking links: user taps WhatsApp with prefilled message -->
-        <label style="display:block;margin-bottom:8px;color:var(--muted)">Choose package / test</label>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <a class="btn btn-wa" href="https://wa.me/919326602540?text=I%20want%20to%20book%20a%20Basic%20Health%20Checkup" target="_blank">Book Basic</a>
-          <a class="btn btn-wa" href="https://wa.me/919326602540?text=I%20want%20to%20book%20a%20Full%20Body%20Checkup" target="_blank">Book Full Body</a>
-          <a class="btn btn-wa" href="https://wa.me/919326602540?text=I%20want%20to%20book%20a%20Diabetes%20Package" target="_blank">Book Diabetes</a>
-          <a class="btn btn-wa" href="https://wa.me/919326602540?text=I%20want%20to%20book%20a%20Heart%20Health%20Package" target="_blank">Book Heart</a>
-        </div>
-      </div>
+    <div class="contact-grid">
+      <div class="card"><h3>Call Us</h3><p>9326602540</p><a class="btn btn-call" href="tel:9326602540">Call Now</a></div>
+      <div class="card"><h3>WhatsApp</h3><p><a href="https://wa.me/919326602540" target="_blank">Chat on WhatsApp</a></p><a class="btn btn-wa" href="https://wa.me/919326602540" target="_blank">Open WhatsApp</a></div>
+      <div class="card"><h3>Address</h3><p>Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p></div>
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="sec-title">
-        <h2 style="font-size:28px">Contact</h2>
-        <p style="color:var(--muted)">Reach us for appointments or inquiries</p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="card">
-          <h3>Phone</h3>
-          <p>9326602540</p>
-          <a class="btn btn-call" href="tel:9326602540">Call Now</a>
-        </div>
-
-        <div class="card">
-          <h3>WhatsApp</h3>
-          <p><a href="https://wa.me/919326602540" target="_blank">Chat on WhatsApp</a></p>
-          <a class="btn btn-wa" href="https://wa.me/919326602540" target="_blank">Open WhatsApp</a>
-        </div>
-
-        <div class="card">
-          <h3>Address</h3>
-          <p>Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p>
-        </div>
-      </div>
-
-      <div style="margin-top:20px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)">
-        <iframe width="100%" height="360" frameborder="0" style="border:0"
-          src="https://www.google.com/maps?q=Shop%20No%202%20and%203%20Cross%20Road%20Near%20Dr%20Ambedkar%20School%20Mumbai%20400017&output=embed" allowfullscreen>
-        </iframe>
-      </div>
+    <div style="margin-top:20px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)">
+      <iframe width="100%" height="360" frameborder="0" style="border:0"
+        src="https://www.google.com/maps?q=Shop%20No%202%20and%203%20Cross%20Road%20Near%20Dr%20Ambedkar%20School%20Mumbai%20400017&output=embed" allowfullscreen>
+      </iframe>
     </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
 <footer>
   <div class="container">
-    <div style="padding:6px 0 2px;font-weight:700">Safe Life Diagnostic Centre</div>
+    <div style="font-weight:700">Safe Life Diagnostic Centre</div>
     <div style="color:#93a6bf;font-size:13px;margin-top:6px">© 2026 Safe Life Diagnostic Centre. All Rights Reserved.</div>
   </div>
 </footer>
 
 <!-- Floating WhatsApp -->
 <a class="wa-float" href="https://wa.me/919326602540?text=Hello%20Safe%20Life,%20I%20want%20to%20book%20a%20test." target="_blank" aria-label="WhatsApp">💬</a>
+
+<script>
+  // Simple hero slider
+  const slides = document.querySelectorAll('.slide');
+  let idx = 0;
+  setInterval(() => {
+    slides[idx].classList.remove('active');
+    idx = (idx + 1) % slides.length;
+    slides[idx].classList.add('active');
+  }, 3500);
+</script>
 
 </body>
 </html>
