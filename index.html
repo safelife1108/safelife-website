@@ -1,401 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Safe Life Diagnostic Centre — Mumbai</title>
-<meta name="description" content="Safe Life Diagnostic Centre — 26+ years of trusted diagnostics in Mumbai. Blood Tests, Digital X-Ray, Ultrasound, ECG, 2D Echo, Home Sample Collection, Portable X-Ray, Portable ECG. Call 9326602540 or email safelifedc@gmail.com"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Safe Life Diagnostic Centre</title>
+  <meta name="description" content="Safe Life Diagnostic Centre – Accurate, Reliable & Affordable Diagnostics. Serving for 26+ years." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#1e88e5;     /* medical blue */
+      --secondary:#e53935;   /* red accent */
+      --accent:#2e7d32;      /* green */
+      --bg:#f7fafc;
+      --text:#0f172a;
+      --muted:#64748b;
+      --card:#ffffff;
+      --radius:14px;
+      --shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1200px;margin:auto;padding:0 20px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:10px;font-weight:600;border:0;cursor:pointer}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-secondary{background:#25D366;color:#fff}
+    .btn-outline{background:#fff;border:1px solid #e5e7eb}
+    .badge{display:inline-block;padding:6px 12px;border-radius:999px;font-weight:700}
+    .badge-red{background:var(--secondary);color:#fff}
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    /* Loader */
+    #loader{
+      position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:9999;
+      flex-direction:column;gap:12px
+    }
+    #loader img{width:120px}
+    #loader span{color:var(--muted);font-weight:600}
 
-<style>
-:root{
-  --blue:#1f7ae0;
-  --teal:#1fb6c9;
-  --green:#2bb673;
-  --red:#e53935;
-  --ink:#0f172a;
-  --muted:#5b6b7f;
-  --bg:#f4f8fb;
-  --card:#ffffff;
-  --radius:16px;
-  --shadow:0 18px 40px rgba(31,122,224,.12);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.7}
-h1,h2,h3,h4{font-family:Poppins,Inter,sans-serif}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block;border-radius:12px}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e5e7eb}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .nav-left{display:flex;align-items:center;gap:12px}
+    .nav-left img{height:40px}
+    .nav-links{display:flex;gap:20px}
+    .nav-links a{font-weight:600;color:#0f172a}
+    .nav-actions{display:flex;gap:10px}
 
-/* Preloader */
-#preloader{
-  position:fixed; inset:0; background:#fff; z-index:9999;
-  display:flex; align-items:center; justify-content:center; flex-direction:column;
-}
-#preloader img{height:90px; margin-bottom:20px}
-.loader-bar{width:220px; height:6px; background:#e5eef6; border-radius:999px; overflow:hidden}
-.loader-bar span{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--blue),var(--teal)); animation:load 1.2s forwards}
-@keyframes load{to{width:100%}}
+    /* Hero */
+    .hero{padding:60px 0}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+    .hero h1{font-size:44px;line-height:1.1;margin:0 0 10px}
+    .hero p{color:var(--muted);font-size:18px}
+    .hero-card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+    .hero-img{height:360px;object-fit:cover;width:100%}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
 
-/* Header */
-header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e6ecf3;z-index:100}
-.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{height:44px}
-.brand .title{font-weight:800;color:var(--blue)}
-.nav{display:flex;gap:20px;flex-wrap:wrap}
-.nav a{font-weight:700;color:#425469}
-.actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:10px;border:0;font-weight:700;cursor:pointer;min-height:44px}
-.btn-primary{background:var(--blue);color:#fff}
-.btn-outline{background:#fff;color:var(--blue);border:1px solid var(--blue)}
-.btn-accent{background:var(--green);color:#05343b}
+    /* Sections */
+    section{padding:70px 0}
+    .section-title{font-size:32px;margin:0 0 10px}
+    .section-sub{color:var(--muted);max-width:700px}
 
-/* Hero */
-.hero{background:linear-gradient(180deg,#ffffff 0%,#eef6fc 100%);padding:100px 0 70px}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.hero h1{font-size:clamp(36px,5vw,54px);font-weight:800;margin-bottom:12px;color:#134e8a}
-.lead{color:var(--muted);margin-bottom:18px;font-size:18px}
-.trust-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+    /* Services grid */
+    .grid{display:grid;gap:20px}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .card-body{padding:16px}
+    .card h3{margin:6px 0 6px;font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .card img{height:160px;object-fit:cover;width:100%}
 
-/* Red Trust Seal */
-.trust-seal{
-  display:flex;align-items:center;gap:12px;
-  background:#fff;
-  border:3px solid var(--red);
-  color:#b71c1c;
-  padding:14px 20px;border-radius:14px;
-  box-shadow:var(--shadow);
-}
-.trust-seal .num{font-size:40px;font-weight:900;line-height:1;color:var(--red)}
-.trust-seal .txt{font-weight:800;font-size:14px;color:#b71c1c}
+    /* Why */
+    .why{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .why-item{background:#fff;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+    .why-item h4{margin:0 0 6px}
 
-.pill{background:#e8f4fd;color:#0a4b6a;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px}
-.btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    /* Testimonials */
+    .testi{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .quote{font-size:14px;color:#0f172a}
+    .author{margin-top:10px;color:var(--muted);font-size:13px}
 
-/* Sections */
-section{padding:80px 0}
-.section-alt{background:var(--bg)}
-.sec-title{text-align:center;margin-bottom:42px}
-.sec-title h2{font-size:34px;font-weight:800;color:#134e8a}
-.sec-title p{color:var(--muted);margin-top:10px}
+    /* Booking */
+    .booking{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .form-group{display:flex;flex-direction:column;gap:6px}
+    input,select,textarea{padding:12px;border-radius:10px;border:1px solid #e5e7eb;font-family:inherit}
+    textarea{min-height:100px}
 
-/* Grids & Cards */
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.card{background:var(--card);padding:26px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.25s}
-.card:hover{transform:translateY(-6px)}
-.card h3{margin:10px 0 8px;color:#134e8a}
+    /* Footer */
+    footer{background:#0b1220;color:#cbd5e1;padding:50px 0}
+    footer h4{color:#fff;margin-top:0}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px}
+    .footer-bottom{border-top:1px solid #1f2937;margin-top:24px;padding-top:16px;font-size:13px;color:#94a3b8}
 
-/* Services */
-.service img{
-  height:220px;
-  width:100%;
-  object-fit:cover;
-  border-radius:12px;
-}
-
-/* Packages */
-.price{font-size:32px;font-weight:900;color:var(--blue);margin:10px 0}
-.package ul{list-style:none;padding-left:0}
-.package li::before{content:"✔ ";color:var(--green);font-weight:900}
-.card .btn{width:100%;margin-top:14px}
-
-/* Testimonials */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.stars{color:#f59e0b;margin-bottom:6px}
-
-/* Booking / Contact */
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-iframe{width:100%;border:0;border-radius:14px}
-
-/* Footer */
-footer{background:#1f7ae0;color:#e9f3fb;padding:50px 0}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
-footer h4{font-size:18px;margin-bottom:10px;color:#fff}
-footer p, footer a{color:#e9f3fb;font-size:14px}
-.footer-bottom{text-align:center;margin-top:30px;font-size:13px;color:#d5e9f7}
-
-/* Responsive */
-@media(max-width:980px){
-  .hero-grid,.grid-3,.grid-4,.testi-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}
-  .btn{width:100%}
-}
-</style>
+    /* Responsive */
+    @media(max-width:900px){
+      .hero-grid,.booking{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+      .grid-3,.testi,.why{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .hero h1{font-size:34px}
+    }
+  </style>
 </head>
 <body>
 
-<!-- Preloader -->
-<div id="preloader">
-  <img src="logo.png" alt="Safe Life Logo" onerror="this.style.display='none'">
-  <div class="loader-bar"><span></span></div>
+<!-- Loader -->
+<div id="loader">
+  <img src="logo.png" alt="Safe Life Logo">
+  <span>Loading Safe Life...</span>
 </div>
 
 <header>
-  <div class="container header-inner">
-    <div class="brand">
-      <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
-      <div class="title">Safe Life Diagnostic Centre</div>
+  <div class="container nav">
+    <div class="nav-left">
+      <img src="logo.png" alt="Safe Life">
+      <strong>Safe Life Diagnostic Centre</strong>
+      <span class="badge badge-red">26+ Years</span>
     </div>
-    <nav class="nav">
+    <nav class="nav-links">
       <a href="#home">Home</a>
-      <a href="#why">Why Us</a>
       <a href="#services">Services</a>
-      <a href="#packages">Packages</a>
-      <a href="#booking">Booking</a>
+      <a href="#why">Why Us</a>
+      <a href="#booking">Book</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="actions">
+    <div class="nav-actions">
       <a class="btn btn-outline" href="tel:9326602540">Call</a>
-      <a class="btn btn-accent" href="https://wa.me/919326602540" target="_blank">WhatsApp</a>
-      <a class="btn btn-primary" href="mailto:safelifedc@gmail.com">Email</a>
+      <a class="btn btn-secondary" href="https://wa.me/919326602540" target="_blank">WhatsApp</a>
     </div>
   </div>
 </header>
 
 <main id="home">
 
-<!-- Hero -->
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1>Trusted Diagnostics for Mumbai Families</h1>
-      <p class="lead">Safe Life Diagnostic Centre provides accurate, reliable and affordable diagnostic services with modern equipment and experienced staff.</p>
-      <div class="trust-row">
-        <div class="trust-seal">
-          <div class="num">26+</div>
-          <div class="txt">Years of Trusted Diagnostics</div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge badge-red">Serving Since 1999</span>
+        <h1>Accurate • Reliable • Affordable Diagnostics</h1>
+        <p>Safe Life Diagnostic Centre is your trusted partner for Blood Tests, Digital X-Ray, Ultrasound, ECG, 2D Echo and Home Services. Serving the community with excellence for over <strong>26 years</strong>.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#booking">Book a Test</a>
+          <a class="btn btn-secondary" href="https://wa.me/919326602540" target="_blank">WhatsApp</a>
         </div>
-        <span class="pill">Modern Equipment</span>
-        <span class="pill">Accurate Reports</span>
-        <span class="pill">Fast Turnaround</span>
-        <span class="pill">Home Collection</span>
       </div>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book on WhatsApp</a>
-        <a class="btn btn-outline" href="tel:9326602540">Call Now</a>
-        <a class="btn btn-accent" href="mailto:safelifedc@gmail.com">Email Us</a>
+      <div class="hero-card">
+        <img class="hero-img" src="pathology.jpeg" alt="Diagnostic Lab">
       </div>
     </div>
-    <div>
-      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1400&auto=format&fit=crop" alt="Medical laboratory">
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Why Us -->
-<section class="section-alt" id="why">
-  <div class="container">
-    <div class="sec-title">
-      <h2>Why Choose Safe Life?</h2>
-      <p>Professional care backed by experience and technology</p>
-    </div>
-    <div class="grid-3">
-      <div class="card">
-        <div class="trust-seal" style="margin-bottom:12px">
-          <div class="num">26+</div>
-          <div class="txt">Years Experience</div>
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-sub">Comprehensive diagnostic services with modern equipment and experienced staff.</p>
+
+      <div class="grid grid-4" style="margin-top:24px">
+        <div class="card">
+          <img src="pathology.jpeg" alt="Pathology">
+          <div class="card-body"><h3>Blood & Pathology</h3><p>Accurate blood tests with fast reports.</p></div>
         </div>
-        <p>Serving the community with dependable diagnostic services.</p>
+        <div class="card">
+          <img src="xray.jpeg" alt="X-Ray">
+          <div class="card-body"><h3>Digital X-Ray</h3><p>High quality digital imaging.</p></div>
+        </div>
+        <div class="card">
+          <img src="ultrasound.jpeg" alt="Ultrasound">
+          <div class="card-body"><h3>Ultrasound / Sonography</h3><p>Modern ultrasound diagnostics.</p></div>
+        </div>
+        <div class="card">
+          <img src="ecg.jpeg" alt="ECG">
+          <div class="card-body"><h3>ECG</h3><p>Heart health monitoring.</p></div>
+        </div>
+        <div class="card">
+          <img src="echo.jpeg" alt="2D Echo">
+          <div class="card-body"><h3>2D Echo</h3><p>Detailed cardiac imaging.</p></div>
+        </div>
+        <div class="card">
+          <img src="home-sample.jpeg" alt="Home Sample">
+          <div class="card-body"><h3>Home Sample Collection</h3><p>Convenient home services.</p></div>
+        </div>
+        <div class="card">
+          <img src="portable-xray.jpeg" alt="Portable X-Ray">
+          <div class="card-body"><h3>Portable X-Ray</h3><p>X-Ray at your home.</p></div>
+        </div>
+        <div class="card">
+          <img src="portable-ecg.jpeg" alt="Portable ECG">
+          <div class="card-body"><h3>Portable ECG</h3><p>ECG testing at home.</p></div>
+        </div>
       </div>
-      <div class="card"><h3>Accurate & Reliable Reports</h3><p>Strict quality control and standardized processes.</p></div>
-      <div class="card"><h3>Modern Equipment</h3><p>Digital X-Ray, Ultrasound, ECG and more.</p></div>
-      <div class="card"><h3>Experienced Staff</h3><p>Trained professionals following hygiene protocols.</p></div>
-      <div class="card"><h3>Affordable Pricing</h3><p>Transparent and patient-friendly charges.</p></div>
-      <div class="card"><h3>Fast Turnaround Time</h3><p>Quick processing and timely reports.</p></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Services -->
-<section id="services">
-  <div class="container">
-    <div class="sec-title">
-      <h2>Our Services</h2>
-      <p>Complete diagnostic solutions under one roof</p>
-    </div>
-    <div class="grid-3">
-      <div class="card service">
-        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1400&auto=format&fit=crop" alt="Blood and Pathology Laboratory">
-        <h3>Blood & Pathology Tests</h3>
-        <p>Comprehensive laboratory testing with quality checks.</p>
-      </div>
-      <div class="card service">
-        <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1400&auto=format&fit=crop" alt="Digital X-Ray Machine">
-        <h3>Digital X-Ray</h3>
-        <p>High-resolution digital imaging for accurate diagnosis.</p>
-      </div>
-      <div class="card service">
-        <img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1400&auto=format&fit=crop" alt="Ultrasound Sonography Machine">
-        <h3>Ultrasound / Sonography</h3>
-        <p>Advanced ultrasound imaging for detailed evaluation.</p>
-      </div>
-      <div class="card service">
-        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1400&auto=format&fit=crop" alt="ECG Test Machine">
-        <h3>ECG</h3>
-        <p>Heart rhythm monitoring and screening.</p>
-      </div>
-      <div class="card service">
-        <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1400&auto=format&fit=crop" alt="2D Echo Cardiac Imaging">
-        <h3>2D Echo</h3>
-        <p>Detailed cardiac imaging for heart assessment.</p>
-      </div>
-      <div class="card service">
-        <img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a7a9?q=80&w=1400&auto=format&fit=crop" alt="Home Sample Collection Service">
-        <h3>Home Sample Collection</h3>
-        <p>Safe and convenient doorstep sample collection.</p>
-      </div>
-      <div class="card service">
-        <img src="https://images.unsplash.com/photo-1581594549595-35f6edc7b762?q=80&w=1400&auto=format&fit=crop" alt="Portable X-Ray at Home">
-        <h3>Portable X-Ray (Home Service)</h3>
-        <p>On-site digital X-Ray at home for patients who cannot travel.</p>
-      </div>
-      <div class="card service">
-        <img src="https://images.unsplash.com/photo-1581093588401-22d7f4c6d4c2?q=80&w=1400&auto=format&fit=crop" alt="Portable ECG Test at Home">
-        <h3>Portable ECG (Home Service)</h3>
-        <p>ECG testing at home with quick and reliable results.</p>
+  <!-- Why -->
+  <section id="why">
+    <div class="container">
+      <h2 class="section-title">Why Choose Safe Life?</h2>
+      <div class="why" style="margin-top:20px">
+        <div class="why-item"><h4>26+ Years Experience</h4><p class="muted">Trusted since 1999.</p></div>
+        <div class="why-item"><h4>Modern Equipment</h4><p class="muted">Accurate and reliable results.</p></div>
+        <div class="why-item"><h4>Fast Reports</h4><p class="muted">Quick turnaround time.</p></div>
+        <div class="why-item"><h4>Affordable Pricing</h4><p class="muted">Quality diagnostics for all.</p></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Packages -->
-<section id="packages" class="section-alt">
-  <div class="container">
-    <div class="sec-title">
-      <h2>Health Checkup Packages</h2>
-      <p>Affordable preventive care packages</p>
-    </div>
-    <div class="grid-4">
-      <div class="card package">
-        <h3>Basic Health Check</h3>
-        <div class="price">₹999</div>
-        <ul><li>CBC</li><li>Blood Sugar</li><li>Lipid Profile</li></ul>
-        <a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book Now</a>
-      </div>
-      <div class="card package">
-        <h3>Full Body Checkup</h3>
-        <div class="price">₹2,499</div>
-        <ul><li>ECG</li><li>X-Ray</li><li>Ultrasound</li></ul>
-        <a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book Now</a>
-      </div>
-      <div class="card package">
-        <h3>Diabetes Package</h3>
-        <div class="price">₹1,299</div>
-        <ul><li>Fasting Sugar</li><li>HbA1c</li><li>Urine Test</li></ul>
-        <a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book Now</a>
-      </div>
-      <div class="card package">
-        <h3>Heart Health Package</h3>
-        <div class="price">₹1,799</div>
-        <ul><li>ECG</li><li>2D Echo</li><li>Lipid Profile</li></ul>
-        <a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book Now</a>
+  <!-- Testimonials -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">What Our Patients Say</h2>
+      <div class="testi" style="margin-top:20px">
+        <div class="card card-body"><p class="quote">“Very professional staff and accurate reports. Been visiting for years.”</p><div class="author">— Rajesh Kumar, Mumbai</div></div>
+        <div class="card card-body"><p class="quote">“Clean centre, modern machines and quick service. Highly recommended.”</p><div class="author">— Priya Sharma</div></div>
+        <div class="card card-body"><p class="quote">“Used their home ECG service for my father. Very convenient and fast.”</p><div class="author">— Amit Patel</div></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Booking -->
-<section id="booking">
-  <div class="container">
-    <div class="sec-title">
-      <h2>Book Your Test</h2>
-      <p>Quick and easy booking via Call, WhatsApp or Email</p>
-    </div>
-    <div class="contact-grid">
-      <div class="card">
-        <h3>Call to Book</h3>
-        <p>Speak directly with our staff and book your test.</p>
-        <a class="btn btn-primary" href="tel:9326602540">Call Now</a>
+  <!-- Booking -->
+  <section id="booking">
+    <div class="container">
+      <h2 class="section-title">Book a Test</h2>
+      <div class="booking" style="margin-top:20px">
+        <div class="card card-body">
+          <form onsubmit="sendWhatsApp(event)">
+            <div class="form-group"><label>Name</label><input id="name" required></div>
+            <div class="form-group"><label>Phone</label><input id="phone" required></div>
+            <div class="form-group"><label>Test / Service</label>
+              <select id="service">
+                <option>Blood Test</option><option>Digital X-Ray</option><option>Ultrasound</option>
+                <option>ECG</option><option>2D Echo</option><option>Home Sample</option>
+                <option>Portable X-Ray</option><option>Portable ECG</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Message</label><textarea id="message"></textarea></div>
+            <button class="btn btn-secondary" type="submit">Book via WhatsApp</button>
+          </form>
+        </div>
+        <div class="card card-body">
+          <h3>Contact Details</h3>
+          <p><strong>Phone / WhatsApp:</strong> 9326602540</p>
+          <p><strong>Email:</strong> safelifedc@gmail.com</p>
+          <p><strong>Address:</strong> Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Book on WhatsApp</h3>
-        <p>Send us your test requirement and preferred time.</p>
-        <a class="btn btn-accent" href="https://wa.me/919326602540" target="_blank">Book on WhatsApp</a>
-      </div>
-      <div class="card">
-        <h3>Email Booking</h3>
-        <p>Send your details and we will confirm your appointment.</p>
-        <a class="btn btn-outline" href="mailto:safelifedc@gmail.com">Email Us</a>
-      </div>
     </div>
-  </div>
-</section>
-
-<!-- Testimonials -->
-<section>
-  <div class="container">
-    <div class="sec-title">
-      <h2>What Our Patients Say</h2>
-      <p>Trusted by families across Mumbai</p>
-    </div>
-    <div class="testi-grid">
-      <div class="card"><div class="stars">★★★★★</div><p>“Professional staff, clean facility and very quick reports. We trust Safe Life for all our tests.”</p><strong>- Rajesh P., Sion</strong></div>
-      <div class="card"><div class="stars">★★★★★</div><p>“Modern machines and accurate results. The doctors explained everything clearly.”</p><strong>- Sunita S., Dharavi</strong></div>
-      <div class="card"><div class="stars">★★★★★</div><p>“Home collection and portable ECG service was very helpful for my parents.”</p><strong>- Anil V., Mahim</strong></div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="section-alt">
-  <div class="container">
-    <div class="sec-title">
-      <h2>Contact Us</h2>
-      <p>We are here to help you</p>
-    </div>
-    <div class="contact-grid">
-      <div class="card"><h3>Call</h3><p>9326602540</p></div>
-      <div class="card"><h3>WhatsApp</h3><p>Chat with us for booking</p></div>
-      <div class="card"><h3>Email</h3><p>safelifedc@gmail.com</p></div>
-    </div>
-    <div style="margin-top:20px;box-shadow:var(--shadow);border-radius:14px;overflow:hidden">
-      <iframe height="360" src="https://www.google.com/maps?q=Shop%20No%202%20and%203%20Cross%20Road%20Near%20Dr%20Ambedkar%20School%20Mumbai%20400017&output=embed"></iframe>
-    </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
-<footer>
+<footer id="contact">
   <div class="container">
     <div class="footer-grid">
       <div>
         <h4>Safe Life Diagnostic Centre</h4>
-        <p>Trusted diagnostic services in Mumbai with 26+ years of experience, modern equipment, and accurate reporting standards.</p>
-        <p><strong>Address:</strong><br>Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p>
+        <p>Your trusted partner for accurate, reliable and affordable diagnostic services. Serving the community with excellence for over 26 years.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="#services">Services</a></p>
+        <p><a href="#booking">Book Test</a></p>
+        <p><a href="#why">Why Us</a></p>
       </div>
       <div>
         <h4>Contact</h4>
         <p>📞 9326602540</p>
-        <p>✉ safelifedc@gmail.com</p>
-        <p>💬 WhatsApp Booking Available</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <p><a href="#home">Home</a></p>
-        <p><a href="#why">Why Us</a></p>
-        <p><a href="#services">Services</a></p>
-        <p><a href="#packages">Packages</a></p>
-        <p><a href="#booking">Booking</a></p>
-        <p><a href="#contact">Contact</a></p>
+        <p>✉️ safelifedc@gmail.com</p>
+        <p>📍 Mumbai, Maharashtra</p>
       </div>
     </div>
     <div class="footer-bottom">
-      © <span id="year"></span> Safe Life Diagnostic Centre. All Rights Reserved.
+      © 2026 Safe Life Diagnostic Centre. All rights reserved.
     </div>
   </div>
 </footer>
 
 <script>
-window.addEventListener("load", function(){
-  setTimeout(function(){
-    document.getElementById("preloader").style.display="none";
-  }, 800);
-});
-document.getElementById("year").textContent = new Date().getFullYear();
+  // Loader
+  window.addEventListener("load", function(){
+    const l = document.getElementById("loader");
+    setTimeout(()=>{ l.style.display="none"; }, 600);
+  });
+
+  // WhatsApp booking
+  function sendWhatsApp(e){
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const service = document.getElementById("service").value;
+    const message = document.getElementById("message").value;
+    const text = `Booking Request:%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0AMessage: ${message}`;
+    window.open(`https://wa.me/919326602540?text=${text}`, "_blank");
+  }
 </script>
 
 </body>
