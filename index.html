@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Safe Life Diagnostic Centre</title>
-<meta name="description" content="Safe Life Diagnostic Centre - 25+ years trusted diagnostics in Mumbai">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Safe Life Diagnostic Centre — Mumbai</title>
+<meta name="description" content="Safe Life Diagnostic Centre — 25+ years of trusted diagnostics in Mumbai. Blood Tests, X-Ray, Sonography, ECG, 2D Echo, Home Collection. Call 9326602540."/>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -14,33 +14,36 @@
   --red:#dc2626;
   --ink:#0f172a;
   --muted:#475569;
-  --bg:#f7faff;
+  --bg:#f6f9ff;
   --card:#ffffff;
-  --radius:14px;
-  --shadow:0 10px 28px rgba(0,0,0,0.08);
+  --radius:16px;
+  --shadow:0 16px 36px rgba(12,24,40,.10);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.7}
 a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block;border-radius:12px}
-.container{max-width:1200px;margin:auto;padding:0 20px}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
 
-/* Preloader */
-#preloader{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:9999}
+/* ===== Preloader ===== */
+#preloader{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:9999;transition:.4s}
+#preloader.hidden{opacity:0;visibility:hidden}
 #preloader .box{text-align:center}
-#preloader img{height:80px;margin:auto}
-#preloader .bar{height:6px;width:200px;background:#e5edff;border-radius:20px;overflow:hidden;margin-top:14px}
-#preloader .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--red))}
+#preloader img{height:90px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+#preloader .bar{height:6px;width:220px;background:#eef3ff;border-radius:999px;overflow:hidden;margin:16px auto 0}
+#preloader .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--red));transition:width .25s}
 
-/* Header */
+/* ===== Header ===== */
 header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;z-index:100}
-.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:10px}
-.brand img{height:44px}
+.brand img{height:44px;border-radius:8px}
+.brand .title{font-weight:800}
 .nav{display:flex;gap:18px}
 .nav a{font-weight:600;color:#475569}
 .actions{display:flex;gap:10px}
-.btn{padding:10px 16px;border-radius:10px;font-weight:600;border:0;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;border-radius:10px;border:0;font-weight:600;cursor:pointer;min-height:44px}
 .btn-primary{background:var(--blue);color:#fff}
 .btn-call{background:#fff;color:var(--blue);border:1px solid var(--blue)}
 .btn-wa{background:#25D366;color:#fff}
@@ -48,51 +51,79 @@ header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;z-i
 
 /* Mobile menu */
 .mobile-menu{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid #e5e7eb}
-.mobile-menu a{display:block;padding:14px 20px;border-top:1px solid #f1f5f9;font-weight:600}
+.mobile-menu a{display:block;padding:14px 20px;border-top:1px solid #f1f5f9;font-weight:700}
 
-/* Hero */
-.hero{background:linear-gradient(180deg,#ffffff 0%,#f1f6ff 100%);padding:80px 0}
+/* ===== Hero ===== */
+.hero{background:linear-gradient(180deg,#ffffff 0%,#f2f7ff 100%);padding:90px 0 60px}
 .hero-grid{display:grid;grid-template-columns:1fr 520px;gap:36px;align-items:center}
-.badges{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
-.badge{background:#eaf2ff;color:var(--blue);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px}
+.hero h1{font-size:clamp(34px,5vw,48px);font-weight:900;margin-bottom:10px}
+.lead{color:var(--muted);margin-bottom:16px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.badge{background:#eaf2ff;color:var(--blue);padding:7px 12px;border-radius:999px;font-weight:700;font-size:12px}
 .btn-row{display:flex;gap:12px;flex-wrap:wrap}
 
 /* Slider */
-.slider{position:relative;height:360px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
-.slide{position:absolute;inset:0;opacity:0;transition:.7s}
+.slider{position:relative;height:380px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.slide{position:absolute;inset:0;opacity:0;transition:.8s}
 .slide.active{opacity:1}
-.slide img{width:100%;height:360px;object-fit:cover}
+.slide img{width:100%;height:380px;object-fit:cover}
 
-/* Sections */
-section{padding:64px 0}
+/* ===== Sections ===== */
+section{padding:70px 0}
 .section-alt{background:var(--bg)}
-.sec-title{text-align:center;margin-bottom:32px}
+.sec-title{text-align:center;margin-bottom:36px}
+.sec-title h2{font-size:30px;font-weight:800}
+.sec-title p{color:var(--muted);margin-top:8px}
+
+/* Grids */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:var(--shadow)}
-.card h3{margin:10px 0}
-.price{font-size:28px;font-weight:800;color:var(--red)}
+.card{background:var(--card);padding:22px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.2s}
+.card:hover{transform:translateY(-6px)}
+.card h3{margin:10px 0 8px}
+
+/* Services */
+.service img{height:190px;object-fit:cover;border-radius:12px}
+
+/* Packages */
+.price{font-size:30px;font-weight:900;color:var(--red);margin:8px 0}
+.package ul{list-style:none;padding-left:0}
+.package li::before{content:"✔ ";color:var(--blue);font-weight:800}
+.card .btn{width:100%;margin-top:12px}
+
+/* Testimonials */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.stars{color:#f59e0b;margin-bottom:6px}
 
 /* Contact */
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 iframe{width:100%;border:0;border-radius:12px}
 
 /* Footer */
-footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
+footer{background:#071026;color:#cfe4ff;padding:30px 0;text-align:center}
 
 /* Floating WhatsApp */
-.wa-float{position:fixed;right:18px;bottom:90px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:90}
+.wa-float{position:fixed;right:18px;bottom:96px;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 12px 34px rgba(0,0,0,.22);z-index:95}
 
 /* Bottom bar */
-.mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e5e7eb;z-index:85}
-.mobile-bar a{flex:1;padding:12px;text-align:center;font-weight:700}
+.mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e5e7eb;z-index:94}
+.mobile-bar a{flex:1;padding:12px;text-align:center;font-weight:800}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:.6s}
+.reveal.show{opacity:1;transform:none}
+
+/* Safety spacing */
+main{padding-bottom:70px}
 
 /* Responsive */
 @media(max-width:980px){
-  .hero-grid,.grid-3,.grid-4,.contact-grid{grid-template-columns:1fr}
+  .hero-grid,.grid-3,.grid-4,.testi-grid,.contact-grid{grid-template-columns:1fr}
   .nav,.actions{display:none}
   .hamburger{display:block}
   .mobile-bar{display:flex}
+  .slider{height:260px}
+  .slide img{height:260px}
   .btn{width:100%}
 }
 </style>
@@ -102,7 +133,7 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 <!-- Preloader -->
 <div id="preloader">
   <div class="box">
-    <img src="logo.png" alt="Safe Life Logo">
+    <img src="logo.png" alt="Safe Life Logo" onerror="this.style.display='none'">
     <div class="bar"><i></i></div>
   </div>
 </div>
@@ -110,8 +141,8 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 <header>
   <div class="container header-inner">
     <div class="brand">
-      <img src="logo.png" alt="Logo">
-      <strong>Safe Life Diagnostic Centre</strong>
+      <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
+      <div class="title">Safe Life Diagnostic Centre</div>
     </div>
     <nav class="nav">
       <a href="#home">Home</a>
@@ -135,64 +166,111 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 
 <main id="home">
 
+<!-- Hero -->
 <section class="hero">
   <div class="container hero-grid">
-    <div>
+    <div class="reveal">
       <h1>Safe Life Diagnostic Centre</h1>
-      <p><strong>Accurate • Reliable • Affordable Diagnostics</strong><br>Trusted for over <strong>25+ years</strong> in Mumbai.</p>
+      <p class="lead"><strong>Accurate • Reliable • Affordable Diagnostics</strong><br>Trusted by Mumbai families for <strong>25+ years</strong>.</p>
       <div class="badges">
-        <span class="badge">25+ Years</span>
+        <span class="badge">25+ Years Trusted</span>
         <span class="badge">Modern Equipment</span>
         <span class="badge">Fast Reports</span>
+        <span class="badge">Home Collection</span>
       </div>
       <div class="btn-row">
-        <a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book on WhatsApp</a>
+        <a class="btn btn-primary" href="https://wa.me/919326602540?text=Hello%20Safe%20Life,%20I%20want%20to%20book%20a%20test." target="_blank">Book on WhatsApp</a>
         <a class="btn btn-call" href="tel:9326602540">Call Now</a>
       </div>
     </div>
-    <div class="slider">
-      <div class="slide active"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt=""></div>
-      <div class="slide"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop" alt=""></div>
-      <div class="slide"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1200&auto=format&fit=crop" alt=""></div>
+    <div class="slider reveal">
+      <div class="slide active"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1400&auto=format&fit=crop" alt="Medical lab"></div>
+      <div class="slide"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1400&auto=format&fit=crop" alt="X-ray room"></div>
+      <div class="slide"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1400&auto=format&fit=crop" alt="Ultrasound"></div>
     </div>
   </div>
 </section>
 
-<section id="services" class="section-alt">
+<!-- Why Choose Us -->
+<section class="section-alt">
   <div class="container">
-    <div class="sec-title"><h2>Our Services</h2></div>
+    <div class="sec-title reveal">
+      <h2>Why Choose Safe Life?</h2>
+      <p>Trusted diagnostics with care and precision</p>
+    </div>
     <div class="grid-3">
-      <div class="card"><h3>Blood Tests</h3><p>Accurate pathology reports.</p></div>
-      <div class="card"><h3>Digital X-Ray</h3><p>Clear digital imaging.</p></div>
-      <div class="card"><h3>Ultrasound</h3><p>High-resolution sonography.</p></div>
-      <div class="card"><h3>ECG</h3><p>Heart rhythm monitoring.</p></div>
-      <div class="card"><h3>2D Echo</h3><p>Detailed cardiac imaging.</p></div>
-      <div class="card"><h3>Home Collection</h3><p>Doorstep sample collection.</p></div>
+      <div class="card reveal"><h3>25+ Years of Experience</h3><p>Serving the community with dependable diagnostics.</p></div>
+      <div class="card reveal"><h3>Accurate & Reliable Reports</h3><p>Strict quality control and standardized processes.</p></div>
+      <div class="card reveal"><h3>Modern Equipment</h3><p>Digital X-Ray, Ultrasound, ECG and more.</p></div>
+      <div class="card reveal"><h3>Experienced Staff</h3><p>Trained professionals following hygiene protocols.</p></div>
+      <div class="card reveal"><h3>Affordable Pricing</h3><p>Transparent, patient-friendly charges.</p></div>
+      <div class="card reveal"><h3>Fast Turnaround</h3><p>Quick processing and timely reports.</p></div>
     </div>
   </div>
 </section>
 
-<section id="packages">
+<!-- Services -->
+<section id="services">
   <div class="container">
-    <div class="sec-title"><h2>Packages</h2></div>
-    <div class="grid-4">
-      <div class="card"><h3>Basic</h3><div class="price">₹999</div></div>
-      <div class="card"><h3>Full Body</h3><div class="price">₹2,499</div></div>
-      <div class="card"><h3>Diabetes</h3><div class="price">₹1,299</div></div>
-      <div class="card"><h3>Heart</h3><div class="price">₹1,799</div></div>
+    <div class="sec-title reveal">
+      <h2>Our Services</h2>
+      <p>Complete diagnostic solutions under one roof</p>
+    </div>
+    <div class="grid-3">
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"><h3>Blood Tests</h3><p>Comprehensive pathology testing with accurate reports.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop"><h3>Digital X-Ray</h3><p>High-quality digital imaging.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1200&auto=format&fit=crop"><h3>Ultrasound</h3><p>High-resolution sonography.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop"><h3>ECG</h3><p>Heart rhythm monitoring.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1200&auto=format&fit=crop"><h3>2D Echo</h3><p>Detailed cardiac imaging.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a7a9?q=80&w=1200&auto=format&fit=crop"><h3>Home Collection</h3><p>Doorstep sample collection.</p></div>
     </div>
   </div>
 </section>
 
+<!-- Packages -->
+<section id="packages" class="section-alt">
+  <div class="container">
+    <div class="sec-title reveal">
+      <h2>Health Checkup Packages</h2>
+      <p>Affordable preventive care packages</p>
+    </div>
+    <div class="grid-4">
+      <div class="card package reveal"><h3>Basic</h3><div class="price">₹999</div><ul><li>CBC</li><li>Blood Sugar</li><li>Lipid Profile</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book</a></div>
+      <div class="card package reveal"><h3>Full Body</h3><div class="price">₹2,499</div><ul><li>ECG</li><li>X-Ray</li><li>Ultrasound</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book</a></div>
+      <div class="card package reveal"><h3>Diabetes</h3><div class="price">₹1,299</div><ul><li>Fasting</li><li>HbA1c</li><li>Urine</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book</a></div>
+      <div class="card package reveal"><h3>Heart</h3><div class="price">₹1,799</div><ul><li>ECG</li><li>2D Echo</li><li>Lipid</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section>
+  <div class="container">
+    <div class="sec-title reveal">
+      <h2>What Our Patients Say</h2>
+      <p>Trusted by families across Mumbai</p>
+    </div>
+    <div class="testi-grid">
+      <div class="card reveal"><div class="stars">★★★★★</div><p>“Very professional staff and quick reports. Highly recommended.”</p><strong>- Rajesh P., Sion</strong></div>
+      <div class="card reveal"><div class="stars">★★★★★</div><p>“Clean centre, modern machines and great service.”</p><strong>- Sunita S., Dharavi</strong></div>
+      <div class="card reveal"><div class="stars">★★★★★</div><p>“Home collection was very convenient and accurate.”</p><strong>- Anil V., Mahim</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
 <section id="contact" class="section-alt">
   <div class="container">
-    <div class="sec-title"><h2>Contact Us</h2></div>
-    <div class="contact-grid">
-      <div class="card"><h3>Call</h3><p>9326602540</p></div>
-      <div class="card"><h3>WhatsApp</h3><p>Chat with us</p></div>
-      <div class="card"><h3>Address</h3><p>Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p></div>
+    <div class="sec-title reveal">
+      <h2>Contact Us</h2>
+      <p>We are here to help you</p>
     </div>
-    <div style="margin-top:18px">
+    <div class="contact-grid">
+      <div class="card reveal"><h3>Call Us</h3><p>9326602540</p><a class="btn btn-call" href="tel:9326602540">Call Now</a></div>
+      <div class="card reveal"><h3>WhatsApp</h3><p>Chat with us for booking</p><a class="btn btn-wa" href="https://wa.me/919326602540" target="_blank">Open WhatsApp</a></div>
+      <div class="card reveal"><h3>Address</h3><p>Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p></div>
+    </div>
+    <div class="reveal" style="margin-top:18px;box-shadow:var(--shadow);border-radius:12px;overflow:hidden">
       <iframe height="360" src="https://www.google.com/maps?q=Shop%20No%202%20and%203%20Cross%20Road%20Near%20Dr%20Ambedkar%20School%20Mumbai%20400017&output=embed"></iframe>
     </div>
   </div>
@@ -203,7 +281,8 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 <footer>
   <div class="container">
     <strong>Safe Life Diagnostic Centre</strong>
-    <div>© 2026 Safe Life Diagnostic Centre. All Rights Reserved.</div>
+    <div style="margin-top:8px;color:#93a6bf">Phone: 9326602540 • Mumbai 400017</div>
+    <div style="margin-top:8px;color:#93a6bf">© <span id="year"></span> Safe Life Diagnostic Centre. All Rights Reserved.</div>
   </div>
 </footer>
 
@@ -216,19 +295,33 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 
 <script>
 // Preloader
-const bar=document.querySelector('#preloader .bar i');
-let p=0;
-const t=setInterval(()=>{p+=10;bar.style.width=p+'%';if(p>=100){clearInterval(t);document.getElementById('preloader').style.display='none';}},120);
+(function(){
+  const pre=document.getElementById('preloader');
+  const bar=pre.querySelector('.bar i');
+  let p=0;
+  const t=setInterval(()=>{p+=10;bar.style.width=p+'%'; if(p>=100){clearInterval(t); pre.classList.add('hidden');}},120);
+})();
 
 // Slider
-const slides=document.querySelectorAll('.slide');let i=0;
-setInterval(()=>{slides[i].classList.remove('active');i=(i+1)%slides.length;slides[i].classList.add('active');},3500);
+(function(){
+  const slides=document.querySelectorAll('.slide'); let i=0;
+  setInterval(()=>{slides[i].classList.remove('active'); i=(i+1)%slides.length; slides[i].classList.add('active');},3600);
+})();
+
+// Reveal
+(function(){
+  const obs=new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');o.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+})();
 
 // Mobile menu
 function toggleMenu(){
   const m=document.getElementById('mobileMenu');
-  m.style.display = m.style.display==='block'?'none':'block';
+  m.style.display = m.style.display==='block' ? 'none' : 'block';
 }
+
+// Year
+document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 
 </body>
