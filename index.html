@@ -59,7 +59,7 @@ header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;z-i
 .slider{position:relative;overflow:hidden;border-radius:18px;box-shadow:var(--shadow)}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity .8s}
 .slide.active{opacity:1}
-.slider img{width:100%;height:340px;object-fit:cover}
+.slider img{width:100%;height:360px;object-fit:cover}
 
 /* Sections */
 section{padding:70px 0}
@@ -69,7 +69,7 @@ section{padding:70px 0}
 /* Cards & grids */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.25s}
+.card{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.25s}
 .card:hover{transform:translateY(-6px)}
 
 /* Reveal */
@@ -80,7 +80,7 @@ section{padding:70px 0}
 .service img{height:190px;object-fit:cover}
 
 /* Packages */
-.price{font-size:26px;font-weight:800;color:var(--blue)}
+.price{font-size:30px;font-weight:900;color:var(--blue)}
 .package ul{list-style:none;padding-left:0}
 .package li::before{content:"✔ ";color:var(--blue);font-weight:700}
 
@@ -102,6 +102,9 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 .mobile-bar a{flex:1;padding:12px;text-align:center;font-weight:700}
 .mobile-bar .call{color:var(--blue)}
 .mobile-bar .wa{color:#25D366}
+
+/* Layout safety for bottom bar */
+main{padding-bottom:56px}
 
 /* Responsive */
 @media(max-width:980px){
@@ -170,7 +173,7 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
   </div>
 </section>
 
-<!-- WHY CHOOSE US -->
+<!-- WHY -->
 <section class="section-alt">
   <div class="container">
     <div class="sec-title reveal">
@@ -188,23 +191,8 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section>
-  <div class="container">
-    <div class="sec-title reveal">
-      <h2>How It Works</h2>
-      <p>Simple and easy process for your tests</p>
-    </div>
-    <div class="grid-3">
-      <div class="card reveal"><h3>1. Contact Us</h3><p>Call or WhatsApp us to book your test or home collection.</p></div>
-      <div class="card reveal"><h3>2. Visit or Home Collection</h3><p>Visit our centre or book a convenient home sample collection.</p></div>
-      <div class="card reveal"><h3>3. Get Your Reports</h3><p>Receive accurate reports quickly and securely.</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- SERVICES -->
-<section id="services" class="section-alt">
+<section id="services">
   <div class="container">
     <div class="sec-title reveal">
       <h2>Our Services</h2>
@@ -245,21 +233,6 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
   </div>
 </section>
 
-<!-- DIAGNOSTICS AT HOME -->
-<section>
-  <div class="container">
-    <div class="sec-title reveal">
-      <h2>Diagnostics at Home</h2>
-      <p>Comfortable, safe and convenient services at your doorstep</p>
-    </div>
-    <div class="grid-3">
-      <div class="card reveal"><h3>Blood Test at Home</h3><p>Trained staff collect samples safely and hygienically.</p></div>
-      <div class="card reveal"><h3>X-Ray at Home</h3><p>Portable digital X-Ray service for patient convenience.</p></div>
-      <div class="card reveal"><h3>ECG at Home</h3><p>Heart checkups from the comfort of your home.</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- PACKAGES -->
 <section id="packages" class="section-alt">
   <div class="container">
@@ -272,9 +245,7 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
         <h3>Basic Health Checkup</h3>
         <div class="price">₹999</div>
         <ul>
-          <li>CBC</li>
-          <li>Blood Sugar</li>
-          <li>Lipid Profile</li>
+          <li>CBC</li><li>Blood Sugar</li><li>Lipid Profile</li>
         </ul>
         <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Basic%20Health%20Checkup" target="_blank">Book on WhatsApp</a>
       </div>
@@ -282,10 +253,7 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
         <h3>Full Body Checkup</h3>
         <div class="price">₹2,499</div>
         <ul>
-          <li>All Basic Tests</li>
-          <li>ECG</li>
-          <li>Chest X-Ray</li>
-          <li>Ultrasound</li>
+          <li>All Basic Tests</li><li>ECG</li><li>Chest X-Ray</li><li>Ultrasound</li>
         </ul>
         <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Full%20Body%20Checkup" target="_blank">Book on WhatsApp</a>
       </div>
@@ -293,9 +261,7 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
         <h3>Diabetes Package</h3>
         <div class="price">₹1,299</div>
         <ul>
-          <li>Fasting Blood Sugar</li>
-          <li>HbA1c</li>
-          <li>Urine Analysis</li>
+          <li>Fasting Blood Sugar</li><li>HbA1c</li><li>Urine Analysis</li>
         </ul>
         <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Diabetes%20Package" target="_blank">Book on WhatsApp</a>
       </div>
@@ -303,9 +269,7 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
         <h3>Heart Health Package</h3>
         <div class="price">₹1,799</div>
         <ul>
-          <li>ECG</li>
-          <li>2D Echo</li>
-          <li>Lipid Profile</li>
+          <li>ECG</li><li>2D Echo</li><li>Lipid Profile</li>
         </ul>
         <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Heart%20Health%20Package" target="_blank">Book on WhatsApp</a>
       </div>
@@ -313,23 +277,8 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
   </div>
 </section>
 
-<!-- FACILITY -->
-<section>
-  <div class="container">
-    <div class="sec-title reveal">
-      <h2>Our Facility & Equipment</h2>
-      <p>Clean, modern and quality-controlled laboratory</p>
-    </div>
-    <div class="grid-3">
-      <img class="reveal" src="https://images.unsplash.com/photo-1581091870627-3a5c64c28d54?q=80&w=1200&auto=format&fit=crop" alt="Lab Facility">
-      <img class="reveal" src="https://images.unsplash.com/photo-1582719478181-2a63a17c3f2b?q=80&w=1200&auto=format&fit=crop" alt="Medical Equipment">
-      <img class="reveal" src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1200&auto=format&fit=crop" alt="ECG Machine">
-    </div>
-  </div>
-</section>
-
 <!-- TESTIMONIALS -->
-<section class="section-alt">
+<section>
   <div class="container">
     <div class="sec-title reveal">
       <h2>What Our Patients Say</h2>
@@ -356,7 +305,7 @@ footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="section-alt">
   <div class="container">
     <div class="sec-title reveal">
       <h2>Contact Us</h2>
