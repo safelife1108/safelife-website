@@ -28,7 +28,7 @@ h3{font-size:20px;font-weight:600}
 p{color:var(--muted)}
 .small{font-size:14px;color:#64748b}
 
-/* Buttons */
+/* Buttons (normalized) */
 .btn{
   padding:10px 18px;
   border-radius:10px;
@@ -40,6 +40,7 @@ p{color:var(--muted)}
   align-items:center;
   justify-content:center;
   min-height:44px;
+  white-space:nowrap;
 }
 .btn:hover{transform:translateY(-1px)}
 .btn-call{background:#fff;color:var(--blue);border:1px solid var(--blue)}
@@ -98,7 +99,7 @@ section{padding:70px 0}
 .package ul{list-style:none;padding-left:0}
 .package li::before{content:"✔ ";color:var(--blue);font-weight:700}
 
-/* Make card buttons full width */
+/* Make card buttons full width and aligned */
 .card .btn{width:100%;margin-top:10px}
 
 /* Testimonials */
@@ -167,7 +168,6 @@ main{padding-bottom:56px}
 
 <main id="home">
 
-<!-- HERO -->
 <section class="hero">
   <div class="container hero-grid">
     <div class="reveal">
@@ -192,35 +192,27 @@ main{padding-bottom:56px}
   </div>
 </section>
 
-<!-- WHY -->
 <section class="section-alt">
   <div class="container">
-    <div class="sec-title reveal">
-      <h2>Why Choose Safe Life?</h2>
-      <p>Patients trust us for accuracy, care and reliability</p>
-    </div>
+    <div class="sec-title reveal"><h2>Why Choose Safe Life?</h2><p>Patients trust us for accuracy, care and reliability</p></div>
     <div class="grid-3">
-      <div class="card reveal"><h3>25+ Years of Experience</h3><p>Serving the local community with dependable diagnostic services for decades.</p></div>
-      <div class="card reveal"><h3>Accurate & Reliable Reports</h3><p>Strict quality control ensures every report is precise and trustworthy.</p></div>
-      <div class="card reveal"><h3>Modern Diagnostic Equipment</h3><p>We use digital X-Ray, advanced ultrasound and ECG systems.</p></div>
-      <div class="card reveal"><h3>Experienced & Trained Staff</h3><p>Our technicians and staff are trained to provide safe and accurate testing.</p></div>
-      <div class="card reveal"><h3>Affordable & Transparent Pricing</h3><p>Clear pricing with no hidden charges for patients.</p></div>
-      <div class="card reveal"><h3>Fast Turnaround Time</h3><p>Quick processing so you get your reports without long waiting.</p></div>
+      <div class="card reveal"><h3>25+ Years of Experience</h3><p>Serving the local community for decades.</p></div>
+      <div class="card reveal"><h3>Accurate Reports</h3><p>Strict quality control for every test.</p></div>
+      <div class="card reveal"><h3>Modern Equipment</h3><p>Digital X-Ray, Ultrasound, ECG & more.</p></div>
+      <div class="card reveal"><h3>Trained Staff</h3><p>Professional and caring technicians.</p></div>
+      <div class="card reveal"><h3>Affordable Pricing</h3><p>Transparent, patient-friendly pricing.</p></div>
+      <div class="card reveal"><h3>Fast Turnaround</h3><p>Quick and reliable reports.</p></div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="container">
-    <div class="sec-title reveal">
-      <h2>Our Services</h2>
-      <p>Complete diagnostic solutions under one roof</p>
-    </div>
+    <div class="sec-title reveal"><h2>Our Services</h2><p>Complete diagnostic solutions</p></div>
     <div class="grid-3">
-      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"><h3>Blood Tests</h3><p>Comprehensive blood testing with accurate lab reports.</p></div>
-      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop"><h3>Digital X-Ray</h3><p>Modern digital radiography for clear imaging.</p></div>
-      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1200&auto=format&fit=crop"><h3>Ultrasound</h3><p>High-resolution ultrasound diagnostics.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"><h3>Blood Tests</h3><p>Accurate pathology reports.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop"><h3>Digital X-Ray</h3><p>Clear digital imaging.</p></div>
+      <div class="card service reveal"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1200&auto=format&fit=crop"><h3>Ultrasound</h3><p>High-resolution sonography.</p></div>
       <div class="card service reveal"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop"><h3>ECG</h3><p>Heart rhythm monitoring.</p></div>
       <div class="card service reveal"><img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1200&auto=format&fit=crop"><h3>2D Echo</h3><p>Detailed cardiac imaging.</p></div>
       <div class="card service reveal"><img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a7a9?q=80&w=1200&auto=format&fit=crop"><h3>Home Collection</h3><p>Doorstep sample collection.</p></div>
@@ -228,15 +220,11 @@ main{padding-bottom:56px}
   </div>
 </section>
 
-<!-- PACKAGES -->
 <section id="packages" class="section-alt">
   <div class="container">
-    <div class="sec-title reveal">
-      <h2>Health Checkup Packages</h2>
-      <p>Affordable packages for complete health monitoring</p>
-    </div>
+    <div class="sec-title reveal"><h2>Packages</h2><p>Affordable health checkups</p></div>
     <div class="grid-4">
-      <div class="card package reveal"><h3>Basic</h3><div class="price">₹999</div><ul><li>CBC</li><li>Blood Sugar</li><li>Lipid Profile</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book on WhatsApp</a></div>
+      <div class="card package reveal"><h3>Basic</h3><div class="price">₹999</div><ul><li>CBC</li><li>Blood Sugar</li><li>Lipid</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book on WhatsApp</a></div>
       <div class="card package reveal"><h3>Full Body</h3><div class="price">₹2,499</div><ul><li>ECG</li><li>X-Ray</li><li>Ultrasound</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book on WhatsApp</a></div>
       <div class="card package reveal"><h3>Diabetes</h3><div class="price">₹1,299</div><ul><li>Fasting</li><li>HbA1c</li><li>Urine</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book on WhatsApp</a></div>
       <div class="card package reveal"><h3>Heart</h3><div class="price">₹1,799</div><ul><li>ECG</li><li>2D Echo</li><li>Lipid</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book on WhatsApp</a></div>
@@ -244,10 +232,9 @@ main{padding-bottom:56px}
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <div class="sec-title reveal"><h2>Contact Us</h2><p>We are here to help you</p></div>
+    <div class="sec-title reveal"><h2>Contact Us</h2><p>We are here to help</p></div>
     <div class="contact-grid">
       <div class="card reveal"><h3>Call Us</h3><p>9326602540</p><a class="btn btn-call" href="tel:9326602540">Call Now</a></div>
       <div class="card reveal"><h3>WhatsApp</h3><p>Chat with us</p><a class="btn btn-wa" href="https://wa.me/919326602540" target="_blank">Open WhatsApp</a></div>
@@ -277,12 +264,8 @@ function toggleMenu(){
   const m=document.getElementById('mobileMenu');
   m.style.display = m.style.display === 'block' ? 'none' : 'block';
 }
-
-// Slider
 const slides=document.querySelectorAll('.slide'); let i=0;
 setInterval(()=>{slides[i].classList.remove('active'); i=(i+1)%slides.length; slides[i].classList.add('active');},3500);
-
-// Reveal
 const obs=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
