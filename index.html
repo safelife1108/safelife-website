@@ -24,7 +24,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:Inter,system-ui,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.7}
-h1,h2,h3{font-family:Poppins,Inter,sans-serif}
+h1,h2,h3,h4{font-family:Poppins,Inter,sans-serif}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block;border-radius:12px}
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
@@ -45,9 +45,9 @@ header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e6ecf3;z-i
 .brand{display:flex;align-items:center;gap:12px}
 .brand img{height:44px}
 .brand .title{font-weight:800;color:var(--blue)}
-.nav{display:flex;gap:20px}
+.nav{display:flex;gap:20px;flex-wrap:wrap}
 .nav a{font-weight:700;color:#425469}
-.actions{display:flex;gap:10px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:10px;border:0;font-weight:700;cursor:pointer;min-height:44px}
 .btn-primary{background:var(--blue);color:#fff}
 .btn-outline{background:#fff;color:var(--blue);border:1px solid var(--blue)}
@@ -56,11 +56,11 @@ header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e6ecf3;z-i
 /* Hero */
 .hero{background:linear-gradient(180deg,#ffffff 0%,#eef6fc 100%);padding:100px 0 70px}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.hero h1{font-size:clamp(38px,5vw,56px);font-weight:800;margin-bottom:12px;color:#134e8a}
+.hero h1{font-size:clamp(36px,5vw,54px);font-weight:800;margin-bottom:12px;color:#134e8a}
 .lead{color:var(--muted);margin-bottom:18px;font-size:18px}
 .trust-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
 
-/* RED Trust Seal */
+/* Red Trust Seal */
 .trust-seal{
   display:flex;align-items:center;gap:12px;
   background:#fff;
@@ -89,7 +89,7 @@ section{padding:80px 0}
 .card:hover{transform:translateY(-6px)}
 .card h3{margin:10px 0 8px;color:#134e8a}
 
-/* Services images consistent */
+/* Services */
 .service img{height:210px;object-fit:cover}
 
 /* Packages */
@@ -109,7 +109,7 @@ iframe{width:100%;border:0;border-radius:14px}
 /* Footer */
 footer{background:#1f7ae0;color:#e9f3fb;padding:50px 0}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
-footer h4{font-family:Poppins;font-size:18px;margin-bottom:10px;color:#fff}
+footer h4{font-size:18px;margin-bottom:10px;color:#fff}
 footer p, footer a{color:#e9f3fb;font-size:14px}
 .footer-bottom{text-align:center;margin-top:30px;font-size:13px;color:#d5e9f7}
 
@@ -179,7 +179,98 @@ footer p, footer a{color:#e9f3fb;font-size:14px}
   </div>
 </section>
 
-<!-- (Rest of your content remains the same as before: Why, Services with proper medical images, Packages, Testimonials, Contact, Footer) -->
+<!-- Why Us -->
+<section class="section-alt" id="why">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Why Choose Safe Life?</h2>
+      <p>Professional care backed by experience and technology</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="trust-seal" style="margin-bottom:12px">
+          <div class="num">26+</div>
+          <div class="txt">Years Experience</div>
+        </div>
+        <p>Serving the community with dependable diagnostic services.</p>
+      </div>
+      <div class="card"><h3>Accurate & Reliable Reports</h3><p>Strict quality control and standardized processes.</p></div>
+      <div class="card"><h3>Modern Equipment</h3><p>Digital X-Ray, Ultrasound, ECG and more.</p></div>
+      <div class="card"><h3>Experienced Staff</h3><p>Trained professionals following hygiene protocols.</p></div>
+      <div class="card"><h3>Affordable Pricing</h3><p>Transparent and patient-friendly charges.</p></div>
+      <div class="card"><h3>Fast Turnaround Time</h3><p>Quick processing and timely reports.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Our Services</h2>
+      <p>Complete diagnostic solutions under one roof</p>
+    </div>
+    <div class="grid-3">
+      <div class="card service"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"><h3>Blood & Pathology Tests</h3><p>Comprehensive laboratory testing with quality checks.</p></div>
+      <div class="card service"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop"><h3>Digital X-Ray</h3><p>High-resolution digital imaging for accurate diagnosis.</p></div>
+      <div class="card service"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1200&auto=format&fit=crop"><h3>Ultrasound / Sonography</h3><p>Advanced ultrasound imaging for detailed evaluation.</p></div>
+      <div class="card service"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop"><h3>ECG</h3><p>Heart rhythm monitoring and screening.</p></div>
+      <div class="card service"><img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1200&auto=format&fit=crop"><h3>2D Echo</h3><p>Detailed cardiac imaging for heart assessment.</p></div>
+      <div class="card service"><img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a7a9?q=80&w=1200&auto=format&fit=crop"><h3>Home Sample Collection</h3><p>Safe and convenient doorstep sample collection.</p></div>
+      <div class="card service"><img src="https://images.unsplash.com/photo-1581594549595-35f6edc7b762?q=80&w=1200&auto=format&fit=crop"><h3>Portable X-Ray (Home Service)</h3><p>On-site digital X-Ray at home for patients who cannot travel.</p></div>
+      <div class="card service"><img src="https://images.unsplash.com/photo-1581093588401-22d7f4c6d4c2?q=80&w=1200&auto=format&fit=crop"><h3>Portable ECG (Home Service)</h3><p>ECG testing at home with quick and reliable results.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Packages -->
+<section id="packages" class="section-alt">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Health Checkup Packages</h2>
+      <p>Affordable preventive care packages</p>
+    </div>
+    <div class="grid-4">
+      <div class="card package"><h3>Basic Health Check</h3><div class="price">₹999</div><ul><li>CBC</li><li>Blood Sugar</li><li>Lipid Profile</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book Now</a></div>
+      <div class="card package"><h3>Full Body Checkup</h3><div class="price">₹2,499</div><ul><li>ECG</li><li>X-Ray</li><li>Ultrasound</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book Now</a></div>
+      <div class="card package"><h3>Diabetes Package</h3><div class="price">₹1,299</div><ul><li>Fasting Sugar</li><li>HbA1c</li><li>Urine Test</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book Now</a></div>
+      <div class="card package"><h3>Heart Health Package</h3><div class="price">₹1,799</div><ul><li>ECG</li><li>2D Echo</li><li>Lipid Profile</li></ul><a class="btn btn-primary" href="https://wa.me/919326602540" target="_blank">Book Now</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section>
+  <div class="container">
+    <div class="sec-title">
+      <h2>What Our Patients Say</h2>
+      <p>Trusted by families across Mumbai</p>
+    </div>
+    <div class="testi-grid">
+      <div class="card"><div class="stars">★★★★★</div><p>“Professional staff, clean facility and very quick reports. We trust Safe Life for all our tests.”</p><strong>- Rajesh P., Sion</strong></div>
+      <div class="card"><div class="stars">★★★★★</div><p>“Modern machines and accurate results. The doctors explained everything clearly.”</p><strong>- Sunita S., Dharavi</strong></div>
+      <div class="card"><div class="stars">★★★★★</div><p>“Home collection and portable ECG service was very helpful for my parents.”</p><strong>- Anil V., Mahim</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section-alt">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Contact Us</h2>
+      <p>We are here to help you</p>
+    </div>
+    <div class="contact-grid">
+      <div class="card"><h3>Call</h3><p>9326602540</p></div>
+      <div class="card"><h3>WhatsApp</h3><p>Chat with us for booking</p></div>
+      <div class="card"><h3>Email</h3><p>safelifedc@gmail.com</p></div>
+    </div>
+    <div style="margin-top:20px;box-shadow:var(--shadow);border-radius:14px;overflow:hidden">
+      <iframe height="360" src="https://www.google.com/maps?q=Shop%20No%202%20and%203%20Cross%20Road%20Near%20Dr%20Ambedkar%20School%20Mumbai%20400017&output=embed"></iframe>
+    </div>
+  </div>
+</section>
 
 </main>
 
@@ -216,7 +307,7 @@ footer p, footer a{color:#e9f3fb;font-size:14px}
 window.addEventListener("load", function(){
   setTimeout(function(){
     document.getElementById("preloader").style.display="none";
-  }, 1200);
+  }, 1000);
 });
 document.getElementById("year").textContent = new Date().getFullYear();
 </script>
