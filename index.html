@@ -9,464 +9,522 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --blue:#0b5ed7; --ink:#0f172a; --muted:#475569; --bg:#f6f9ff; --card:#ffffff;
-    --radius:14px; --shadow:0 14px 34px rgba(12,24,40,0.10);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    color:var(--ink); background:#fff; line-height:1.65; -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-  }
-  a{text-decoration:none;color:inherit}
-  img{max-width:100%;display:block;border-radius:12px}
-  .container{max-width:1180px;margin:0 auto;padding:0 18px}
+/* ========== Variables ========== */
+:root{
+  --blue:#0b5ed7;
+  --muted:#475569;
+  --ink:#0f172a;
+  --bg:#f6f9ff;
+  --card:#ffffff;
+  --accent:#25D366;
+  --radius:14px;
+  --shadow: 0 14px 34px rgba(12,24,40,0.10);
+}
 
-  /* ----------------- Preloader (Loading Screen) ----------------- */
-  #preloader{
-    position:fixed; inset:0; background:linear-gradient(180deg,#ffffff 0%,#f7fbff 100%);
-    display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;
-    transition:opacity .35s ease, visibility .35s ease;
-  }
-  #preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-  #preloader .logo-wrap{display:flex;align-items:center;gap:12px}
-  #preloader img{height:64px;width:64px;object-fit:contain;border-radius:10px;box-shadow:0 10px 30px rgba(11,94,215,0.12)}
-  #preloader .title{font-weight:800;font-size:20px;color:var(--blue)}
-  #preloader .sub{margin-top:10px;color:var(--muted);font-size:14px}
-  /* little pulse */
-  #preloader .pulse{width:10px;height:10px;border-radius:50%;background:var(--blue);margin-top:18px;animation:pulse 1s infinite}
-  @keyframes pulse{0%{transform:scale(.9);opacity:.7}50%{transform:scale(1.4);opacity:1}100%{transform:scale(.9);opacity:.7}}
+/* ========== Reset ========== */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 
-  /* Hide main content until loaded for smooth reveal */
-  main{opacity:0;transform:translateY(6px);transition:opacity .35s ease, transform .35s ease}
+/* ========== PRELOADER ========== */
+#preloader{
+  position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s ease,visibility .5s ease;
+}
+#preloader.hidden{opacity:0;visibility:hidden}
+#preloader .inner{display:flex;flex-direction:column;align-items:center;gap:16px;padding:20px}
+#preloader .logo{height:84px; width:auto; border-radius:12px; object-fit:contain; box-shadow:0 8px 30px rgba(11,94,215,0.08)}
+#preloader .title{font-weight:800;color:var(--blue);font-size:18px}
+#preloader .progress{height:6px;width:220px;background:#eef3ff;border-radius:999px;overflow:hidden}
+#preloader .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),#7fb3ff);width:0%;transition:width .25s linear}
 
-  /* ----------------- Header ----------------- */
-  header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eef2f7;z-index:80}
-  .header-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand img{height:48px}
-  .brand .name{font-weight:800}
-  nav.desktop{display:flex;gap:18px;font-weight:600;color:#64748b}
-  nav.desktop a{padding:8px 0}
-  .actions{display:flex;gap:10px;align-items:center}
-  .hamburger{display:none;font-size:26px;cursor:pointer}
+/* ========== Layout ========== */
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
 
-  /* ----------------- Hero ----------------- */
-  .hero{padding:84px 0;background:linear-gradient(180deg,#ffffff 0%,#f4f9ff 100%)}
-  .hero-grid{display:grid;grid-template-columns:1fr 520px;gap:36px;align-items:center}
-  .hero h1{font-size:clamp(32px,5vw,44px);font-weight:800;line-height:1.06;margin-bottom:8px}
-  .hero p{color:var(--muted);margin-bottom:12px}
-  .trust-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
-  .badge{background:#eaf2ff;color:var(--blue);padding:6px 12px;border-radius:999px;font-weight:700;font-size:13px}
+/* ========== Header ========== */
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eef2f8;z-index:900}
+.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:44px;width:auto;border-radius:8px}
+.brand-title{display:flex;flex-direction:column;line-height:1}
+.brand-title strong{font-weight:800}
+.brand-title .tag{font-size:13px;color:var(--muted);margin-top:2px}
 
-  /* Buttons normalized */
-  .btn{padding:10px 18px;border-radius:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;min-height:44px;cursor:pointer;border:0;transition:transform .12s}
-  .btn:hover{transform:translateY(-3px)}
-  .btn-primary{background:var(--blue);color:#fff}
-  .btn-call{background:#fff;color:var(--blue);border:1px solid var(--blue)}
-  .btn-wa{background:#25D366;color:#fff}
-  .btn-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+/* nav */
+.nav{display:flex;gap:18px;align-items:center}
+.nav a{font-weight:600;color:#4b5563;padding:8px 6px;border-radius:8px}
+.nav a:hover{background:#f1f5f9}
 
-  /* ----------------- Slider ----------------- */
-  .slider{position:relative;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);height:380px}
-  .slide{position:absolute;inset:0;opacity:0;transition:opacity .8s}
-  .slide.active{opacity:1}
-  .slide img{width:100%;height:380px;object-fit:cover;display:block}
+/* header actions */
+.actions{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:10px;border:0;font-weight:600;cursor:pointer;min-height:44px}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-call{background:#fff;color:var(--blue);border:1px solid var(--blue)}
+.btn-wa{background:var(--accent);color:#fff}
 
-  /* ----------------- Sections ----------------- */
-  section{padding:64px 0}
-  .section-alt{background:var(--bg)}
-  .sec-title{text-align:center;margin-bottom:30px}
-  .sec-title h2{font-size:28px;font-weight:700;margin-bottom:6px}
-  .sec-title p{color:var(--muted)}
+/* hamburger */
+.hamburger{display:none;font-size:26px;cursor:pointer}
 
-  /* Grids & cards */
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:var(--shadow);transition:transform .18s}
-  .card:hover{transform:translateY(-8px)}
-  .service img{height:180px;object-fit:cover;border-radius:10px;margin-bottom:12px}
-  .price{font-size:26px;font-weight:900;color:var(--blue);margin-bottom:8px}
-  .package .btn{width:100%}
-  .card .btn{width:100%;margin-top:10px}
+/* mobile menu */
+.mobile-menu{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid #eef2f8;z-index:880}
+.mobile-menu a{display:block;padding:14px 20px;border-top:1px solid #f5f7fb;font-weight:700;color:var(--ink)}
 
-  /* Testimonials */
-  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .stars{color:#f59e0b;margin-bottom:8px}
+/* ========== Hero ========== */
+.hero{background:linear-gradient(180deg,#ffffff 0%,#f2f8ff 100%);padding:84px 0 56px}
+.hero-grid{display:grid;grid-template-columns:1fr 520px;gap:36px;align-items:center}
+.hero h1{font-size:clamp(32px,5vw,44px);font-weight:800;margin-bottom:8px}
+.lead{color:var(--muted);margin-bottom:14px}
+.trust-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.badge{background:#eaf2ff;color:var(--blue);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px}
 
-  /* Contact & map */
-  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  iframe{width:100%;height:320px;border:0;border-radius:12px;margin-top:12px;box-shadow:var(--shadow)}
+/* .btn-row ensures aligned buttons */
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 
-  /* Footer */
-  footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center;font-size:15px}
+/* slider */
+.slider{position:relative;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;height:380px}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease}
+.slide.active{opacity:1}
+.slide img{width:100%;height:380px;object-fit:cover}
 
-  /* Floating WhatsApp */
-  .wa-float{position:fixed;right:18px;bottom:92px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 12px 36px rgba(0,0,0,.22);z-index:90}
+/* ========== Sections ========== */
+section{padding:64px 0}
+.section-alt{background:var(--bg)}
+.sec-title{text-align:center;margin-bottom:34px}
+.sec-title h2{font-size:28px;font-weight:700}
+.sec-title p{color:var(--muted);margin-top:8px}
 
-  /* Mobile bottom bar & safety */
-  .mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #eef2f7;z-index:88;box-shadow:0 -6px 20px rgba(10,20,40,.03)}
-  .mobile-bar .wrap{display:flex}
-  .mobile-bar a{flex:1;padding:12px;text-align:center;font-weight:800}
-  .mobile-bar .call{color:var(--blue)}
-  .mobile-bar .wa{color:#25D366}
+/* layout grids */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--card);padding:20px;border-radius:14px;box-shadow:var(--shadow);transition:transform .18s}
+.card:hover{transform:translateY(-6px)}
+.card h3{margin:8px 0 10px;font-size:18px}
+.card p{color:var(--muted)}
 
-  /* Reveal animations: element shows when .show applied */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease, transform .55s ease}
-  .reveal.show{opacity:1;transform:none}
+/* service images */
+.service img{height:190px;object-fit:cover;border-radius:12px}
 
-  /* responsive */
-  @media (max-width:980px){
-    .hero-grid{grid-template-columns:1fr;gap:20px}
-    nav.desktop{display:none}
-    .actions{display:none}
-    .hamburger{display:block}
-    .mobile-menu{display:none}
-    .mobile-bar{display:flex}
-    .slider{height:300px}
-    .slide img{height:300px;object-fit:cover}
-    .grid-3,.testi-grid{grid-template-columns:1fr}
-    .grid-4{grid-template-columns:1fr 1fr}
-    .card .btn{width:100%}
-  }
+/* packages price */
+.price{font-size:28px;font-weight:900;color:var(--blue);margin:10px 0}
 
-  /* accessibility contrast tweak */
-  @media (prefers-reduced-motion:reduce){
-    *{transition:none!important;animation:none!important}
-  }
+/* carousel-like testimonials grid */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.stars{color:#f59e0b;margin-bottom:8px}
+
+/* contact grid */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.contact-grid .btn{width:100%}
+
+/* footer */
+footer{background:#071026;color:#cfe4ff;padding:28px 0;text-align:center}
+
+/* floating WhatsApp */
+.wa-float{position:fixed;right:18px;bottom:96px;background:var(--accent);color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 12px 34px rgba(0,0,0,0.22);z-index:950}
+
+/* bottom mobile bar */
+.mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #eef2f8;z-index:940}
+.mobile-bar .row{display:flex}
+.mobile-bar a{flex:1;padding:12px;text-align:center;font-weight:800;display:inline-block}
+
+/* reveal helper */
+.reveal{opacity:0;transform:translateY(16px);transition:all .56s ease}
+.reveal.show{opacity:1;transform:none}
+
+/* safety spacing so mobile bottom bar doesn't overlap content */
+main{padding-bottom:70px}
+
+/* ========== Responsive ========== */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .nav,.actions{display:none}
+  .hamburger{display:block}
+  .mobile-menu{display:none}
+  .mobile-bar{display:block}
+  .grid-3,.grid-4,.testi-grid,.contact-grid{grid-template-columns:1fr}
+  .slider{height:260px}
+  .slide img{height:260px;object-fit:cover}
+  .brand img{height:40px}
+  .sec-title h2{font-size:22px}
+  .price{font-size:24px}
+  .btn{width:100%}
+}
+
+/* minor accessibility */
+:focus{outline:3px solid rgba(11,94,215,0.12);outline-offset:3px}
 </style>
 </head>
 <body>
 
-  <!-- PRELOADER -->
-  <div id="preloader" role="status" aria-live="polite">
-    <div class="logo-wrap">
+<!-- ========== PRELOADER / LOADING SCREEN ========== -->
+<div id="preloader" aria-hidden="false" role="status" aria-label="Loading Safe Life">
+  <div class="inner">
+    <!-- Keep logo.png in same folder; will show fallback text if missing -->
+    <img src="logo.png" alt="Safe Life Logo" class="logo" onerror="this.style.display='none'">
+    <div class="title">Safe Life Diagnostic Centre</div>
+    <div class="progress" aria-hidden="true"><i></i></div>
+  </div>
+</div>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <div class="container header-inner" role="navigation" aria-label="Main navigation">
+    <div class="brand" aria-hidden="false">
       <img src="logo.png" alt="Safe Life Logo" onerror="this.style.display='none'">
-      <div style="display:flex;flex-direction:column;align-items:flex-start">
-        <div class="title">Safe Life</div>
-        <div style="font-weight:700;color:#213547">Diagnostic Centre</div>
+      <div class="brand-title">
+        <strong>Safe Life Diagnostic Centre</strong>
+        <span class="tag">Accurate • Reliable • Affordable</span>
       </div>
     </div>
-    <div class="sub">Accurate · Reliable · Affordable</div>
-    <div class="pulse" aria-hidden="true"></div>
+
+    <nav class="nav" aria-label="Top menu">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="actions">
+      <a class="btn btn-call" href="tel:9326602540" aria-label="Call Safe Life">Call</a>
+      <a class="btn btn-wa" href="https://wa.me/919326602540" target="_blank" rel="noopener" aria-label="WhatsApp Safe Life">WhatsApp</a>
+    </div>
+
+    <div class="hamburger" aria-hidden="false" onclick="toggleMobileMenu()" aria-label="Open menu">☰</div>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <header>
-    <div class="container header-inner">
-      <div class="brand">
-        <img src="logo.png" alt="Safe Life Logo" onerror="this.style.display='none'">
-        <div>
-          <div class="name">Safe Life Diagnostic Centre</div>
-          <div class="small">Accurate • Reliable • Affordable</div>
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <a href="#home" onclick="toggleMobileMenu()">Home</a>
+    <a href="#services" onclick="toggleMobileMenu()">Services</a>
+    <a href="#packages" onclick="toggleMobileMenu()">Packages</a>
+    <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+  </div>
+</header>
+
+<!-- ========== MAIN ========== -->
+<main id="home" role="main">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <h1>Safe Life Diagnostic Centre</h1>
+        <p class="lead"><strong>Accurate • Reliable • Affordable Diagnostics</strong><br>Serving Mumbai families with trusted diagnostics for over <strong>25+ years</strong>.</p>
+        <div class="trust-badges">
+          <span class="badge">25+ Years Trusted</span>
+          <span class="badge">Modern Equipment</span>
+          <span class="badge">Accurate Reports</span>
+          <span class="badge">Home Collection</span>
+        </div>
+
+        <div class="btn-row" role="group" aria-label="Booking actions">
+          <a class="btn btn-primary" href="https://wa.me/919326602540?text=Hello%20Safe%20Life,%20I%20want%20to%20book%20a%20test." target="_blank" rel="noopener">Book on WhatsApp</a>
+          <a class="btn btn-call" href="tel:9326602540">Call Now</a>
         </div>
       </div>
 
-      <nav class="desktop">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#packages">Packages</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="actions">
-        <a class="btn btn-call" href="tel:9326602540">Call</a>
-        <a class="btn btn-wa" href="https://wa.me/919326602540?text=Hello%20Safe%20Life,%20I%20want%20to%20book%20a%20test." target="_blank">WhatsApp</a>
+      <div class="slider reveal" aria-hidden="false" aria-label="Hero images">
+        <div class="slide active" aria-hidden="false"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1400&auto=format&fit=crop" alt="Medical laboratory interior showing lab equipment"></div>
+        <div class="slide" aria-hidden="true"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1400&auto=format&fit=crop" alt="Digital X-Ray machine in hospital"></div>
+        <div class="slide" aria-hidden="true"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1400&auto=format&fit=crop" alt="Ultrasound equipment and screen"></div>
       </div>
-
-      <div class="hamburger" aria-label="Open menu" onclick="toggleMobileMenu()">☰</div>
     </div>
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-      <a href="#home" onclick="toggleMobileMenu()">Home</a>
-      <a href="#services" onclick="toggleMobileMenu()">Services</a>
-      <a href="#packages" onclick="toggleMobileMenu()">Packages</a>
-      <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
-    </div>
-  </header>
+  </section>
 
-  <main id="home" class="page-main">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="reveal">
-          <h1>Safe Life Diagnostic Centre</h1>
-          <p><strong>Accurate • Reliable • Affordable Diagnostics</strong><br>Serving Mumbai families with trusted diagnostics for over <strong>25+ years</strong>.</p>
-          <div class="trust-badges">
-            <span class="badge">25+ Years Trusted</span>
-            <span class="badge">Modern Equipment</span>
-            <span class="badge">Fast Reports</span>
-            <span class="badge">Home Collection</span>
-          </div>
-
-          <div class="btn-row" style="margin-top:6px">
-            <a class="btn btn-primary" href="https://wa.me/919326602540?text=Hello%20Safe%20Life,%20I%20want%20to%20book%20a%20test." target="_blank">Book on WhatsApp</a>
-            <a class="btn btn-call" href="tel:9326602540">Call Now</a>
-          </div>
-        </div>
-
-        <div class="slider reveal" aria-hidden="false">
-          <div class="slide active"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1400&auto=format&fit=crop" alt="Medical Laboratory"></div>
-          <div class="slide"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1400&auto=format&fit=crop" alt="Digital X-Ray"></div>
-          <div class="slide"><img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1400&auto=format&fit=crop" alt="Ultrasound Machine"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY CHOOSE US -->
-    <section class="section-alt">
-      <div class="container">
-        <div class="sec-title reveal">
-          <h2>Why Choose Safe Life?</h2>
-          <p>Trusted diagnostic care with accuracy, speed, and compassion.</p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card reveal"><h3>25+ Years Experience</h3><p>Decades of service for families in Mumbai — consistent, reliable care.</p></div>
-          <div class="card reveal"><h3>Accurate Reports</h3><p>Strict quality checks and calibrated equipment for trustworthy results.</p></div>
-          <div class="card reveal"><h3>Modern Equipment</h3><p>Digital X-Ray, high-resolution ultrasound, ECG & advanced lab analyzers.</p></div>
-          <div class="card reveal"><h3>Trained Staff</h3><p>Qualified technicians and courteous staff who follow standard protocols.</p></div>
-          <div class="card reveal"><h3>Transparent Pricing</h3><p>Clear package pricing with no hidden charges, accessible to all.</p></div>
-          <div class="card reveal"><h3>Fast Turnaround</h3><p>Quick processing so you receive reports promptly when you need them.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section>
-      <div class="container">
-        <div class="sec-title reveal"><h2>How It Works</h2><p>Simple steps to get tested and get results</p></div>
-        <div class="grid-3">
-          <div class="card reveal"><h3>1. Contact</h3><p>Call or WhatsApp us to book tests or home collection.</p></div>
-          <div class="card reveal"><h3>2. Test</h3><p>Visit the centre or book home sample collection at a convenient time.</p></div>
-          <div class="card reveal"><h3>3. Receive Report</h3><p>Get accurate reports quickly via WhatsApp or in-centre pickup.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="section-alt">
-      <div class="container">
-        <div class="sec-title reveal"><h2>Our Services</h2><p>Comprehensive diagnostics under one roof</p></div>
-
-        <div class="grid-3">
-          <div class="card service reveal">
-            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Blood Tests">
-            <h3>Blood Tests (Pathology)</h3>
-            <p>Complete blood testing and accurate lab reports — CBC, biochemistry, hormones & more.</p>
-          </div>
-
-          <div class="card service reveal">
-            <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop" alt="Digital X-Ray">
-            <h3>Digital X-Ray</h3>
-            <p>Modern digital radiography for precise imaging with minimal exposure.</p>
-          </div>
-
-          <div class="card service reveal">
-            <img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1200&auto=format&fit=crop" alt="Ultrasound">
-            <h3>Sonography / Ultrasound</h3>
-            <p>High-resolution ultrasound scans for general and obstetric diagnostics.</p>
-          </div>
-
-          <div class="card service reveal">
-            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop" alt="ECG">
-            <h3>ECG</h3>
-            <p>Electrocardiogram monitoring with expert interpretation.</p>
-          </div>
-
-          <div class="card service reveal">
-            <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1200&auto=format&fit=crop" alt="2D Echo">
-            <h3>2D Echo</h3>
-            <p>Detailed echocardiography to evaluate heart structure and function.</p>
-          </div>
-
-          <div class="card service reveal">
-            <img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a7a9?q=80&w=1200&auto=format&fit=crop" alt="Home Collection">
-            <h3>Home Sample Collection</h3>
-            <p>Hygienic, trained phlebotomy at home — reports delivered digitally.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PACKAGES -->
-    <section id="packages">
-      <div class="container">
-        <div class="sec-title reveal"><h2>Health Checkup Packages</h2><p>Affordable packages for common needs</p></div>
-
-        <div class="grid-4">
-          <div class="card package reveal">
-            <h3>Basic Health Checkup</h3>
-            <div class="price">₹999</div>
-            <ul><li>CBC</li><li>Blood Sugar</li><li>Lipid Profile</li></ul>
-            <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Basic%20Health%20Checkup" target="_blank">Book on WhatsApp</a>
-          </div>
-
-          <div class="card package reveal">
-            <h3>Full Body Checkup</h3>
-            <div class="price">₹2,499</div>
-            <ul><li>All Basic Tests</li><li>ECG</li><li>Chest X-Ray</li><li>Ultrasound</li></ul>
-            <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Full%20Body%20Checkup" target="_blank">Book on WhatsApp</a>
-          </div>
-
-          <div class="card package reveal">
-            <h3>Diabetes Package</h3>
-            <div class="price">₹1,299</div>
-            <ul><li>Fasting Blood Sugar</li><li>HbA1c</li><li>Urine Analysis</li></ul>
-            <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Diabetes%20Package" target="_blank">Book on WhatsApp</a>
-          </div>
-
-          <div class="card package reveal">
-            <h3>Heart Health Package</h3>
-            <div class="price">₹1,799</div>
-            <ul><li>ECG</li><li>2D Echo</li><li>Lipid Profile</li></ul>
-            <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Heart%20Health%20Package" target="_blank">Book on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FACILITY -->
-    <section class="section-alt">
-      <div class="container">
-        <div class="sec-title reveal"><h2>Our Facility & Equipment</h2><p>Clean, modern lab with quality control</p></div>
-        <div class="grid-3">
-          <img class="reveal" src="https://images.unsplash.com/photo-1581091870627-3a5c64c28d54?q=80&w=1200&auto=format&fit=crop" alt="Lab Facility">
-          <img class="reveal" src="https://images.unsplash.com/photo-1582719478181-2a63a17c3f2b?q=80&w=1200&auto=format&fit=crop" alt="Medical Equipment">
-          <img class="reveal" src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1200&auto=format&fit=crop" alt="ECG Machine">
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section>
-      <div class="container">
-        <div class="sec-title reveal"><h2>What Our Patients Say</h2><p>Real feedback from our patients</p></div>
-        <div class="testi-grid">
-          <div class="card reveal"><div class="stars">★★★★★</div><p>“Very professional staff and quick reports. I trust Safe Life for all my tests.”</p><strong>- Rajesh P., Sion</strong></div>
-          <div class="card reveal"><div class="stars">★★★★★</div><p>“Clean centre, modern machines and polite staff. Great service overall.”</p><strong>- Sunita S., Dharavi</strong></div>
-          <div class="card reveal"><div class="stars">★★★★★</div><p>“Home collection was very convenient and reports were accurate and on time.”</p><strong>- Anil V., Mahim</strong></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section-alt">
-      <div class="container">
-        <div class="sec-title reveal"><h2>Contact Us</h2><p>We are here to help</p></div>
-
-        <div class="contact-grid">
-          <div class="card reveal">
-            <h3>Call Us</h3>
-            <p style="font-weight:700">9326602540</p>
-            <a class="btn btn-call" href="tel:9326602540">Call Now</a>
-          </div>
-
-          <div class="card reveal">
-            <h3>WhatsApp</h3>
-            <p>Quick booking via WhatsApp</p>
-            <a class="btn btn-wa" href="https://wa.me/919326602540?text=Hello%20Safe%20Life,%20I%20want%20to%20book%20a%20test." target="_blank">Open WhatsApp</a>
-          </div>
-
-          <div class="card reveal">
-            <h3>Address</h3>
-            <p>Shop No 2 &amp; 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p>
-          </div>
-        </div>
-
-        <div class="reveal" style="margin-top:18px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)">
-          <iframe src="https://www.google.com/maps?q=Shop%20No%202%20and%203%20Cross%20Road%20Near%20Dr%20Ambedkar%20School%20Mumbai%20400017&output=embed" allowfullscreen></iframe>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
+  <!-- WHY CHOOSE US -->
+  <section class="section-alt" id="why">
     <div class="container">
-      <strong>Safe Life Diagnostic Centre</strong>
-      <div class="small" style="color:#93a6bf;margin-top:6px">© 2026 Safe Life Diagnostic Centre. All Rights Reserved.</div>
-    </div>
-  </footer>
+      <div class="sec-title reveal">
+        <h2>Why Choose Safe Life?</h2>
+        <p>Patients trust us for accuracy, care and reliability.</p>
+      </div>
 
-  <!-- Floating WhatsApp -->
-  <a class="wa-float" href="https://wa.me/919326602540?text=Hello%20Safe%20Life,%20I%20want%20to%20book%20a%20test." target="_blank" aria-label="WhatsApp">💬</a>
-
-  <!-- Mobile bottom bar -->
-  <div class="mobile-bar" aria-hidden="false">
-    <div class="wrap">
-      <a class="call" href="tel:9326602540">📞 Call</a>
-      <a class="wa" href="https://wa.me/919326602540" target="_blank">💬 WhatsApp</a>
+      <div class="grid-3">
+        <div class="card reveal"><h3>25+ Years of Experience</h3><p>Decades of service to the local community — reliable and trusted diagnostics.</p></div>
+        <div class="card reveal"><h3>Accurate & Reliable Reports</h3><p>Strict quality control and standardized testing process for trustworthy results.</p></div>
+        <div class="card reveal"><h3>Modern Diagnostic Equipment</h3><p>Digital X-Ray, high-resolution ultrasound and calibrated ECG systems.</p></div>
+        <div class="card reveal"><h3>Experienced & Trained Staff</h3><p>Qualified technicians and lab personnel who follow strict hygiene protocols.</p></div>
+        <div class="card reveal"><h3>Affordable & Transparent</h3><p>Clear pricing with no hidden charges — quality diagnostics for every family.</p></div>
+        <div class="card reveal"><h3>Fast Turnaround Time</h3><p>Quick sample processing and prompt report delivery to support timely care.</p></div>
+      </div>
     </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <div class="sec-title reveal">
+        <h2>How It Works</h2>
+        <p>Simple steps to get your diagnostic tests done</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card reveal"><h3>1. Contact Us</h3><p>Call or message on WhatsApp to book a test or home collection.</p></div>
+        <div class="card reveal"><h3>2. Visit or Home Collection</h3><p>Visit our centre or choose doorstep sample collection at a time that suits you.</p></div>
+        <div class="card reveal"><h3>3. Receive Reports</h3><p>Get accurate, clear reports quickly — digital copies available on request.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section-alt">
+    <div class="container">
+      <div class="sec-title reveal">
+        <h2>Our Services</h2>
+        <p>Complete diagnostic solutions under one roof</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card service reveal">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="blood sample tubes in lab">
+          <h3>Blood Tests (Pathology)</h3>
+          <p>Comprehensive blood testing including CBC, thyroid, lipid profile and specialised tests with accurate lab reports.</p>
+        </div>
+
+        <div class="card service reveal">
+          <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=1200&auto=format&fit=crop" alt="x-ray machine">
+          <h3>Digital X-Ray</h3>
+          <p>High-quality digital radiography for clear imaging with minimal radiation exposure.</p>
+        </div>
+
+        <div class="card service reveal">
+          <img src="https://images.unsplash.com/photo-1580281658629-9b1f06b1bde3?q=80&w=1200&auto=format&fit=crop" alt="ultrasound machine">
+          <h3>Sonography / Ultrasound</h3>
+          <p>High-resolution ultrasound scans for abdominal, pelvic and obstetric evaluations by trained sonographers.</p>
+        </div>
+
+        <div class="card service reveal">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop" alt="ecg being performed">
+          <h3>ECG</h3>
+          <p>Electrocardiogram to monitor heart rhythm and detect abnormalities with expert interpretation.</p>
+        </div>
+
+        <div class="card service reveal">
+          <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1200&auto=format&fit=crop" alt="echocardiography equipment">
+          <h3>2D Echo</h3>
+          <p>Echocardiography for detailed heart imaging and assessment of cardiac function.</p>
+        </div>
+
+        <div class="card service reveal">
+          <img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a7a9?q=80&w=1200&auto=format&fit=crop" alt="healthcare professional collecting sample at home">
+          <h3>Home Sample Collection</h3>
+          <p>Safe, hygienic doorstep sample collection by trained staff — ideal for patients who prefer testing from home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages">
+    <div class="container">
+      <div class="sec-title reveal">
+        <h2>Health Checkup Packages</h2>
+        <p>Affordable packages designed for preventive care</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="card package reveal">
+          <h3>Basic Health Checkup</h3>
+          <div class="price">₹999</div>
+          <ul>
+            <li>CBC</li>
+            <li>Blood Sugar (Fasting)</li>
+            <li>Lipid Profile</li>
+          </ul>
+          <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Basic%20Health%20Checkup" target="_blank" rel="noopener">Book on WhatsApp</a>
+        </div>
+
+        <div class="card package reveal">
+          <h3>Full Body Checkup</h3>
+          <div class="price">₹2,499</div>
+          <ul>
+            <li>All Basic Tests</li>
+            <li>ECG</li>
+            <li>Chest X-Ray</li>
+            <li>Ultrasound</li>
+          </ul>
+          <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Full%20Body%20Checkup" target="_blank" rel="noopener">Book on WhatsApp</a>
+        </div>
+
+        <div class="card package reveal">
+          <h3>Diabetes Package</h3>
+          <div class="price">₹1,299</div>
+          <ul>
+            <li>Fasting Blood Sugar</li>
+            <li>HbA1c</li>
+            <li>Urine Analysis</li>
+          </ul>
+          <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Diabetes%20Package" target="_blank" rel="noopener">Book on WhatsApp</a>
+        </div>
+
+        <div class="card package reveal">
+          <h3>Heart Health Package</h3>
+          <div class="price">₹1,799</div>
+          <ul>
+            <li>ECG</li>
+            <li>2D Echo</li>
+            <li>Lipid Profile</li>
+          </ul>
+          <a class="btn btn-primary" href="https://wa.me/919326602540?text=I%20want%20to%20book%20Heart%20Health%20Package" target="_blank" rel="noopener">Book on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACILITY -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="sec-title reveal">
+        <h2>Our Facility & Equipment</h2>
+        <p>Clean, modern and quality-controlled laboratory</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card reveal"><img src="https://images.unsplash.com/photo-1581091870627-3a5c64c28d54?q=80&w=1200&auto=format&fit=crop" alt="Laboratory facility and equipment"><h3 style="margin-top:12px">State-of-the-art Lab</h3><p>Regular calibration and quality checks to ensure precise results.</p></div>
+        <div class="card reveal"><img src="https://images.unsplash.com/photo-1582719478181-2a63a17c3f2b?q=80&w=1200&auto=format&fit=crop" alt="Medical diagnostic instruments"><h3 style="margin-top:12px">Calibrated Equipment</h3><p>Digital machines and maintained systems for reliable diagnostics.</p></div>
+        <div class="card reveal"><img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df3b?q=80&w=1200&auto=format&fit=crop" alt="ECG and monitoring equipment"><h3 style="margin-top:12px">Patient Safety</h3><p>Hygiene-first protocols and trained professionals for safe testing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="container">
+      <div class="sec-title reveal">
+        <h2>What Our Patients Say</h2>
+        <p>Real feedback from our patients</p>
+      </div>
+
+      <div class="testi-grid">
+        <div class="card reveal"><div class="stars">★★★★★</div><p>“Very professional staff and quick reports. I trust Safe Life for all my tests.”</p><strong>- Rajesh P., Sion</strong></div>
+        <div class="card reveal"><div class="stars">★★★★★</div><p>“Clean centre, modern machines and polite staff. Great service overall.”</p><strong>- Sunita S., Dharavi</strong></div>
+        <div class="card reveal"><div class="stars">★★★★★</div><p>“Home collection was very convenient and reports were accurate and on time.”</p><strong>- Anil V., Mahim</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-alt">
+    <div class="container">
+      <div class="sec-title reveal">
+        <h2>Contact Us</h2>
+        <p>We are here to help you</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card reveal"><h3>Call Us</h3><p>9326602540</p><a class="btn btn-call" href="tel:9326602540">Call Now</a></div>
+        <div class="card reveal"><h3>WhatsApp</h3><p>Chat with us for booking</p><a class="btn btn-wa" href="https://wa.me/919326602540" target="_blank" rel="noopener">Open WhatsApp</a></div>
+        <div class="card reveal"><h3>Address</h3><p>Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</p></div>
+      </div>
+
+      <div class="reveal" style="margin-top:18px;box-shadow:var(--shadow);border-radius:12px;overflow:hidden">
+        <iframe height="360" src="https://www.google.com/maps?q=Shop%20No%202%20and%203%20Cross%20Road%20Near%20Dr%20Ambedkar%20School%20Mumbai%20400017&output=embed" allowfullscreen title="Safe Life Diagnostic Centre location"></iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <strong>Safe Life Diagnostic Centre</strong>
+    <div style="color:#93a6bf;margin-top:8px">Phone: 9326602540 • Shop No 2 & 3, Cross Road, Near Dr Ambedkar School, Mumbai 400017</div>
+    <div style="color:#93a6bf;margin-top:8px">© <span id="year"></span> Safe Life Diagnostic Centre. All Rights Reserved.</div>
   </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/919326602540?text=Hello%20Safe%20Life,%20I%20want%20to%20book%20a%20test." target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<!-- BOTTOM MOBILE BAR (CALL + WA) -->
+<div class="mobile-bar" role="navigation" aria-label="Mobile quick actions">
+  <div class="row">
+    <a class="call" href="tel:9326602540">📞 Call</a>
+    <a class="wa" href="https://wa.me/919326602540" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+</div>
 
 <script>
-  // Wait until everything is loaded, then hide preloader and reveal main.
-  window.addEventListener('load', () => {
-    // minimal delay to show loader feel even on fast connections
-    setTimeout(() => {
-      const pre = document.getElementById('preloader');
-      pre.classList.add('hidden');
-      // reveal main content
-      const main = document.querySelector('main');
-      main.style.opacity = '1';
-      main.style.transform = 'none';
-      // reveal any visible .reveal items (IntersectionObserver will handle others)
-      document.querySelectorAll('.reveal').forEach(el=>{
-        // small stagger for visible hero elements
-        if(el.closest('.hero') || el.closest('.sec-title')) {
-          setTimeout(()=>el.classList.add('show'), 80);
-        }
-      });
-    }, 550);
-    // start slider after load
-    startSlider();
-  });
+/* ========== PRELOADER LOGIC ========== */
+(function(){
+  const pre = document.getElementById('preloader');
+  const bar = pre.querySelector('.progress > i');
 
-  // Slider logic
-  function startSlider(){
-    const slides = document.querySelectorAll('.slide');
-    if(!slides || slides.length === 0) return;
-    let idx=0;
-    setInterval(()=>{
-      slides[idx].classList.remove('active');
-      idx = (idx+1) % slides.length;
-      slides[idx].classList.add('active');
-    },3500);
+  // track image loading to update progress
+  const imgs = Array.from(document.images);
+  const total = imgs.length || 1;
+  let loaded = 0;
+
+  function updateProgress(){
+    loaded++;
+    const pct = Math.round((loaded/total) * 100);
+    bar.style.width = pct + '%';
   }
 
-  // Mobile menu toggle
-  function toggleMobileMenu(){
-    const m = document.getElementById('mobileMenu');
-    if(!m) return;
-    if(m.style.display === 'block'){ m.style.display = 'none'; m.setAttribute('aria-hidden','true'); }
-    else { m.style.display = 'block'; m.setAttribute('aria-hidden','false'); }
-  }
-
-  // Reveal on scroll using IntersectionObserver
-  const obs = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
+  if (total === 1 && imgs[0].complete && !imgs[0].naturalWidth) {
+    // if no imgs or 404, still allow quick hide
+    bar.style.width = '100%';
+    setTimeout(hidePreloader, 350);
+  } else {
+    imgs.forEach(img=>{
+      if (img.complete) {
+        updateProgress();
+      } else {
+        img.addEventListener('load', updateProgress, {once:true});
+        img.addEventListener('error', updateProgress, {once:true});
       }
     });
-  }, { threshold: 0.12 });
 
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    // safety: startSlider earlier on very slow load fallback
-    startSlider();
-  });
+    // ensure preloader hides after window load as fallback
+    window.addEventListener('load', ()=>{
+      bar.style.width = '100%';
+      setTimeout(hidePreloader, 350);
+    }, {once:true});
+  }
 
-  // Accessibility: allow keyboard to close mobile menu on Esc
-  window.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape') {
-      const m = document.getElementById('mobileMenu');
-      if(m && m.style.display === 'block') m.style.display = 'none';
-    }
-  });
+  function hidePreloader(){
+    pre.classList.add('hidden');
+    pre.setAttribute('aria-hidden','true');
+  }
+
+  // safety timeout (in case network blocks images)
+  setTimeout(()=>{ hidePreloader(); }, 4000);
+})();
+
+/* ========== SLIDER ========== */
+(function(){
+  const slides = document.querySelectorAll('.slide');
+  let idx = 0;
+  if (!slides.length) return;
+  setInterval(()=>{
+    slides[idx].classList.remove('active');
+    slides[idx].setAttribute('aria-hidden','true');
+    idx = (idx + 1) % slides.length;
+    slides[idx].classList.add('active');
+    slides[idx].setAttribute('aria-hidden','false');
+  }, 3600);
+})();
+
+/* ========== REVEAL ON SCROLL ========== */
+(function(){
+  const obs = new IntersectionObserver((entries, o)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){ en.target.classList.add('show'); o.unobserve(en.target); }
+    });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+})();
+
+/* ========== MOBILE MENU TOGGLE ========== */
+function toggleMobileMenu(){
+  const m = document.getElementById('mobileMenu');
+  const isOpen = m.style.display === 'block';
+  m.style.display = isOpen ? 'none' : 'block';
+  m.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+}
+
+/* ========== YEAR ========== */
+document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </body>
