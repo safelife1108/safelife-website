@@ -42,19 +42,24 @@ header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e6ecf3;z-i
 .btn-accent{background:var(--teal);color:#05343b}
 
 /* Hero */
-.hero{background:linear-gradient(180deg,#ffffff 0%,#eef6fc 100%);padding:100px 0 70px}
+.hero{background:#fff;padding:100px 0 70px}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .hero h1{font-size:clamp(38px,5vw,56px);font-weight:800;margin-bottom:12px;color:#0b4a7a}
 .lead{color:var(--muted);margin-bottom:18px;font-size:18px}
 .trust-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
-.exp-highlight{
+
+/* Trust Seal (26+ Years) */
+.trust-seal{
   display:flex;align-items:center;gap:12px;
-  background:linear-gradient(135deg,var(--blue),var(--teal));
-  color:#fff;padding:14px 20px;border-radius:999px;
-  box-shadow:0 12px 30px rgba(0,0,0,.18);
+  background:#fff;
+  border:2px solid var(--blue);
+  color:#0b4a7a;
+  padding:14px 20px;border-radius:14px;
+  box-shadow:var(--shadow);
 }
-.exp-highlight .num{font-size:36px;font-weight:900;line-height:1}
-.exp-highlight .txt{font-weight:800;font-size:14px}
+.trust-seal .num{font-size:38px;font-weight:900;line-height:1;color:var(--blue)}
+.trust-seal .txt{font-weight:800;font-size:14px}
+
 .pill{background:#e7f3fb;color:#0a4b6a;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px}
 .btn-row{display:flex;gap:12px;flex-wrap:wrap}
 
@@ -72,8 +77,8 @@ section{padding:80px 0}
 .card:hover{transform:translateY(-6px)}
 .card h3{margin:10px 0 8px;color:#0b4a7a}
 
-/* Services */
-.service img{height:200px;object-fit:cover}
+/* Services images consistent */
+.service img{height:210px;object-fit:cover}
 
 /* Packages */
 .price{font-size:32px;font-weight:900;color:var(--blue);margin:10px 0}
@@ -135,7 +140,7 @@ footer p, footer a{color:#e9f3fb;font-size:14px}
       <h1>Trusted Diagnostics for Mumbai Families</h1>
       <p class="lead">Safe Life Diagnostic Centre provides accurate, reliable and affordable diagnostic services with modern equipment and experienced staff.</p>
       <div class="trust-row">
-        <div class="exp-highlight">
+        <div class="trust-seal">
           <div class="num">26+</div>
           <div class="txt">Years of Trusted Diagnostics</div>
         </div>
@@ -164,7 +169,13 @@ footer p, footer a{color:#e9f3fb;font-size:14px}
       <p>Professional care backed by experience and technology</p>
     </div>
     <div class="grid-3">
-      <div class="card"><h3>26+ Years Experience</h3><p>Serving the community with dependable diagnostic services.</p></div>
+      <div class="card">
+        <div class="trust-seal" style="margin-bottom:12px">
+          <div class="num">26+</div>
+          <div class="txt">Years Experience</div>
+        </div>
+        <p>Serving the community with dependable diagnostic services.</p>
+      </div>
       <div class="card"><h3>Accurate & Reliable Reports</h3><p>Strict quality control and standardized processes.</p></div>
       <div class="card"><h3>Modern Equipment</h3><p>Digital X-Ray, Ultrasound, ECG and more.</p></div>
       <div class="card"><h3>Experienced Staff</h3><p>Trained professionals following hygiene protocols.</p></div>
